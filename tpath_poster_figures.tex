@@ -1,0 +1,4573 @@
+% !TEX root = poster.tex
+
+\usepackage{tikz,tikz-cd} % 
+\usetikzlibrary{arrows,shapes,trees}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{calc,decorations.pathmorphing,patterns}
+\usetikzlibrary{decorations.markings}
+
+% new for poster
+%\usetikzlibrary{decorations.pathreplacing,shapes,arrows}
+\usetikzlibrary{positioning} % to use right= of
+%\usetikzlibrary{calc} 
+
+
+%%% start of NEW NEW
+\tikzstyle{NooseArrowAtPosStyleTwo}=[decoration={ markings, mark=at position 0.2 with {\arrow[line width=1.5pt]{stealth};}}, postaction={decorate}]
+\tikzstyle{NooseArrowAtPosStyleThree}=[decoration={ markings, mark=at position 0.3 with {\arrow[line width=1.5pt]{stealth};}}, postaction={decorate}]
+\tikzstyle{NooseArrowAtPosStyleFour}=[decoration={ markings, mark=at position 0.4 with {\arrow[line width=1.5pt]{stealth};}}, postaction={decorate}]
+\tikzstyle{NooseArrowAtPosStyleFive}=[decoration={ markings, mark=at position 0.5 with {\arrow[line width=1.5pt]{stealth};}}, postaction={decorate}]
+\tikzstyle{NooseArrowAtPosStyleSix}=[decoration={ markings, mark=at position 0.6 with {\arrow[line width=1.5pt]{stealth};}}, postaction={decorate}]
+\tikzstyle{NooseArrowAtPosStyleSeven}=[decoration={ markings, mark=at position 0.7 with {\arrow[line width=1.5pt]{stealth};}}, postaction={decorate}]
+
+\newcommand\PathArrowLineWidth{1.8pt}
+\newcommand\PathArrowStyle{to}
+\tikzstyle{PathArrowAtPosStyleOne}=[decoration={ markings, mark=at position 0.1 with {\arrow[line width=\PathArrowLineWidth]{\PathArrowStyle};}}, postaction={decorate}]
+
+\tikzstyle{PathArrowAtPosStyleTwo}=[decoration={ markings, mark=at position 0.2 with {\arrow[line width=\PathArrowLineWidth]{\PathArrowStyle};}}, postaction={decorate}]
+\tikzstyle{PathArrowAtPosStyleTwoSmall}=[decoration={ markings, mark=at position 0.2 with {\arrow[line width=0.7*\PathArrowLineWidth]{\PathArrowStyle};}}, postaction={decorate}]
+
+\tikzstyle{PathArrowAtPosStyleThree}=[decoration={ markings, mark=at position 0.3 with {\arrow[line width=\PathArrowLineWidth]{\PathArrowStyle};}}, postaction={decorate}]
+\tikzstyle{PathArrowAtPosStyleThreeSmall}=[decoration={ markings, mark=at position 0.3 with {\arrow[line width=0.7*\PathArrowLineWidth]{\PathArrowStyle};}}, postaction={decorate}]
+
+\tikzstyle{PathArrowAtPosStyleFour}=[decoration={ markings, mark=at position 0.4 with {\arrow[line width=\PathArrowLineWidth]{\PathArrowStyle};}}, postaction={decorate}]
+\tikzstyle{PathArrowAtPosStyleFourSmall}=[decoration={ markings, mark=at position 0.4 with {\arrow[line width=0.7*\PathArrowLineWidth]{\PathArrowStyle};}}, postaction={decorate}]
+
+\tikzstyle{PathArrowAtPosStyleFive}=[decoration={ markings, mark=at position 0.5 with {\arrow[line width=\PathArrowLineWidth]{\PathArrowStyle};}}, postaction={decorate}]
+\tikzstyle{PathArrowAtPosStyleSix}=[decoration={ markings, mark=at position 0.6 with {\arrow[line width=\PathArrowLineWidth]{\PathArrowStyle};}}, postaction={decorate}]
+\tikzstyle{PathArrowAtPosStyleSixSmall}=[decoration={ markings, mark=at position 0.6 with {\arrow[line width=0.7*\PathArrowLineWidth]{\PathArrowStyle};}}, postaction={decorate}]
+
+\tikzstyle{PathArrowAtPosStyleSeven}=[decoration={ markings, mark=at position 0.7 with {\arrow[line width=\PathArrowLineWidth]{\PathArrowStyle};}}, postaction={decorate}]
+\tikzstyle{PathArrowAtPosStyleSevenSmall}=[decoration={ markings, mark=at position 0.7 with {\arrow[line width=0.7*\PathArrowLineWidth]{\PathArrowStyle};}}, postaction={decorate}]
+
+\tikzstyle{PathArrowAtPosStyleEight}=[decoration={ markings, mark=at position 0.8 with {\arrow[line width=\PathArrowLineWidth]{\PathArrowStyle};}}, postaction={decorate}]
+\tikzstyle{PathArrowAtPosStyleEightSmall}=[decoration={ markings, mark=at position 0.8 with {\arrow[line width=0.7*\PathArrowLineWidth]{\PathArrowStyle};}}, postaction={decorate}]
+
+\tikzstyle{PathArrowAtPosStyleNine}=[decoration={ markings, mark=at position 0.9 with {\arrow[line width=\PathArrowLineWidth]{\PathArrowStyle};}}, postaction={decorate}]
+\tikzstyle{PathArrowAtPosStyleEnd}=[decoration={ markings, mark=at position 1 with {\arrow[line width=\PathArrowLineWidth]{\PathArrowStyle};}}, postaction={decorate}]
+
+\tikzstyle{PathArrowAtPosStyleReversedFive}=[decoration={ markings, mark=at position 0.5 with {\arrow{to reversed};}}, postaction={decorate}]
+
+\tikzstyle{NonOrientedTriangulationStyle}=[style=thick]
+
+\tikzstyle{TPathStyle}=[blue, very thick, 
+%line width=5pt, 
+	style=dashed]
+
+\tikzstyle{orientedTriangulationStyle}=[style=thick]
+
+\tikzstyle{inducedmapTPathStyle}=[
+	blue, very thick,%line width = 2pt, 
+	->, style=dashed, rounded corners = 20pt,
+	decoration={ markings, mark=at position .6 with {\arrow[blue, line width=2.5pt]{to};}}]
+	 
+\tikzstyle{inducedmapTPathonCnStyle}=[
+	blue, very thick, %line width = 2pt, 
+	style=dashed, rounded corners = 30pt,
+	decoration={ markings, mark=at position .6 with {\arrow[blue, line width=2.5pt]{to};}}]
+
+
+
+%%% start of new
+\tikzstyle{RedGammaStyle}=[very thick, dashed, red]
+\tikzstyle{CyanGammaStyle}=[very thick, dashed, cyan]
+\tikzstyle{CyanBetaStyle}=[very thick, dashed, cyan]
+\tikzstyle{CyanTilBetaStyle}=[line width=2pt, dashed, cyan]
+\tikzstyle{RedTilSigmaStyle}=[line width=2pt, dashed, red]
+\tikzstyle{RedSigmaStyle}=[very thick, dashed, red]
+\newcommand\TikzPunctureSize{0.04}
+\newcommand\TikzPointSize{0.03}
+\newcommand\TikzIntersectionSize{0.03}
+
+%%% ending triangle_0 is self-folded, including \a and \b
+\newcommand \MacroLiftedTriangleOneTwoNoArrow {
+\coordinate (P) at (0,0); \coordinate (v1) at (\Tikzn,0); \coordinate (v2) at (0,\Tikzn); \coordinate (y) at (\Tikzn,\Tikzn);
+
+\draw (P) --(v1);% node[pos=0.5, below] {$r$};
+\draw (P) -- (v2);% node[pos=0.5,left] {$\ccr$}; 
+
+\draw (v2) -- (y);% node[pos=0.5,above]{$\a$};
+\draw (v1) -- (y);% node[pos=0.5,right]{$\b$}; 
+
+\draw (v2) -- (v1);% node[pos=0.7,right] {$\ell$}; 
+
+\foreach \pos in {(v1),(v2)}
+	{\draw [fill=olive] \pos circle (\TikzPointSize*\Tikzn);}
+
+\foreach \pos in {(P),(y)}
+	{\draw [fill=violet] \pos circle (\TikzPunctureSize*\Tikzn);}
+}
+
+\newcommand \MacroLiftedTriangleOneTwo {
+\coordinate (P) at (0,0); \coordinate (v1) at (\Tikzn,0); \coordinate (v2) at (0,\Tikzn); \coordinate (y) at (\Tikzn,\Tikzn);
+
+\draw (P) --(v1) node[pos=0.5, below] {$r$};
+\draw (P) -- (v2) node[pos=0.5,left] {$\ccr$}; 
+
+\draw (v2) -- (y) node[pos=0.5,above]{$\a$};
+\draw (v1) -- (y) node[pos=0.5,right]{$\b$}; 
+
+\draw[NooseArrowAtPosStyleSix] (v2) -- (v1) node[pos=0.7,right] {$\ell$}; 
+
+\foreach \pos in {(v1),(v2),(y)}
+	{\draw [fill=olive] \pos circle (\TikzPointSize*\Tikzn);}
+
+\foreach \pos in {(P)}
+	{\draw [fill=violet] \pos circle (\TikzPunctureSize*\Tikzn);}
+}
+
+\newcommand\TikzLiftedTriangleOneTwoCrossesA[1]{
+\begin{tikzpicture}[scale=#1, DoubleTriangleStyle]
+\newcommand\Tikzn{2}
+\MacroLiftedTriangleOneTwo
+
+\draw [RedGammaStyle, ->] (P) --(0.8*\Tikzn,1.2*\Tikzn) node[pos=0.4,left] {$\ga$};
+
+\begin{scope}[gray]
+\draw (\Tikzn * 0.4,\Tikzn * 0.22) node {$\tilblacktri{0}$};
+\draw (\Tikzn * 0.75,\Tikzn *0.72) node {$\tilblacktri{1}$};
+\end{scope}
+\end{tikzpicture}
+}
+
+\newcommand\TikzLiftedTriangleOneTwo[1]{
+\begin{tikzpicture}[scale=#1, DoubleTriangleStyle]
+\newcommand\Tikzn{2}
+\MacroLiftedTriangleOneTwo
+
+\draw [RedGammaStyle, <-] (0.5*\Tikzn,0.8*\Tikzn) -- (0.1,0.1);
+
+\begin{scope}[gray]
+\draw (\Tikzn * 0.4,\Tikzn * 0.22) node {$\tilblacktri{0}$};
+\draw (\Tikzn * 0.75,\Tikzn *0.72) node {$\tilblacktri{1}$};
+\end{scope}
+\end{tikzpicture}
+}
+\newcommand\TikzLiftedTriangleD[1]{
+\begin{tikzpicture}[scale=#1, DoubleTriangleStyle]
+\newcommand\Tikzn{2}
+\MacroLiftedTriangleOneTwo
+
+\draw [RedGammaStyle, ->] (0.5*\Tikzn,0.7*\Tikzn) -- (0.1,0.1);
+
+\begin{scope}[gray]
+\draw (\Tikzn * 0.4,\Tikzn * 0.22) node {$\tilblacktri{d}$};
+\draw (\Tikzn * 0.75,\Tikzn *0.72) node {$\tilblacktri{d-1}$};
+\end{scope}
+\end{tikzpicture}
+}
+\newcommand\TikzCrossingNooseOne[1]{
+\begin{tikzpicture}[scale={#1}]
+\newcommand\Tikzn{2}
+\MacroCrossingLRAB
+%\coordinate (P) at (0,\Tikzn);
+\draw[RedGammaStyle, <- ] (-0.2*\Tikzn,1.6*\Tikzn) -- (P) node[blue,left, pos=0.4] {$p_1$};
+\newcommand\TikzHeight{1.3}
+\draw[fill=blue] (-0.1*\Tikzn,\Tikzn*\TikzHeight) circle (0.2*\Tikzn ex); 
+\end{tikzpicture}
+}
+\newcommand\TikzCrossingNooseOneAndA[1]{
+\begin{tikzpicture}[scale={#1}]
+\newcommand\Tikzn{2}
+\MacroCrossingLRAB
+%\coordinate (P) at (0,\Tikzn);
+\draw[RedGammaStyle, -> ]% (-0.2*\Tikzn,1.6*\Tikzn) 
+(P) -- (-0.6*\Tikzn,2.1*\Tikzn) node[pos=0.45,left]{$\ga$};
+\newcommand\TikzHeight{1.3}
+\end{tikzpicture}
+}
+
+\newcommand\TikzCrossingNooseD[1]{
+\begin{tikzpicture}[scale={#1}]
+\newcommand\Tikzn{2}
+\MacroCrossingLRAB
+%\coordinate (P) at (0,\Tikzn);
+\draw[RedGammaStyle, -> ] (-0.2*\Tikzn,1.6*\Tikzn) -- (P) node[blue,left, pos=0.4] {$p_d$};
+\newcommand\TikzHeight{1.3}
+\draw[fill=blue] (-0.1*\Tikzn,\Tikzn*\TikzHeight) circle (0.2*\Tikzn ex); 
+\end{tikzpicture}
+}
+%%% ending triangle_0 is self-folded, including \a and \b
+
+%% begins crossing self-folded triangle, including \a and \b
+\newcommand\MacroCrossingLRAB{
+\begin{scope}[thick, gray]
+	\coordinate (v) at (0,0); 
+	\coordinate (P) at (0,0.9*\Tikzn);
+	\coordinate (y) at (0,2*\Tikzn);
+	\draw[thick] (0,0) -- (P);
+	\draw (0.08*\Tikzn,0.4*\Tikzn) node {$r$};
+	\draw (v) node[below,olive] {$v$}; \draw (y) node[below,olive] {$y$};
+	
+\begin{scope}[gray]
+	\newcommand\TikzLowerPointerLeft{(-\Tikzn*0.5,\Tikzn*0.5)} 
+	\newcommand	\TikzLowerPointerRight{(\Tikzn*0.5,\Tikzn*0.5)}
+	\newcommand\TikzUpperPointerLeft{(-\Tikzn*0.5,\Tikzn)} \newcommand\TikzUpperPointerRight{(\Tikzn*0.5,\Tikzn)}
+
+	\draw[style = thick, rounded corners = 20pt,NooseArrowAtPosStyleSix]	
+	(v) .. controls \TikzLowerPointerLeft and \TikzUpperPointerLeft  .. (0,\Tikzn*1.5)
+	.. controls \TikzUpperPointerRight and \TikzLowerPointerRight .. (v) node[pos=0.3,right=3pt] {$\ell$};
+\end{scope}
+	
+	\newcommand\TikzLowerPointA{(-1.3*\Tikzn,0.3*\Tikzn)} \newcommand\TikzUpperPointA{(-\Tikzn,1.8*\Tikzn)}
+	\newcommand\TikzLowerPointB{(1.3*\Tikzn,0.3*\Tikzn)} \newcommand\TikzUpperPointB{(\Tikzn,1.8*\Tikzn)}
+	\draw (v) .. controls \TikzLowerPointA and \TikzUpperPointA .. (y) node[pos=0.6,left] {$\a$};
+	\draw (v) .. controls \TikzLowerPointB and \TikzUpperPointB .. (y) node[pos=0.6,right] {$\b$};
+\end{scope}
+	
+	\draw [fill=violet, violet] (P) circle (\TikzPunctureSize*\Tikzn); 
+	\foreach \pos in {(v),(y)}
+	{\draw [fill=olive, olive] \pos circle (\TikzPointSize*\Tikzn );}
+}
+
+\newcommand\TikzCrossingCounterclockwiseLRAB[1]{
+\begin{tikzpicture}[scale={#1}]
+\newcommand\Tikzn{2}
+\MacroCrossingLRAB
+
+\newcommand\TikzHeight{0.6}
+\draw [RedGammaStyle, dashed, ->] (-\Tikzn *0.6, \Tikzn * \TikzHeight) -- (\Tikzn *0.7, \Tikzn * \TikzHeight) node[blue,below, pos=0.1] {$p_k$};
+\draw[fill=blue] (-0.4*\Tikzn,\Tikzn*\TikzHeight) circle (0.2*\Tikzn ex);
+\end{tikzpicture}
+}
+
+\newcommand\TikzCrossingClockwiseLRAB[1]{
+\begin{tikzpicture}[scale={#1}]
+\newcommand\Tikzn{2}
+\MacroCrossingLRAB
+\newcommand\TikzHeight{0.6}
+\draw [RedGammaStyle, dashed, <-] (-\Tikzn *0.7, \Tikzn * \TikzHeight) -- (\Tikzn *0.7, \Tikzn * \TikzHeight) 
+node[blue,below, pos=0.9] {$p_k$};
+\draw[fill=blue] (0.4*\Tikzn,\Tikzn*\TikzHeight) circle (0.2*\Tikzn ex);
+\end{tikzpicture}
+}
+
+%%% end of crossing self-folded triangle, including \a and \b
+
+%%%
+\newcommand\MacroDoubleCrossingActualThetaOneThetaH{
+\draw[gray, thick, rounded corners=5pt] (v) -- (-2.3*\Tikzn,0) -- (-2.3*\Tikzn,2*\Tikzn) -- (y)
+(-2*\Tikzn,0) -- (-1*\Tikzn,2*\Tikzn) node [black,pos=0.5, left] {$\theta_1$};
+}
+\newcommand\TikzDoubleCrossingActualCrossingLR[1]{
+	\begin{tikzpicture}[scale={#1}]
+	\newcommand\Tikzn{2}
+	\MacroCrossingLRAB
+	\MacroDoubleCrossingActualThetaOneThetaH
+	
+	\newcommand\TikzHeightBelow{0.6}
+	\newcommand\TikzHeightExtraBelow{0.3}
+	\newcommand\TikzHeightAbove{1.5}
+	\draw [RedGammaStyle, dashed, ->, rounded corners=15pt] (-\Tikzn *2, \Tikzn * \TikzHeightBelow) -- (\Tikzn *0.2, \Tikzn * \TikzHeightBelow) -- (\Tikzn *0.2, \Tikzn * \TikzHeightAbove) -- (-2*\Tikzn, \Tikzn*\TikzHeightAbove)
+	node[pos=0.8, above] {$\si$};
+	
+	\draw [CyanBetaStyle, dashed, ->] (-\Tikzn *2, \Tikzn * \TikzHeightExtraBelow) -- (\Tikzn *0.45, \Tikzn * \TikzHeightExtraBelow) 
+	node[pos=0.2, below] {$\ga$};
+	
+%	\draw[fill=blue] (-0.4*\Tikzn,\Tikzn*\TikzHeightBelow) circle (0.2*\Tikzn ex);
+	\end{tikzpicture}
+}
+
+\newcommand\TikzDoubleCrossingActualRhoOneRhoF[1]{
+\begin{tikzpicture}[scale={#1}]
+\newcommand\Tikzn{2}
+\begin{scope}[thick, gray]
+	\coordinate (v) at (0,0); 
+	\coordinate (P) at (0,0.9*\Tikzn);
+	\coordinate (y) at (0,2*\Tikzn);
+	\draw[thick] (0,0) -- (y) ;
+	\draw[black] (-0.1*\Tikzn,0.4*\Tikzn) node {$\rho_1$};
+	\draw[black] (-0.2*\Tikzn,1.3*\Tikzn) node {$\rho_f$};
+	\draw (v) node[below,white] {};%{$v$};% \draw (y) node[below,olive] {$y$};
+	
+	\newcommand\TikzLowerPointerLeft{(-\Tikzn*0.5,\Tikzn*0.5)} 
+	\newcommand\TikzLowerPointerRight{(\Tikzn*0.5,\Tikzn*0.5)}
+	\newcommand\TikzUpperPointerLeft{(-\Tikzn*0.5,\Tikzn)} \newcommand\TikzUpperPointerRight{(\Tikzn*0.5,\Tikzn)}
+	
+%	\draw[style = thick, rounded corners = 20pt,NooseArrowAtPosStyleSix]	
+%	(v) .. controls \TikzLowerPointerLeft and \TikzUpperPointerLeft  .. (0,\Tikzn*1.5)
+%	.. controls \TikzUpperPointerRight and \TikzLowerPointerRight .. (v) node[pos=0.3,right=3pt] {$\ell$};
+	
+	\newcommand\TikzLowerPointA{(-1.3*\Tikzn,0.3*\Tikzn)} \newcommand\TikzUpperPointA{(-\Tikzn,1.8*\Tikzn)}
+	\newcommand\TikzLowerPointB{(1.3*\Tikzn,0.3*\Tikzn)} \newcommand\TikzUpperPointB{(\Tikzn,1.8*\Tikzn)}
+	\draw (v) .. controls \TikzLowerPointA and \TikzUpperPointA .. (y) node[pos=0.5,black] {$\theta_h$};
+	\draw (v) .. controls \TikzLowerPointB and \TikzUpperPointB .. (y);% node[pos=0.6,right] {$\b$};
+\end{scope}
+	
+	\draw [fill=violet, violet] (P) circle (\TikzPunctureSize*\Tikzn); 
+	\foreach \pos in {(v),(y)}
+	{\draw [fill=olive, olive] \pos circle (\TikzPointSize*\Tikzn );}
+
+\MacroDoubleCrossingActualThetaOneThetaH
+
+\newcommand\TikzHeightBelow{0.6}
+\newcommand\TikzHeightExtraBelow{0.3}
+\newcommand\TikzHeightAbove{1.5}
+\draw [RedGammaStyle, dashed, ->, rounded corners=15pt] (-\Tikzn *2, \Tikzn * \TikzHeightBelow) -- (\Tikzn *0.5, \Tikzn * \TikzHeightBelow) -- (\Tikzn *0.5, \Tikzn * \TikzHeightAbove) -- (-2*\Tikzn, \Tikzn*\TikzHeightAbove)
+node[pos=0.8, above] {$\si$};
+\draw [CyanBetaStyle, dashed, ->] (-\Tikzn *2, \Tikzn * \TikzHeightExtraBelow) -- (\Tikzn *0.3, \Tikzn * \TikzHeightExtraBelow) 
+node[pos=0.2, below] {$\ga$};
+\end{tikzpicture}
+}
+
+%%
+\newcommand\MacroTwoFoldCoverCrossingRL{
+\begin{scope}[thick, gray]
+	\coordinate (v) at (0,0); 
+	\coordinate (P) at (0,1*\Tikzn);
+	\coordinate (y) at (0,2*\Tikzn);
+	\draw[thick] (0,0) -- (y);
+	\draw[black] (0.0*\Tikzn,0.6*\Tikzn) node {$r^1$};
+	\draw[black] (-0.0*\Tikzn,1.6*\Tikzn) node {$r^2$};
+	\draw (v) node[below,olive] {$v^1$}; \draw (y) node[above,olive] {$v^2$};
+	
+	\newcommand\TikzLowerPointerLeft{(-\Tikzn*0.6,\Tikzn*0.5)} 
+	\newcommand\TikzLowerPointerRight{(\Tikzn*0.6,\Tikzn*0.5)}
+	\newcommand\TikzUpperPointerLeft{(-\Tikzn*0.6,1.5*\Tikzn)} 
+	\newcommand\TikzUpperPointerRight{(\Tikzn*0.6,1.5*\Tikzn)}
+	
+	\draw[style = thick, NooseArrowAtPosStyleThree,NooseArrowAtPosStyleSeven]	
+	(v) .. controls \TikzLowerPointerLeft and \TikzUpperPointerLeft  .. (y) node[black,pos=0.7] {$\ell^1$}
+	(y) .. controls \TikzUpperPointerRight and \TikzLowerPointerRight .. (v) node[black,pos=0.5] {$\ell^2$};
+	
+	\newcommand\TikzLowerPointA{(-1.3*\Tikzn,0.3*\Tikzn)} \newcommand\TikzUpperPointA{(-0.7*\Tikzn,1.8*\Tikzn)}
+	\newcommand\TikzLowerPointB{(0.7*\Tikzn,0.2*\Tikzn)} \newcommand\TikzUpperPointB{(1.3*\Tikzn,1.7*\Tikzn)}
+	\draw (v) .. controls \TikzLowerPointA and \TikzUpperPointA .. (-1.4,2*\Tikzn) node[black,pos=0.6] {$\a^1$};
+	\draw (1.4,0*\Tikzn)  .. controls \TikzLowerPointB and \TikzUpperPointB .. (y) node[black,pos=0.6] {$\a^2$};
+	\draw[fill=olive] (-1.4,2*\Tikzn) circle (\TikzPointActualSize) node [olive, above] {$y^2$};
+	\draw (-0.8,2.1*\Tikzn) node {$\b$};
+	\draw[fill=olive] (1.4,0*\Tikzn) circle (\TikzPointActualSize) node [olive, below] {$y^1$};
+	\draw (0.8,-0.1*\Tikzn) node {$\b$};
+	
+\end{scope}
+	
+	\draw [fill=violet, violet] (P) circle (\TikzPunctureActualSize); 
+	\foreach \pos in {(v),(y)}
+	{\draw [fill=olive, olive] \pos circle (\TikzPointSize*\Tikzn );}
+}
+
+
+\newcommand\TikzTwoFoldCoverCrossingLR[1]{
+\begin{tikzpicture}[scale={#1}]
+\newcommand\Tikzn{2}
+\MacroTwoFoldCoverCrossingRL
+\newcommand\TikzWidth{2}
+\draw[gray, thick,rounded corners=5pt] (v) -- (-\TikzWidth*\Tikzn,0) -- (-\TikzWidth*\Tikzn,2*\Tikzn) -- (y)
+(-1.8*\Tikzn,0) -- (-1*\Tikzn,2*\Tikzn) node [black,pos=0.7, left] {$\theta_1^1$};
+\draw[gray, thick,rounded corners=5pt] (v) -- (\TikzWidth*\Tikzn,0) -- (\TikzWidth*\Tikzn,2*\Tikzn) -- (y)
+(1.8*\Tikzn,2*\Tikzn) -- (1*\Tikzn,0) node [black,pos=0.3, left] {$\theta_1^2$};
+
+\newcommand\TikzHeightBelow{0.4}
+\newcommand\TikzHeightAbove{0.8}
+\draw [RedTilSigmaStyle, dashed, ->] (-\Tikzn *2, \Tikzn * \TikzHeightAbove) -- (\Tikzn *0.7, \Tikzn * \TikzHeightAbove) -- (2*\Tikzn, \Tikzn*\TikzHeightAbove) node[pos=0.7,above] {$\tilsi$};
+\draw[fill=olive] (-\Tikzn *2, \Tikzn * \TikzHeightAbove) circle (\TikzPunctureActualSize) node[olive,left] {$\tils$};
+\draw[fill=olive] (2*\Tikzn, \Tikzn*\TikzHeightAbove) circle (\TikzPunctureActualSize) node[olive,right] {$\tilt$};
+
+\draw [CyanTilBetaStyle, dashed, ->] (-\Tikzn *1.5, \Tikzn * \TikzHeightBelow) -- (0.5*\Tikzn, \Tikzn*\TikzHeightBelow) node[pos=0.2, below] {$\tilbe$};
+
+%node[blue,below, pos=0.1] {$p_k$};
+%\draw[fill=blue] (-0.4*\Tikzn,\Tikzn*\TikzHeightBelow) circle (0.2*\Tikzn ex);
+\end{tikzpicture}
+}
+
+
+\newcommand\MacroTwoFoldCoverCrossingRhoOneRhoF{
+\begin{scope}[thick, gray]
+	\coordinate (v) at (0,0); 
+	\coordinate (P) at (0,1*\Tikzn);
+	\coordinate (y) at (0,2*\Tikzn);
+	\draw[thick] (0,0) -- (y);
+	\draw[black] (0.0*\Tikzn,0.6*\Tikzn) node {$\rho_1^1$};
+	\draw[black] (-0.0*\Tikzn,1.6*\Tikzn) node {$\rho_1^2$};
+	
+	\draw  (-0.7*\Tikzn,2*\Tikzn)  --  
+	(0.7*\Tikzn,0) 
+	node[black,pos=0.25] {$\rho_f^2$} node[black,pos=0.8] {$\rho_f^1$};
+	\newcommand\TikzLowerPointerLeft{(-\Tikzn*0.6,\Tikzn*0.5)} 
+	\newcommand\TikzLowerPointerRight{(\Tikzn*0.6,\Tikzn*0.5)}
+	\newcommand\TikzUpperPointerLeft{(-\Tikzn*0.6,1.5*\Tikzn)} 
+	\newcommand\TikzUpperPointerRight{(\Tikzn*0.6,1.5*\Tikzn)}
+	
+	\newcommand\TikzLowerPointA{(-0.8*\Tikzn,0.3*\Tikzn)} \newcommand\TikzUpperPointA{(-0.8*\Tikzn,1.8*\Tikzn)}
+	\newcommand\TikzLowerPointB{(1*\Tikzn,0.3*\Tikzn)} \newcommand\TikzUpperPointB{(0.5*\Tikzn,1.8*\Tikzn)}
+	\draw (v) .. controls \TikzLowerPointA and \TikzUpperPointA .. (-0.7*\Tikzn,2*\Tikzn) node[black,pos=0.6] {$\theta_{h}^1$};
+	\draw (0.7*\Tikzn,0) .. controls \TikzLowerPointB and \TikzUpperPointB .. (y) node[black,pos=0.6] {$\theta_{h}^2$};
+\end{scope}
+	
+	\draw [fill=violet, violet] (P) circle (\TikzPunctureActualSize); 
+	\foreach \pos in {(v),(y),(0.7*\Tikzn,0), (-0.7*\Tikzn,2*\Tikzn)}
+	{\draw [fill=olive, olive] \pos circle (\TikzPointSize*\Tikzn );}
+}
+
+%
+%\newcommand\TikzTwoFoldCoverCrossingRhoOneRhoF[1]{
+%\begin{tikzpicture}[scale={#1}]
+%\newcommand\Tikzn{2}
+%\MacroTwoFoldCoverCrossingRhoOneRhoF
+%\newcommand\TikzWidth{2}
+%\draw[gray, thick,rounded corners=5pt] (v) -- (-\TikzWidth*\Tikzn,0) -- (-\TikzWidth*\Tikzn,2*\Tikzn) -- (y)
+%(-1.8*\Tikzn,0) -- (-1*\Tikzn,2*\Tikzn) node [black,pos=0.7, left] {$\theta_1^1$};
+%\draw[gray,thick, rounded corners=5pt] (v) -- (\TikzWidth*\Tikzn,0) -- (\TikzWidth*\Tikzn,2*\Tikzn) -- (y)
+%(1.8*\Tikzn,2*\Tikzn) -- (1*\Tikzn,0) node [black,pos=0.25, left] {$\theta_1^2$};
+%
+%\newcommand\TikzHeightBelow{0.4}
+%\newcommand\TikzHeightAbove{0.8}
+%\draw [RedTilSigmaStyle, dashed, ->] (-\Tikzn *2, \Tikzn * \TikzHeightAbove) -- (\Tikzn *0.7, \Tikzn * \TikzHeightAbove) -- (2*\Tikzn, \Tikzn*\TikzHeightAbove) node[pos=0.7,above] {$\tilsi$};
+%\draw[fill=olive] (-\Tikzn *2, \Tikzn * \TikzHeightAbove) circle (\TikzPunctureActualSize) node[olive,left] {$\tils$};
+%\draw[fill=olive] (2*\Tikzn, \Tikzn*\TikzHeightAbove) circle (\TikzPunctureActualSize) node[olive,right] {$\tilt$};
+%\draw [CyanTilBetaStyle, dashed, ->] (-\Tikzn *1.5, \Tikzn * \TikzHeightBelow) -- (0.3*\Tikzn, \Tikzn*\TikzHeightBelow) node[pos=0.2, below] {$\tilbe$};
+%
+%\draw (-1.4,2*\Tikzn) node [white, above] {$y^2$};
+%\draw (1.4,0*\Tikzn) node [white, below] {$y^1$};
+%\end{tikzpicture}
+%}
+
+
+%%%% current 
+\tikzstyle{LiftedPathStyle} = [blue, line width=2pt, dashed]
+
+% begin of paths for k=1 or k=d
+%% begins crossing self-folded triangle, including \a and \b
+
+
+\newcommand\TikzNooseOneRLMinusA[1]{
+\begin{tikzpicture}[scale=#1, DoubleTriangleLightStyle]
+\newcommand\Tikzn{2}
+\MacroLiftedTriangleOneTwoNoArrow
+\draw [LiftedPathStyle, PathArrowAtPosStyleTwo, PathArrowAtPosStyleFour, PathArrowAtPosStyleEnd, rounded corners=5pt] 
+(P) --(v1) node[pos=0.4, below] {$r$}
+-- (0.1,0.9*\Tikzn) node[pos=0.6,right] {$\ell$}
+(0.1,0.9*\Tikzn)
+-- (\Tikzn,0.9*\Tikzn) node[pos=0.3,above=3pt]{$\a$}
+-- (\Tikzn,1.1*\Tikzn)
+-- (0.6*\Tikzn,1.1*\Tikzn);
+\end{tikzpicture}
+}
+
+\newcommand\TikzNooseOneRLPlusB[1]{
+\begin{tikzpicture}[scale=#1, DoubleTriangleLightStyle]
+\newcommand\Tikzn{2}
+\MacroLiftedTriangleOneTwoNoArrow
+\draw [LiftedPathStyle, PathArrowAtPosStyleTwo, PathArrowAtPosStyleFive, PathArrowAtPosStyleEnd, rounded corners=5pt] 
+ (P) -- (v2) node[pos=0.3,left] {$\ccr$}
+-- (v1) node[pos=0.6,right] {$\ell$}
+-- (y) node[pos=0.5,right]{$\b$}
+-- (0.3,\Tikzn) node[pos=0.5,above]{$\a$};
+\end{tikzpicture}
+}
+
+\newcommand\TikzNooseOneRLPlusLMinus[1]{
+\begin{tikzpicture}[scale=#1, DoubleTriangleLightStyle]
+\newcommand\Tikzn{2}
+\MacroLiftedTriangleOneTwoNoArrow
+\draw [LiftedPathStyle, PathArrowAtPosStyleOne, PathArrowAtPosStyleSeven, PathArrowAtPosStyleEnd, rounded corners=5pt] 
+(P) -- (0,0.8*\Tikzn) node[pos=0.5,left] {$\ccr$} 
+-- (v1)  -- (0.2,\Tikzn)  node[pos=0.6,right] {$\ell$}
+ -- (y) node[pos=0.5,above]{$\a$};
+\end{tikzpicture}
+}
+
+\newcommand\MacroCrossingLRABPlain{
+\begin{scope}[thick, gray]
+	\coordinate (v) at (0,0); 
+	\coordinate (P) at (0,0.9*\Tikzn);
+	\coordinate (y) at (0,2*\Tikzn);
+	\draw[thick] (0,0) -- (P);
+	\draw (0.08*\Tikzn,0.4*\Tikzn) node {$r$};
+	\draw (v) node[below,olive] {$v$}; \draw (y) node[below,olive] {$y$};
+	
+	\newcommand\TikzLowerPointerLeft{(-\Tikzn*0.5,\Tikzn*0.5)} 
+	\newcommand	\TikzLowerPointerRight{(\Tikzn*0.5,\Tikzn*0.5)}
+	\newcommand\TikzUpperPointerLeft{(-\Tikzn*0.5,\Tikzn)} \newcommand\TikzUpperPointerRight{(\Tikzn*0.5,\Tikzn)}
+
+	\draw[style = thick, rounded corners = 20pt]	
+	(v) .. controls \TikzLowerPointerLeft and \TikzUpperPointerLeft  .. (0,\Tikzn*1.5)
+	.. controls \TikzUpperPointerRight and \TikzLowerPointerRight .. (v);% node[pos=0.3,right=3pt] {$\ell$};
+	
+	\newcommand\TikzLowerPointA{(-1.3*\Tikzn,0.3*\Tikzn)} \newcommand\TikzUpperPointA{(-\Tikzn,1.8*\Tikzn)}
+	\newcommand\TikzLowerPointB{(1.3*\Tikzn,0.3*\Tikzn)} \newcommand\TikzUpperPointB{(\Tikzn,1.8*\Tikzn)}
+	\draw (v) .. controls \TikzLowerPointA and \TikzUpperPointA .. (y) ;%node[pos=0.6,left] {$\a$};
+	\draw (v) .. controls \TikzLowerPointB and \TikzUpperPointB .. (y) ;%node[pos=0.6,right] {$\b$};
+\end{scope}
+	
+	\draw [fill=violet, violet] (P) circle (\TikzPunctureSize*\Tikzn); 
+	\foreach \pos in {(v),(y)}
+	{\draw [fill=olive, olive] \pos circle (\TikzPointSize*\Tikzn );}
+}
+
+\newcommand\TikzRLMinusA[1]{
+\begin{tikzpicture}[scale={#1}] 	
+\newcommand\Tikzn{2}
+	\MacroCrossingLRABPlain
+
+	\newcommand\TikzLowerPointerLeft{(-\Tikzn*0.5,\Tikzn*0.5)} 
+	\newcommand	\TikzLowerPointerRight{(\Tikzn*0.5,\Tikzn*0.5)}
+	\newcommand\TikzUpperPointerLeft{(-\Tikzn*0.5,\Tikzn)} \newcommand\TikzUpperPointerRight{(\Tikzn*0.5,\Tikzn)}
+	\newcommand\TikzLowerPointA{(-1.3*\Tikzn,0.3*\Tikzn)} \newcommand\TikzUpperPointA{(-\Tikzn,1.8*\Tikzn)}
+	%\newcommand\TikzLowerPointB{(1.3*\Tikzn,0.3*\Tikzn)} \newcommand\TikzUpperPointB{(\Tikzn,1.8*\Tikzn)}
+	
+\draw [LiftedPathStyle, PathArrowAtPosStyleOne,PathArrowAtPosStyleFour,rounded corners=15pt] 
+	(P) -- (0.1,0.1)
+	(0.1,0.1) .. controls \TikzLowerPointerRight and \TikzUpperPointerRight .. (0,\Tikzn*1.5)
+	node[pos=0.7,right=3pt] {$\ell_-$}
+	.. controls \TikzUpperPointerLeft and \TikzLowerPointerLeft .. (-0.3,0.2);
+	
+\draw [LiftedPathStyle, PathArrowAtPosStyleNine,rounded corners=15pt] 
+	 (-0.3,0.2) .. controls \TikzLowerPointA and \TikzUpperPointA .. (y) node[pos=0.4,left] {$\a$};
+\draw [LiftedPathStyle, PathArrowAtPosStyleEnd,rounded corners=15pt] 
+	(y) --  (-0.4*\Tikzn,2.2*\Tikzn) -- (-1*\Tikzn,1.5*\Tikzn); 
+	 
+\draw[LiftedPathStyle] (0.08*\Tikzn,0.4*\Tikzn) node {$r$};	
+
+\end{tikzpicture}
+}
+
+\newcommand\TikzRLPlusB[1]{
+\begin{tikzpicture}[scale={#1}] 	
+\newcommand\Tikzn{2}
+	\MacroCrossingLRABPlain
+
+	\newcommand\TikzLowerPointerLeft{(-\Tikzn*0.5,\Tikzn*0.5)} 
+	\newcommand	\TikzLowerPointerRight{(\Tikzn*0.5,\Tikzn*0.5)}
+	\newcommand\TikzUpperPointerLeft{(-\Tikzn*0.5,\Tikzn)} \newcommand\TikzUpperPointerRight{(\Tikzn*0.5,\Tikzn)}
+	\newcommand\TikzLowerPointA{(-1.3*\Tikzn,0.3*\Tikzn)} \newcommand\TikzUpperPointA{(-\Tikzn,1.8*\Tikzn)}
+	\newcommand\TikzLowerPointB{(1.3*\Tikzn,0.3*\Tikzn)} \newcommand\TikzUpperPointB{(\Tikzn,1.8*\Tikzn)}
+	
+\draw [LiftedPathStyle, PathArrowAtPosStyleOne, PathArrowAtPosStyleSeven, rounded corners=15pt] 
+	(P) -- (0,0.3)
+	(0,0.3) .. controls \TikzLowerPointerLeft and \TikzUpperPointerLeft  .. (0,\Tikzn*1.5)
+	.. controls \TikzUpperPointerRight and \TikzLowerPointerRight .. (0.2,0) node[pos=0.3,right=3pt] {$\ell_+$};
+
+\draw [LiftedPathStyle, PathArrowAtPosStyleNine, rounded corners=15pt] 
+	 (0.2,0) .. controls \TikzLowerPointB and \TikzUpperPointB .. (y) node[pos=0.6,right] {$\b$};
+	 
+\draw [LiftedPathStyle, PathArrowAtPosStyleNine] 
+	 (y) .. controls \TikzUpperPointA and \TikzLowerPointA .. (-0.8,0.3) node[pos=0.6,left] {$\a$};	 
+
+\draw[LiftedPathStyle] (0.08*\Tikzn,0.4*\Tikzn) node {$r$};
+\end{tikzpicture}
+}
+
+\newcommand\TikzRLPlusLMinusA[1]{
+\begin{tikzpicture}[scale={#1}] 	
+\newcommand\Tikzn{2}
+	\MacroCrossingLRABPlain
+
+	\newcommand\TikzLowerPointerLeft{(-\Tikzn*0.5,\Tikzn*0.5)} 
+	\newcommand	\TikzLowerPointerRight{(\Tikzn*0.5,\Tikzn*0.5)}
+	\newcommand\TikzUpperPointerLeft{(-\Tikzn*0.5,\Tikzn)} \newcommand\TikzUpperPointerRight{(\Tikzn*0.5,\Tikzn)}
+	\newcommand\TikzLowerPointA{(-1.2*\Tikzn,0.3*\Tikzn)} \newcommand\TikzUpperPointA{(-\Tikzn,1.8*\Tikzn)}
+	%\newcommand\TikzLowerPointB{(1.3*\Tikzn,0.3*\Tikzn)} \newcommand\TikzUpperPointB{(\Tikzn,1.8*\Tikzn)}
+	
+\draw [LiftedPathStyle, PathArrowAtPosStyleOne, PathArrowAtPosStyleFour, rounded corners=15pt] 
+	(P) -- (0,0.3)
+	(0,0.3) .. controls \TikzLowerPointerLeft and \TikzUpperPointerLeft  .. (0,\Tikzn*1.4)
+	.. controls \TikzUpperPointerRight and \TikzLowerPointerRight .. (0.3,0.2); %node[pos=0.3,right=3pt] {$\ell_+$};
+
+
+	\renewcommand\TikzLowerPointerLeft{(-\Tikzn*0.7,\Tikzn*0.5)} 
+	\renewcommand\TikzLowerPointerRight{(\Tikzn*0.7,\Tikzn*0.5)}
+	\renewcommand\TikzUpperPointerLeft{(-\Tikzn*0.8,\Tikzn)} 
+	\renewcommand\TikzUpperPointerRight{(\Tikzn*0.8,\Tikzn)}
+	
+\draw [LiftedPathStyle,PathArrowAtPosStyleFour,rounded corners=15pt] 
+	(0.3,0.2) .. controls \TikzLowerPointerRight and \TikzUpperPointerRight .. (0,\Tikzn*1.6)
+	node[pos=0.7,right=3pt] {$\ell$}
+	.. controls \TikzUpperPointerLeft and \TikzLowerPointerLeft .. (-0.5,0.3);
+
+\draw [LiftedPathStyle, PathArrowAtPosStyleNine,rounded corners=15pt] 
+	 (-0.5,0.3) .. controls \TikzLowerPointA and \TikzUpperPointA .. (y) node[pos=0.6,left] {$\a$};
+
+\draw[LiftedPathStyle] (0.08*\Tikzn,0.4*\Tikzn) node {$r$};
+\end{tikzpicture}
+}
+
+%%%%% begin of double lifted triangles %%%%%%%%
+\tikzstyle{DoubleTriangleStyle}=[thick]
+\tikzstyle{DoubleTriangleLightStyle}=[gray!90]
+
+\newcommand\MacroDoubleTriangle{
+\newcommand\Tikzn{2}
+\coordinate (P) at (0,\Tikzn);
+
+\draw (0,0) -- (P) node[pos=0.3, left] {$r$};
+
+\draw (-\Tikzn,0) -- (-\Tikzn,\Tikzn) node[pos=0.6,left]{$\b$}; %left 
+\draw (0,0) -- (-\Tikzn,0) node[pos=0.5,below]{$\a$}; %left 
+\draw (\Tikzn,0) -- (\Tikzn,\Tikzn) node[pos=0.6,right]{$\a$}; %right 
+\draw (0,0) -- (2,0) node[pos=0.5,below]{$\b$}; %right 
+
+\draw [fill=violet] (P) circle (\TikzPunctureSize*\Tikzn);
+\foreach \pos in {(0,0),(-\Tikzn,\Tikzn) ,(\Tikzn,\Tikzn), (-\Tikzn,0) ,(\Tikzn,0)}
+	{\draw [fill=olive] \pos circle (\TikzPointSize*\Tikzn);}
+}
+
+\newcommand\MacroDoubleTriangleWithArrow{
+\MacroDoubleTriangle
+\draw[NooseArrowAtPosStyleSeven] (0,0) -- (-\Tikzn,\Tikzn) node[pos=0.3,left] {$\ell$}; % left
+\draw[NooseArrowAtPosStyleFour] (\Tikzn,\Tikzn) -- (0,0) node[pos=0.7,right] {$\ell$}; % right
+}
+
+\newcommand\MacroDoubleTriangleNoArrow{
+\MacroDoubleTriangle
+\draw (0,0) -- (-\Tikzn,\Tikzn) node[pos=0.3,left] {$\ell$}; % left
+\draw (\Tikzn,\Tikzn) -- (0,0) node[pos=0.7,right] {$\ell$}; % right
+}
+
+\newcommand\TikzDoubleTriangleCounterclockwise[1]{
+\begin{tikzpicture}[scale=#1, DoubleTriangleStyle]
+\MacroDoubleTriangleWithArrow
+\draw (-\Tikzn,\Tikzn) -- (P) node[pos=0.5,above]{$\dot{r}$};
+\draw (\Tikzn,\Tikzn) -- (P) node[pos=0.5,above]{$\ddot{r}$};
+\draw [RedGammaStyle, ->] (-\Tikzn *0.65, \Tikzn *0.5) -- (\Tikzn *0.8, \Tikzn *0.5);
+
+\begin{scope}[gray]
+\draw (-\Tikzn * 0.35,\Tikzn * 0.72) node {$\tilblacktri{k}$};
+\draw (\Tikzn * 0.35,\Tikzn *0.72) node {$\tilblacktri{k+1}$};
+\end{scope}
+
+\end{tikzpicture}
+}
+
+\newcommand\TikzDoubleTriangleClockwise[1]{
+\begin{tikzpicture}[scale=#1, DoubleTriangleStyle]
+\MacroDoubleTriangleWithArrow
+
+\draw (-\Tikzn,\Tikzn) -- (P) node[pos=0.5,above]{$\ddot{r}$};
+\draw (\Tikzn,\Tikzn) -- (P) node[pos=0.5,above]{$\dot{r}$};
+
+\draw [RedGammaStyle, <-] (-\Tikzn *0.8, \Tikzn *0.5) -- (\Tikzn *0.7, \Tikzn *0.5);
+
+\begin{scope}[gray]
+\draw (-\Tikzn * 0.35,\Tikzn * 0.72) node {$\tilblacktri{k+1}$};
+\draw (\Tikzn * 0.35,\Tikzn *0.72) node {$\tilblacktri{k}$};
+\end{scope}
+
+\end{tikzpicture}
+}
+
+
+
+\newcommand\TikzDoubleTriangleKPlusPlus[1]{
+\begin{tikzpicture}[scale=#1, DoubleTriangleLightStyle]
+\MacroDoubleTriangleNoArrow
+\draw (-\Tikzn,\Tikzn) -- (P) node[pos=0.5,above]{$\ddot{r}$};
+\draw (\Tikzn,\Tikzn) -- (P) node[pos=0.5,above]{$\dot{r}$};
+
+\coordinate (pk) at (-0.6*\Tikzn,0.6*\Tikzn);
+\coordinate (pk1) at (0.2,0.3*\Tikzn);
+\draw [LiftedPathStyle, PathArrowAtPosStyleTwo, PathArrowAtPosStyleEnd, rounded corners=5pt] (pk) -- (-0.1,0) -- ($(P)+(-0.1,0)$) -- (pk1);
+
+%\foreach \pos in {(pk),(pk1)}
+%	{\draw [black,fill=blue] \pos circle (\TikzIntersectionSize*\Tikzn);}
+\end{tikzpicture}
+}
+\newcommand\TikzEllMinusRR[1]{ %
+\begin{tikzpicture}[scale={#1}] 	
+	\MacroChubbySelfFoldedTriangle
+	\MacroEllMinusRRLong
+\end{tikzpicture}
+}
+
+\newcommand\TikzDoubleTriangleKKPlus[1]{
+\begin{tikzpicture}[scale=#1, DoubleTriangleLightStyle]
+\MacroDoubleTriangleNoArrow
+\draw (-\Tikzn,\Tikzn) -- (P) node[pos=0.5,above]{$\ddot{r}$};
+\draw (\Tikzn,\Tikzn) -- (P) node[pos=0.5,above]{$\dot{r}$};
+
+\coordinate (pk) at (-0.2+-0.5*\Tikzn,0.4*\Tikzn);
+\coordinate (pk1) at (0,0.9*\Tikzn);
+\draw [LiftedPathStyle, PathArrowAtPosStyleSix, PathArrowAtPosStyleEnd, rounded corners=5pt] (pk) -- (-\Tikzn+0.2,\Tikzn) -- (0,0) -- (pk1);
+
+%\foreach \pos in {(pk),(pk1)}
+%	{\draw [black,fill=blue] \pos circle (\TikzIntersectionSize*\Tikzn);}
+\end{tikzpicture}
+}
+
+\newcommand\TikzEllPlusEllMinusR[1]{ %
+\begin{tikzpicture}[scale={#1}] 	
+	\MacroChubbySelfFoldedTriangle
+	\MacroEllPlusEllMinusR
+\end{tikzpicture}
+}
+
+\newcommand\TikzDoubleTriangleKThirdEdgePlus[1]{
+\begin{tikzpicture}[scale=#1, DoubleTriangleLightStyle]
+\MacroDoubleTriangleNoArrow
+\draw (-\Tikzn,\Tikzn) -- (P) node[pos=0.5,above]{$\ddot{r}$};
+\draw (\Tikzn,\Tikzn) -- (P) node[pos=0.5,above]{$\dot{r}$};
+
+\coordinate (pk) at (-0.3*\Tikzn,0.3*\Tikzn);
+\coordinate (pk1) at (0,0.1*\Tikzn);
+\draw [LiftedPathStyle, PathArrowAtPosStyleTwo, PathArrowAtPosStyleSix, PathArrowAtPosStyleEnd, rounded corners=5pt] (pk) -- (-\Tikzn,\Tikzn) -- (P) -- (pk1);
+
+%\foreach \pos in {(pk),(pk1)}
+%	{\draw [black,fill=blue] \pos circle (\TikzIntersectionSize*\Tikzn);}
+\end{tikzpicture}
+}
+
+%%%%%%% from om_2k+2 to om_2k+4
+
+\newcommand\TikzDoubleTriangleRRL[1]{
+\begin{tikzpicture}[scale=#1, DoubleTriangleLightStyle]
+\MacroDoubleTriangleNoArrow
+\draw (-\Tikzn,\Tikzn) -- (P) node[pos=0.5,above]{$\ddot{r}$};
+\draw (\Tikzn,\Tikzn) -- (P) node[pos=0.5,above]{$\dot{r}$};
+
+\coordinate (pk2) at (0.6*\Tikzn,0.6*\Tikzn);
+\draw [LiftedPathStyle, PathArrowAtPosStyleSix, PathArrowAtPosStyleEnd, rounded corners=5pt]  (-0.2,0.3) -- ($(P)+(-0.1,-0.2)$) -- (0.2,0.1) -- (pk2);
+\end{tikzpicture}
+}
+
+\newcommand\TikzDoubleTriangleRLL[1]{
+\begin{tikzpicture}[scale=#1, DoubleTriangleLightStyle]
+\MacroDoubleTriangleNoArrow
+\draw (-\Tikzn,\Tikzn) -- (P) node[pos=0.5,above]{$\ddot{r}$};
+\draw (\Tikzn,\Tikzn) -- (P) node[pos=0.5,above]{$\dot{r}$};
+
+\draw [LiftedPathStyle, PathArrowAtPosStyleTwo, PathArrowAtPosStyleEnd, rounded corners=15pt] 
+(0,0.9*\Tikzn) --  (0,0.2) -- (\Tikzn-0.2,\Tikzn) -- (0.7,0.5) ;
+\end{tikzpicture}
+}
+
+\newcommand\TikzRREllMinus[1]{ %
+\begin{tikzpicture}[scale={#1}] 	
+	\MacroChubbySelfFoldedTriangle
+	\MacroRREllMinus
+\end{tikzpicture}
+}
+
+
+\newcommand\TikzDoubleTriangleRddotRL[1]{
+\begin{tikzpicture}[scale=#1, DoubleTriangleLightStyle]
+\MacroDoubleTriangleNoArrow
+\draw (-\Tikzn,\Tikzn) -- (P) node[pos=0.5,above]{$\ddot{r}$};
+\draw (\Tikzn,\Tikzn) -- (P) node[pos=0.5,above]{$\dot{r}$};
+
+\draw [LiftedPathStyle, PathArrowAtPosStyleTwo, PathArrowAtPosStyleEnd, rounded corners=5pt] (0,0) -- (0,\Tikzn)  -- (\Tikzn,\Tikzn) -- (0.3,0.3) ;
+
+\end{tikzpicture}
+}
+
+\newcommand\TikzRREllPlusnonBT[1]{ %
+\begin{tikzpicture}[scale={#1}] 	
+	\MacroChubbySelfFoldedTriangle
+	\MacroRREllPlusnonBT
+\end{tikzpicture}
+}
+\newcommand\TikzRLMinLPlus[1]{ %
+\begin{tikzpicture}[scale={#1}] 	
+	\MacroChubbySelfFoldedTriangle
+	\MacroRLMinLPlus
+\end{tikzpicture}
+}
+%%%%% end of double lifted triangles %%%%%%%%
+
+\newcommand\WheelLocalTriangulation[1]{ % USED
+\begin{tikzpicture}[scale=#1]
+	\path (0:0) coordinate (origin);
+	\path (1*50:2) coordinate (1);
+	\path (2*50:2) coordinate (2);
+	\path (3*50:2) coordinate (3);
+	\path (4*50:2) coordinate (4);
+	\path (5*50:2) coordinate (5);
+	\path (6*50:2) coordinate (6);
+	\path (7*50:2) coordinate (7);
+	
+	\draw [fill=gray!20, style=dashed] (origin) circle (2);
+	
+	\begin{scope}[NonOrientedTriangulationStyle]
+	\draw  [fill=white] (1) -- (2) -- (3) -- (4) -- (5) -- (6) -- (7) -- cycle;
+	\draw [postaction={decorate}] (1) -- (origin);
+	\draw [postaction={decorate}] (2) -- (origin);
+	\draw [postaction={decorate}] (3) -- (origin);
+	\draw [postaction={decorate}] (4) -- (origin);
+	\draw [postaction={decorate}] (5) -- (origin);
+	\draw [postaction={decorate}] (6) -- (origin);
+	\draw [postaction={decorate}] (7) -- (origin);
+	\draw [fill=violet] (origin) circle (1.2*\TikzPunctureActualSize);
+	\draw (origin) node[above=4pt, right=2pt, violet] {\tiny{$P$}};
+	\node at (0:3) {}; \node at (180:3) {};
+	\end{scope}
+\end{tikzpicture}
+  }
+  
+\newcommand \SelfFoldedLocalTriangulation[1] { % USED
+	\begin{tikzpicture}[scale={#1}]
+	\node at (-4,1) {};  \node at (4,1) {};  
+	\coordinate (v1L) at (-2.5,1);  
+	\coordinate (v1R) at (2.5,1); 
+	\coordinate (v2L) at (-2.5,3.5); 
+	\coordinate (v2R) at (2.5,3);
+
+	\begin{scope}[NonOrientedTriangulationStyle]
+		\draw [style = dashed, fill=gray!20]  % left gray area
+		(0,0) .. controls (-3,2) and (-2,3.5) .. (0,4)  -- (v2L) -- (v1L) -- (0,0);
+		
+		\draw [style = dashed, fill=gray!20]  % right gray area
+		(0,0) .. controls (3,2) and (2,3.5) .. (0,4)  -- (v2R) -- (v1R) -- (0,0);
+	
+		\draw[style = thick, postaction={decorate}, fill=white] (0,0) -- (0,2.2);
+		\draw (0.2,1) node {$r$};
+		\draw[style = thick, postaction={decorate}] (0,0) .. controls (-3,4) and (3,4) .. (0,0) 
+		node[pos = 0.7, above]{$\ell$};
+		\draw[style = thick, postaction={decorate}] (0,0) .. controls (-3,2) and (-2,3.5) .. (0,4); 
+		%node[pos = 0.5,right=0.02pt]{$\a$};
+		\draw (-2.1,2.7) node {$\a$};
+		\draw[style = thick, postaction={decorate}] (0,0) .. controls (3,2) and (2,3.5) .. (0,4); 
+		%node[pos = 0.4, right]{$\b$};
+		\draw (2.05,2) node {\tiny $\b$};
+	\end{scope}
+
+	\coordinate (Ps) at (0,2.2);  \coordinate (xs) at (0,0); \coordinate (ys) at (0,4);
+	\foreach \pos in {(0,0),(0,4)}
+		{\draw[fill=olive] \pos circle (1.2*\TikzPointActualSize);}
+	\draw [fill=violet] (Ps) circle (1.2*\TikzPunctureActualSize);  \draw[violet] (0,2.2) node[above] {\tiny{$P$}}; %Puncture
+		
+	\end{tikzpicture}
+}  
+
+
+ \newcommand\MacroTtwoTpathChubby{
+	 \begin{scope}[thick, gray!60]
+	 \newcommand\localfontsize{\small}
+	 \draw[rounded corners = 20pt] (-4,4)  -- (0,7) node[pos=0.8,above,black]{\localfontsize $1$} -- (4,4);
+	 
+	 \draw[rounded corners = 15pt] (0,0) -- 
+	 (-2.5,4) %-- (-3,4) 
+	 --  (0,6) node[pos=0.8,black]{\localfontsize $2$}  -- (4,4);
+	 
+	 \draw[thick] (0,0) -- (0,2.9) node[pos=0.8, right,black]{\localfontsize $r$};
+	
+	\draw[style = thick, rounded corners = 20pt]
+	(0,0) .. controls (-1.5,2) and (-2,3) .. (0,5) .. 
+	controls (2,3)  and (2,2) .. (0,0) node[pos=0.4, above=2pt,black] {\localfontsize $\ell$};
+	
+	\draw
+	(0,0) -- (4,4) -- (0,8) -- node[pos=0.5, left] {} (-4,4) -- (0,0);	
+	\end{scope}
+	\draw [fill=violet] (0,2.9) circle (.3ex);
+ }
+
+\newcommand\MacroCounterClockRadius[4]{
+\draw[TPathStyle, %blue,style = dashed, thick, %line width = 1pt, 
+rounded corners = 5pt,
+	decoration={ markings, mark=at position .3 with {\arrow[line width=1pt]{to};},
+	mark=at position .8 with {\arrow[line width=1pt]{to};}}, postaction={decorate}]
+	({#1},{#2}) .. controls (0.2,3) and (0.4,3) .. (0,3.5) %node[pos = 0.4, right]{$w_{j+1}$} 
+	 .. controls (-0.4,3) and (-0.2,3) .. ({#3},{#4});% node[pos = 0.6, left]{$w_{j}$};
+}
+
+\newcommand\MacroClockLoop[4]{
+	\draw[TPathStyle, %line width = 1.5pt, 
+	rounded corners = 20pt
+	,decoration={ markings, mark=at position .73 with {\arrow[blue, line width=1pt]{to};}},
+	postaction={decorate}]
+	({#1},{#2}) .. controls (-1.5,2) and (-2,3) .. (0,5) .. 
+	controls (2,3)  and (2,2) .. ({#3},{#4}); %node[pos=0.5, right] {$\ell$};
+}
+
+\newcommand\MacroClockRadius[4]{
+\draw[TPathStyle, %blue,style = dashed, thick, %line width = 1pt, 
+rounded corners = 5pt,
+	decoration={ markings, mark=at position .3 with {\arrow[line width=1pt]{to};},
+	mark=at position .8 with {\arrow[line width=1pt]{to};}}, postaction={decorate}]
+	({#1},{#2}) .. controls  (-0.2,3) and (-0.4,3) .. (0,3.5)  
+	.. controls (0.4,3) and (0.2,3)  .. ({#3},{#4});
+}
+
+\newcommand\MacroCounterClockLoop[4]{
+	\draw[TPathStyle, %blue, thick, %line width = 1.5pt, 
+	rounded corners = 20pt
+	,decoration={ markings, mark=at position .73 with {\arrow[blue, line width=1pt]{to};}},
+	postaction={decorate}]
+	({#1},{#2}) .. controls (2,2) and (2,3) .. (0,5) ..
+	controls  (-2,3) and (-1.5,2)  ..   ({#3},{#4}); %node[pos=0.5, right] {$\ell$};
+}
+
+\newcommand\TikzPosterTpathSixNineFontSize{\small}
+\newcommand\TikzPosterTpathSixNineCaptionSize{\small}
+\newcommand\TikzPosterTpathSixNineCaptionLocation{(-3,-2.6)}
+
+\newcommand\TikzTpathSix[2]{
+	\begin{tikzpicture} [scale = {#1}]
+	\begin{scope}[rotate=45]
+	\MacroTtwoTpathChubby
+	\begin{scope}[TPathStyle]
+	\draw[rounded corners = 20pt]  (0,8) -- (3,5) -- (0,7) -- (-4,4);
+	\draw (-4,4) -- (0.2*0,-0.1*0);
+	
+	\MacroCounterClockRadius{0.2*0}{-0.1*0}{-0.5}{1}	
+	\MacroClockLoop{-0.5}{1}{1}{1}
+
+	\draw[->] (1,1) -- (3.8,3.8);
+	\end{scope}
+	\end{scope}
+	%\draw (-3,7) node {($6$)};
+	\node at (-4,6.3) {\TikzPosterTpathSixNineFontSize $b_4$};
+	\node at (-3,-0.5) {\TikzPosterTpathSixNineFontSize $b_2$};
+	\node at (0.5,3) {\TikzPosterTpathSixNineFontSize $b_3$};
+	\node at \TikzPosterTpathSixNineCaptionLocation {\TikzPosterTpathSixNineCaptionSize #2};
+	\end{tikzpicture}
+}
+
+\newcommand\TikzTpathSixBad[2]{
+	\begin{tikzpicture} [scale = {#1}]
+	\begin{scope}[rotate=45]
+	\MacroTtwoTpathChubby
+	\begin{scope}[TPathStyle]
+	\draw[rounded corners = 20pt]  (0,8) -- (3,5) -- (0,7) -- (-4,4) ;
+	\draw (-4,4) -- (-0.2,0);
+	
+	\MacroClockRadius{-0.2}{0}{0.5}{1.5}	
+	\MacroCounterClockLoop{0.5}{1.5}{0.3}{0.3}%{0.5}{0}
+
+	%\draw[->] (0.5,0) -- (3.8,3.8);
+	\draw[->] (0.3,0.3) -- (3.8,3.8);
+	\end{scope}
+	\end{scope}
+	%\draw (-3,7) node {($6'$)};
+	\node at (-4,6.3) {\TikzPosterTpathSixNineFontSize $b_4$};
+	\node at (-3,-0.5) {\TikzPosterTpathSixNineFontSize $b_2$};
+	\node at (0.5,3) {\TikzPosterTpathSixNineFontSize $b_3$};
+	%\node[white] at (-6.2,3) {$b_1$};
+	%\node[] at (-8,3){}; \node[] at (2,3){};
+\node at \TikzPosterTpathSixNineCaptionLocation {\TikzPosterTpathSixNineCaptionSize #2};
+	\end{tikzpicture}
+}
+
+\newcommand\TikzTpathSeven[2]{
+	\begin{tikzpicture} [scale = {#1}]
+	\begin{scope}[rotate=45]
+	\MacroTtwoTpathChubby
+	\begin{scope}[TPathStyle]
+	\draw[rounded corners = 20pt]  (0,8) -- (3,5) -- (0,7) -- (-4,4);
+	\draw  (-4,4) -- (-0.6,0.6);
+
+	\MacroClockLoop{-0.6}{0.6}{0.6}{1.3}
+	\MacroCounterClockRadius{0.6}{1.3}{-0.2*0}{0}
+	\draw[->] (0,0) -- (3.8,3.8);
+	\end{scope}
+	\end{scope}
+	%\draw (-3,7) node {($7$)};
+	\node at (-4,6.3) {\TikzPosterTpathSixNineFontSize $b_4$};
+	\node at (-3,-0.5) {\TikzPosterTpathSixNineFontSize $b_2$};
+	\node at (0.5,3) {\TikzPosterTpathSixNineFontSize $b_3$};
+	\node at \TikzPosterTpathSixNineCaptionLocation {\TikzPosterTpathSixNineCaptionSize #2};
+	\end{tikzpicture}
+}
+
+\newcommand\MacroTikzTpathEight[1]{
+	\begin{scope} [scale = {#1}]
+	\begin{scope}[rotate=45]
+	\MacroTtwoTpathChubby
+	\begin{scope}[TPathStyle]
+	\draw[rounded corners = 20pt]  (0,8) -- (-3,5) -- (0,7) -- (3,5) -- 
+	(0,6) -- (-3,4) -- (0.1*0,-0.1*0);
+	
+	\MacroCounterClockRadius{0.1*0}{-0.1*0}{-0.5}{1.5}
+	\MacroClockLoop{-0.5}{1.5}{1}{1}
+	\draw[->] (1,1) -- (3.8,3.8);
+	\end{scope}
+	\end{scope}
+	%\draw (-3,7) node {($8$)};
+	\end{scope}
+}
+
+\newcommand\TikzTpathEight[2]{
+	\begin{tikzpicture} [scale = {#1}]
+	\MacroTikzTpathEight{1}
+	\node at (-6.2,3) {\TikzPosterTpathSixNineFontSize $b_1$};
+	\node at (0.5,3) {\TikzPosterTpathSixNineFontSize $b_3$};
+	\node at (-4,6.3) {};
+	\node at (-3,-0.5) {};
+	\node at \TikzPosterTpathSixNineCaptionLocation {\TikzPosterTpathSixNineCaptionSize #2};
+	\end{tikzpicture}
+}
+
+\newcommand\TikzTpathNine[2]{
+	\begin{tikzpicture} [scale = {#1}]
+	\begin{scope}[rotate=45]
+	\MacroTtwoTpathChubby
+	\begin{scope}[TPathStyle]
+	\draw[rounded corners = 20pt]  (0,8) -- (-3,5) -- (0,7) -- (3,5) -- 
+	(0,6) -- (-3,4) -- (-1,1);
+	\MacroClockLoop{-1}{1}{0.3}{1}
+	\MacroCounterClockRadius{0.3}{1}{0}{0}
+	\draw[->] (0,0) -- (3.8,3.8);
+	\end{scope}
+	\end{scope}
+	%\draw (-3,7) node {($9$)};
+	\node at (-6.2,3) {\TikzPosterTpathSixNineFontSize $b_1$};
+	\node at (0.5,3) {\TikzPosterTpathSixNineFontSize $b_3$};
+	\node at (-4,6.3) {};
+	\node at (-3,-0.5) {};
+	\node at \TikzPosterTpathSixNineCaptionLocation {\TikzPosterTpathSixNineCaptionSize #2};
+	\end{tikzpicture}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% making five paths on lifted polygon %%%%%%%
+
+\newcommand\MacroTtwoLiftedPolygon{ % the macro lifted polygon for the T-path
+	\begin{scope}[gray!75,style=thick]
+	\tilTtwoIdealTriangulationCoordinates
+	\draw %[style = thick, postaction={decorate}]
+	 (x1) -- (-4,4) node[pos = 0.6, left=2pt]{$\ell$};
+	\draw %[style = thick, postaction={decorate}] 
+	(-4,4) -- (0,4); %node[pos=0.5,right] {$\dot{r}$}; %{$\tiltg{3}=\dot{r}$};
+	\draw (-2,4.4) node {$\dot{r}$};
+	\draw %[style = thick, postaction={decorate}] 
+	(0,0) -- (0,4) node[pos=0.6, above]
+	{$r$}; %{$\tiltaui{4}= r$}; 
+	\draw %[style = thick, postaction={decorate}]
+	(4,4) -- (0,0) node[pos = 0.5, right=2pt]{$\ell$};
+	\draw %[style = thick, postaction={decorate}] 
+	(4,4) -- (0,4) ;%node[pos=0.5,right] {$\ddot{r}$} ;%{$\tiltg{4}= \ddot{r}$};
+	\draw (2,4.4) node {$\ddot{r}$};
+
+	% The rest of the top rectangle
+	\draw (x2) -- (t1) node[pos=0.5, above] {$b_3$};
+	\draw (t1) -- (x1) node[pos=0.5, left] {$2$};
+	\draw (x1) -- (t2) node[pos=0.6, left] {$b_3$}; %{$\tiltg{6}=b_3$};
+	\draw (t2) -- (x3) node[pos=0.5, below] {$2$}; %{$\tiltg{5} = 2$};
+	
+	\draw (t1) -- (s) node[pos=0.5, above] {$b_4$}; %{$\tiltg{-1}=b_4$};
+	\draw (s) -- (z); %node[pos=0.3, left] {$b_1$}; %{$\tiltg{0}=b_1$};
+	\draw (-2,-4.4) node {$b_1$};
+	\draw (z) -- (x1) node[pos=0.5, below] {$b_2$}; %{$\tiltg{1}=b_2$};
+	\draw (t1) -- (z) node[pos=0.5, left] {$1$};
+
+	\draw [fill=violet] (P) circle (1ex); 
+	\end{scope}
+}
+
+\newcommand\rdPolygonTpath{10}
+\newcommand \TikzPolygonTpathSix[1]{
+\begin{tikzpicture}[scale={#1}, rotate=-90]
+	\MacroTtwoLiftedPolygon
+	\begin{scope}[TPathStyle]
+	\draw [->, rounded corners = \rdPolygonTpath pt] (-4,-4) -- (-4,0) -- (0,-4) -- (0,0) [rounded corners = 0] --  (0,4)  [rounded corners= \rdPolygonTpath pt] --  (4,4) -- (0,0) -- (4,0);
+	\end{scope}
+	
+	\end{tikzpicture}
+}
+
+\newcommand \TikzPolygonTpathSeven[1]{
+\begin{tikzpicture}[scale={#1}, rotate=-90]
+	\MacroTtwoLiftedPolygon
+	\begin{scope}[TPathStyle]
+	\draw [->, rounded corners = \rdPolygonTpath pt] (-4,-4) -- (-4,0) -- (0,-4) -- (0,0) -- (-4,4)  [rounded corners=0] -- (0,4)  [rounded corners=\rdPolygonTpath pt] -- (0,0) --(4,0);
+	\end{scope}
+	
+	\end{tikzpicture}
+}
+
+\newcommand \MacroTikzPolygonTpathEight[1]{
+\begin{scope}[scale={#1}, rotate=-90]
+	\MacroTtwoLiftedPolygon
+	\begin{scope}[TPathStyle]
+	\draw [TPathStyle,->, rounded corners = \rdPolygonTpath pt] (-4,-4) -- (0,-4) -- (-4,0) -- (0,0)  [rounded corners=0] -- (0,4)  [rounded corners=\rdPolygonTpath pt] -- (4,4) -- (0,0) -- (4,0);
+	\end{scope}
+	\end{scope}
+}
+\newcommand \TikzPolygonTpathEight[1]{
+\begin{tikzpicture}[scale={#1}]
+\MacroTikzPolygonTpathEight{1}
+\end{tikzpicture}
+}
+
+\newcommand \TikzPolygonTpathNine[1]{
+\begin{tikzpicture}[scale={#1}, rotate=-90]
+	\MacroTtwoLiftedPolygon
+	\begin{scope}[TPathStyle]
+	\draw [->, rounded corners = \rdPolygonTpath pt] (-4,-4) -- (0,-4) -- (-4,0) -- (0,0) -- (-4,4)  [rounded corners=0]-- (0,4)  [rounded corners=\rdPolygonTpath pt] -- (0,0) -- (4,0);
+	\end{scope}
+	\end{tikzpicture}
+}
+
+%%%%%
+%%%%%
+
+\newcommand\MacroChubbySelfFoldedTriangleTau{
+	\draw[thick] (0,0) -- (0,2.9) node[pos=0.4, left=4pt]{$\tau$};
+	\draw[style = thick, rounded corners = 20pt]%,gray!60]
+	(0,0) .. controls (-2,1) and (-1.5,3) .. (0,4.2) .. 
+	controls (2,3)  and (2.5,1) .. (0,0);
+	\draw [fill=violet] (0,2.9) circle (1ex);
+	\draw [olive] (0,0) node[below] {$v$};
+}
+
+\newcommand \TikzBacktrackNonbacktrackBacktrack[1] {
+\begin{tikzpicture}[scale={#1} ]
+	\MacroChubbySelfFoldedTriangleTau
+	\draw[blue,style = dashed, line width = 1pt, rounded corners = 5pt,
+	decoration={ markings, mark=at position .3 with {\arrow[line width=1pt]{to};},
+	mark=at position .8 with {\arrow[line width=1pt]{to};}}, postaction={decorate}]
+ 	(-0.1,0) .. controls (-0.2,2) and (-0.3,2.2) .. (0,2.5) node[pos = 0.4, left]{$\om_j$} 
+	node[pos=0.8,style=thick,fill=blue,blue,circle,minimum width=4pt,inner sep=0pt,draw] {}
+	.. controls (0.2,2) and (0.1,1) .. (0.1,0) node[pos = 0.5, right]{$\om_{j+1}$};
+	\draw[blue] (-0.3,2.5) node {$\puncture'$};
+	\draw [fill=olive] (0,0) circle (.6ex); 
+	\draw [violet] (-0.2,3.1) node {$\puncture$}; 
+\end{tikzpicture}
+}
+
+
+\newcommand\MacroQuasiBacktrackBackground{
+\newcommand\Tikzn{2}
+\newcommand\Tikzwidth{1.2*\Tikzn}
+\coordinate (P) at (0,2.9);
+\coordinate (v) at (0,0);
+\coordinate (left_top) at (-\Tikzwidth,4); 
+\coordinate (right_top) at (\Tikzwidth,4); 
+\coordinate (left_bottom) at (-\Tikzwidth,0);
+\coordinate (right_bottom) at (\Tikzwidth,0);
+\coordinate (left_mid) at (-0.8*\Tikzwidth,0.3*\Tikzn);
+\coordinate (right_mid) at (0.8*\Tikzwidth,0.3*\Tikzn);
+\draw [gray!40,fill=gray!40, rounded corners=2pt] (P) -- (left_top) -- (right_top) -- cycle;
+\draw [gray!40,fill=gray!40, rounded corners=10pt] (left_bottom) -- (left_top) -- (left_mid) -- (v);
+\draw [gray!40,fill=gray!40, rounded corners=10pt] (right_bottom) -- (right_top) -- (right_mid) -- (v) ;
+\draw[dashed, rounded corners =10pt] (left_top) -- (left_mid) -- (v);
+\draw[dashed, rounded corners =10pt] (right_top) -- (right_mid) -- (v);
+
+\draw [rounded corners=2pt] (P) -- (left_top) ; 
+\draw[dashed, rounded corners =2pt] (P) -- (right_top) -- (left_top);
+
+	\draw[thick] (0,0) -- (0,2.9);% node[pos=0.8,red]{$k$};
+\draw[rounded corners=2pt] (v) -- (-\Tikzwidth,0) -- (-\Tikzwidth,4) -- (\Tikzwidth,4) -- (\Tikzwidth,0) -- (v);
+
+\draw [fill=olive] (v) circle (.6ex); \draw [fill=olive] (left_top) circle (.6ex); 
+	\draw [fill=violet] (P) circle (1ex);
+	\draw [olive] (v) node[below] {$v$}; %\draw [olive] (left_top) node[above] {$y$};
+}
+
+\newcommand\TikzBacktrackOddFirst[1]{
+\begin{tikzpicture}[scale={#1},NonOrientedTriangulationStyle]	
+	\MacroQuasiBacktrackBackground
+	
+	\begin{scope}
+	\tikzset{anchor=west}
+  	\node[rotate=90,red] at (0.2,1.5) {\tiny $k+1$};
+	\end{scope}
+        
+	\draw[blue,style = dashed, line width = 1pt, rounded corners = 1pt,
+	decoration={ markings, mark=at position .4 with {\arrow[line width=1pt]{to reversed};}},
+	decoration={ markings, mark=at position .7 with {\arrow[line width=1pt]{to reversed};}},
+	postaction={decorate}]
+	(v) .. controls (-0.1,2) and (-0.3,2.5) .. (-0.5,2.8) node[pos = 0.2, left]{$\om_{2k+1}$}
+	node[pos=1,style=thick,fill=blue,blue,circle,minimum width=4pt,inner sep=0pt,draw] {}
+	.. controls (-0.7,2.3) and (-0.3,2) .. (-0.1,0) node[pos = 0.8, right=2pt]{$\om_{2k+2}$};
+	\draw[blue] (-0.8,2.9) node {$\puncture'$};
+
+	\draw[gray] (-0.5*\Tikzn,1*\Tikzn) node {$\blacktri{k}$};
+	\draw[gray] (0.5*\Tikzn,1*\Tikzn) node {$\blacktri{k+1}$};
+\end{tikzpicture}
+}
+
+
+
+\newcommand\TikzBacktrackEvenFirst[1]{
+\begin{tikzpicture}[scale={#1},NonOrientedTriangulationStyle]
+\MacroQuasiBacktrackBackground
+
+	\draw (-0.15,2.3) node[red] {\tiny $k$};
+        
+	\draw[blue,style = dashed, line width = 1pt, rounded corners = 1pt,
+	decoration={ markings, mark=at position .4 with {\arrow[line width=1pt]{to};}},
+	decoration={ markings, mark=at position .7 with {\arrow[line width=1pt]{to};}},
+	postaction={decorate}]
+	(v) .. controls (0.1,2) and (0.3,2.5) .. (0.5,2.7) node[pos = 0.3, left]{$\om_{2k}$}
+	node[pos=1,style=thick,fill=blue,blue,circle,minimum width=4pt,inner sep=0pt,draw] {}
+	.. controls (0.7,2.3) and (0.5,2) .. (0.1,0) node[pos = 0.8, right]{$\om_{2k+1}$};
+	\draw[blue] (0.8,3) node {$\puncture'$};
+
+	\draw[gray] (-0.5*\Tikzn,1*\Tikzn) node {$\blacktri{k-1}$};
+	\draw[gray] (0.5*\Tikzn,1*\Tikzn) node {$\blacktri{k}$};
+\end{tikzpicture}
+}
+
+
+\newcommand\TikzQuasiBacktrackOddFirst[1]{
+\begin{tikzpicture}[scale={#1},NonOrientedTriangulationStyle]
+	\begin{scope}
+	\tikzset{anchor=west}
+  	\node[rotate=90,red] at (0.2,1.5) {\tiny $k+1$};
+	\end{scope}
+  
+	\MacroQuasiBacktrackBackground
+	
+        \draw[blue,style = dashed, line width = 1pt, rounded corners = 5pt,
+	decoration={ markings, mark=at position .6 with {\arrow[line width=1pt]{to};}},
+	postaction={decorate}]
+	(-0.3,2.7) .. controls (-0.2,2.5) and (-0.2,2) .. (-0.1,0) node[pos = 0.7, left]{$\om_{2k+1}$}
+	node[pos=0,style=thick,fill=blue,blue,circle,minimum width=4pt,inner sep=0pt,draw] {};
+	\draw[blue] (-0.6,2.8) node {$\puncture'$};
+        
+	\draw[blue,style = dashed, line width = 1pt, rounded corners = 5pt,
+	decoration={ markings, mark=at position .4 with {\arrow[line width=1pt]{to};}},
+	postaction={decorate}]
+	(0.1,0) .. controls (0.1,2) and (0.7,2.5) .. (0.8,2.7) node[pos = 0.3, right]{$\om_{2k+2}$}
+	node[pos=1,style=thick,fill=blue,blue,circle,minimum width=4pt,inner sep=0pt,draw] {};
+	\draw[blue] (1.2,3) node {$\puncture''$};
+
+	\draw [fill=olive] (v) circle (.6ex); \draw [fill=olive] (left_top) circle (.6ex); 
+	\draw [fill=violet] (P) circle (1ex);
+	\draw [olive] (v) node[below] {$v$}; %\draw [olive] (left_top) node[above] {$y$};
+	%\draw [violet] (-0.4,3.1);
+%	\draw[gray] (-0.5*\Tikzn,1*\Tikzn) node {$\blacktri{k}$};
+%	\draw[gray] (0.5*\Tikzn,1*\Tikzn) node {$\blacktri{k+1}$};
+	
+\end{tikzpicture}
+}
+
+\newcommand\TikzQuasiBacktrackEvenFirst[1]{
+\begin{tikzpicture}[scale={#1},NonOrientedTriangulationStyle]
+	\MacroQuasiBacktrackBackground
+	\draw (0.15,2.3) node[red] {\tiny $k$};
+        \draw[blue,style = dashed, line width = 1pt, rounded corners = 5pt,
+	decoration={ markings, mark=at position .6 with {\arrow[line width=1pt]{to};}},
+	postaction={decorate}]
+	(-0.3,2.7) .. controls (-0.2,2.5) and (-0.1,2.4) .. (-0.1,0) node[pos = 0.7, left]{$\om_{2k}$}
+	node[pos=0,style=thick,fill=blue,blue,circle,minimum width=4pt,inner sep=0pt,draw] {};
+	\draw[blue] (-0.6,2.8) node {$\puncture'$};
+        
+	\draw[blue,style = dashed, line width = 1pt, rounded corners = 5pt,
+	decoration={ markings, mark=at position .4 with {\arrow[line width=1pt]{to};}},
+	postaction={decorate}]
+	(0.1,0) .. controls (0.1,2) and (0.6,2.5) .. (0.6,2.7) node[pos = 0.3, right]{$\om_{2k+1}$}
+	node[pos=1,style=thick,fill=blue,blue,circle,minimum width=4pt,inner sep=0pt,draw] {};
+	\draw[blue] (1,3.1) node {$\puncture''$};
+
+%	\draw [fill=olive] (v) circle (.6ex); \draw [fill=olive] (left_top) circle (.6ex); 
+%	\draw [fill=violet] (P) circle (1ex);
+%	\draw [olive] (v) node[below] {$v$}; %\draw [olive] (left_top) node[above] {$y$};
+
+	\draw[gray] (-0.5*\Tikzn,1*\Tikzn) node {$\blacktri{k-1}$};
+	\draw[gray] (0.5*\Tikzn,1*\Tikzn) node {$\blacktri{k}$};
+\end{tikzpicture}
+}
+
+%\newcommand \TikzNonloopBacktrack[1] {
+%\begin{tikzpicture}[scale={#1} ]
+%        \MacroChubbySelfFoldedTriangleTau
+%        \draw[blue,style = dashed, line width = 1pt, rounded corners = 5pt,
+%	decoration={ markings, mark=at position .6 with {\arrow[line width=1pt]{to};}},
+%	postaction={decorate}]
+%	(-0.3,3.2) .. controls (-0.4,3) and (-0.2,3) .. (-0.1,0) node[pos = 0.7, left]{$\om_k$}
+%	node[pos=0,style=thick,fill=blue,blue,circle,minimum width=4pt,inner sep=0pt,draw] {};
+%	\draw[blue] (-0.6,3.3) node {\tiny{$P'$}};
+%        
+%	\draw[blue,style = dashed, line width = 1pt, rounded corners = 5pt,
+%	decoration={ markings, mark=at position .4 with {\arrow[line width=1pt]{to};}},
+%	postaction={decorate}]
+%	(0.1,0) .. controls (0.2,3) and (0.4,3) .. (0.3,3.3) node[pos = 0.3, right]{$\om_{k+1}$}
+%	node[pos=1,style=thick,fill=blue,blue,circle,minimum width=4pt,inner sep=0pt,draw] {};
+%	\draw[blue] (0.7,3.3) node {\tiny{$P''$}};
+%
+%	\draw [fill=olive] (0,0) circle (.6ex); 
+%	\draw [violet] (-0.4,3.1);
+%\end{tikzpicture}
+%}
+
+\newcommand \TikzBacktrackNonbacktrackCounterclock[1] {
+\begin{tikzpicture}[scale={#1}]
+	\MacroChubbySelfFoldedTriangleTau
+	\draw[blue,style = dashed, line width = 1pt, rounded corners = 5pt,
+	decoration={ markings, mark=at position .3 with {\arrow[line width=1pt]{to};},
+	mark=at position .8 with {\arrow[line width=1pt]{to};}}, postaction={decorate}]
+	(0.1,0) .. controls (0.2,3) and (0.4,3) .. (0,3.5) node[pos = 0.4, right]{$\om_{j+1}$} 
+	node[pos=0.9,style=thick,fill=blue,blue,circle,minimum width=4pt,inner sep=0pt,draw] {}
+	 .. controls (-0.4,3) and (-0.2,3) .. (-0.1,0) node[pos = 0.6, left]{$\om_j$};
+	 \draw[blue] (0.4,3.6) node {\tiny{$P'$}};
+	\draw [fill=olive] (0,0) circle (.6ex); 
+	\draw [violet] (-0.4,3.1);
+	\node at (3.5,0) {}; \node at (-3.5,0) {};
+\end{tikzpicture}
+}
+
+\newcommand \TikzBacktrackNonbacktrackClock[1] {
+\begin{tikzpicture}[scale={#1}]
+	\MacroChubbySelfFoldedTriangleTau
+	\draw[blue,style = dashed, line width = 1pt, rounded corners = 5pt,
+	decoration={ markings, mark=at position .3 with {\arrow[line width=1pt]{to};},
+	mark=at position .8 with {\arrow[line width=1pt]{to};}}, postaction={decorate}]
+	(-0.1,0) .. controls (-0.2,3) and (-0.4,3) .. (0,3.5) node[pos = 0.4, left]{$\om_j$}
+	.. controls (0.4,3) and (0.2,3) .. (0.1,0) node[pos = 0.6, right]{$\om_{j+1}$}
+	node[pos=0.1,style=thick,fill=blue,blue,circle,minimum width=4pt,inner sep=0pt,draw] {};
+	\draw[blue] (0.4,3.6) node {\tiny{$P'$}};
+	\draw [fill=olive] (0,0) circle (.6ex); 
+	\draw [violet] (-0.4,3.1); 
+	\node at (3,0) {}; \node at (-3,0) {};
+\end{tikzpicture}
+}
+
+%%%%% end of new
+ \newcommand \MacroSelfFoldedLocalTriangulation {
+	\coordinate (v1L) at (-2.2,1);  %\coordinate (v1L) at (-3,1); 
+	\coordinate (v1R) at (3,1); 
+	%\coordinate (v2L) at (-3.5,3); \coordinate (v2R) at (3.5,3);
+	\coordinate (v2L) at (-2.2,3.5); \coordinate (v2R) at (3,3);
+
+	\begin{scope}[orientedTriangulationStyle,gray]
+		\draw [style = dashed, fill=gray!20]  % left gray area
+		(0,0) .. controls (-3,2) and (-2,3.5) .. (0,4)  -- (v2L) -- (v1L) -- (0,0);
+		\draw [style = dashed, fill=gray!20]  % right gray area
+		(0,0) .. controls (3,2) and (2,3.5) .. (0,4)  -- (v2R) -- (v1R) -- (0,0);
+	
+		\draw[style = thick, postaction={decorate}] (0,0) -- (0,2.2) node[pos=0.6, right]{r};
+		\draw[style = thick, NooseArrowAtPosStyleSix] (0,0) .. controls (-3,4) and (3,4) .. (0,0) 
+		node[pos = 0.7, right=1.5pt,black]{$\ell$};
+		\draw[style = thick, postaction={decorate}] (0,0) .. controls (-3,2) and (-2,3.5) .. (0,4) 
+		node[pos = 0.3, left,black]{$\a$};
+		\draw[style = thick, postaction={decorate}] (0,0) .. controls (3,2) and (2,3.5) .. (0,4) 
+		node[pos = 0.3, right,black]{\tiny $\b$};
+		\draw[fill=violet] (0,2.2) circle (0.6ex);
+	\end{scope}
+} 
+  
+\newcommand \MacroSelfFoldedLocalTriangulationVertices{
+	\coordinate (Ps) at (0,2.2);  \coordinate (xs) at (0,0); \coordinate (ys) at (0,4);
+	\draw [fill=olive] (xs) circle (.4ex); \draw (0,0) node[below=2pt, olive] {$v$};
+	\draw [fill=olive] (ys) circle (.4ex); \draw (0,4) node[above=2pt, olive] {$y$};
+	\draw [fill=violet] (Ps) circle (.6ex);  \draw[violet] (0,2.2) node[above=2pt] {\tiny $P$}; %Puncture	
+}
+ 
+\newcommand \MacroSelfFoldedLocalTriangulationAndMore{
+	\MacroSelfFoldedLocalTriangulation
+	\MacroSelfFoldedLocalTriangulationVertices
+}
+\newcommand \SelfFoldedLocalTriangulationGammaCrossesSelfFolded[1] {
+\begin{tikzpicture}[scale={#1}] 
+      	% gamma is peripheral crossing self-folded triangle
+	\MacroSelfFoldedLocalTriangulationAndMore
+	\draw [line width = 3pt, red, ->](-1.4,1.7) -- (1.4,1.7) node[pos = 0, above=1pt]{\Large{$\ga$}};
+	\draw [fill=blue] (-0.8,1.7) circle (.6ex) node[below=7pt, left=2pt, blue] {$p_k$}; %pk, pk1, pk2
+	\draw [fill=blue] (0,1.7) circle (.6ex) node[below=2pt, blue] {$p_{k+1}$}; %pk, pk1, pk2
+	\draw [fill=blue] (0.8,1.7) circle (.6ex) node[below=8pt, right=2pt, blue] {$p_{k+2}$}; %pk, pk1, pk2
+\end{tikzpicture}
+}
+\newcommand \SelfFoldedLocalTriangulationGammaCrossesSelfFoldedRadius[1] {
+\begin{tikzpicture}[scale={#1}] 
+	%\begin{scope}[xshift=6.5cm] % for when gamma is radius
+	\MacroSelfFoldedLocalTriangulationAndMore
+	\draw [line width = 3pt, red, ->](0,2.4) -- (-0.5,3.3) node[pos = 0.8, left=4pt]{\Large{$\ga$}};
+	\draw [fill=blue] (-0.35,2.9) circle (.6ex) node[right=10pt, above=2pt, blue] {$p_1$}; %p1
+
+	
+\end{tikzpicture}
+}
+\newcommand \SelfFoldedLocalTriangulationGammaDoesntCrossSelfFolded[1] {
+\begin{tikzpicture}[scale={#1}, orientedTriangulationStyle ]	
+	\MacroSelfFoldedLocalTriangulation
+	\draw [line width = 3pt, red, ->](0,0) .. controls (-4,4) and (3,4.5) .. (3,1.1) 
+	node[pos = 0.8, right=2pt] {\Large{$\ga$}}; % red gamma
+	\MacroSelfFoldedLocalTriangulationVertices
+\end{tikzpicture}
+}
+
+\newcommand\TikzGammaK[1]{
+\begin{tikzpicture}[scale={#1}] 	
+	\MacroChubbySelfFoldedTriangle
+			
+	\draw [red, line width = 3pt,
+	decoration={ markings, mark=at position .6 with {\arrow[line width=3pt]{to};}}, postaction={decorate}] (-1.6,1.3) -- (0,1.3) 
+	node[pos=0.6, above]{\Large{$\ga_k$}};
+	\draw [fill=blue] (-1.6,1.3) circle (.6ex) node[left, blue] {$p_k$}; 
+	\draw [fill=blue] (0,1.3) circle (.6ex) node[right, blue] {$p_{k+1}$}; 	
+\end{tikzpicture}
+}
+
+\newcommand\MacroEllPlusEllPlus{
+	\draw[->,blue,style = dashed, line width = 2pt, rounded corners = 15pt,
+	decoration={ markings, mark=at position .3 with {\arrow[line width=2pt]{to};},
+	mark=at position .8 with {\arrow[line width=2pt]{to};}}, postaction={decorate}]
+	(-1.8,1.2)  -- (-2,2) -- %(-1.7,3) -- 
+	(-1.5,3.5) -- 
+	%%.. controls (-2,1.5) and (-1.8,3) .. 
+	(0,4.2) .. 	controls (3,2.8)  and (2.5,1) .. 
+	(0,-0.4)  .. controls (-2,2) and (-1.6,3) .. 
+	(0,3.8) .. 	controls (2,2.8)  and (1.5,1) .. 
+	(0.2,0.2) -- (0.2,1.3) ;
+}
+
+\newcommand\TikzEllPlusEllPlus[1]{ % TODO not used I think
+\begin{tikzpicture}[scale={#1}] 	
+	\MacroChubbySelfFoldedTriangle
+	\MacroEllPlusEllPlus
+\end{tikzpicture}
+}
+
+\newcommand\TikzGammaKConcatenate[1]{
+\begin{tikzpicture}[scale={#1}] 	
+	\draw [fill=violet] (0,2.7) circle (0.6ex) node[right=1pt, violet] {\tiny $P$}; 
+	 \draw [red, line width = 3pt, 
+	decoration={ markings, mark=at position .5 with {\arrow[line width=3pt]{to};}}, postaction={decorate}]  (0.2,1.2) -- (-1.8,1.2)
+	node[pos=0.3, above]{\Large{$\ga_k^-$}};
+	\MacroEllPlusEllPlus
+\end{tikzpicture}
+}
+\newcommand\MacroChubbySelfFoldedTriangle{
+    \begin{scope}[gray!90]
+	\draw[thick]
+	(0,0) -- (0,2.5) node[black,pos=0.7, right]{$r$};
+	\draw[fill=violet] (0,2.5) circle (0.6ex);
+	\draw[fill=olive] (0,0) circle (0.4ex);
+	\draw[style = thick, rounded corners = 20pt]
+	(0,0) .. controls (-2.5,1) and (-2,3) .. (0,4) .. 
+	controls (2,3)  and (2.5,1) .. (0,0) node[black,pos=0.5, right] {$\ell$};
+    \end{scope}
+}
+\newcommand\MacroEllMinusRRLong{
+	\draw[<-,blue,style = dashed, line width = 2pt, rounded corners = 15pt,
+	decoration={ markings, mark=at position .5 with {\arrow[line width=2pt]{to reversed};}}, postaction={decorate}]
+	(0.2,0.8) --  (-0.1,2.4) -- 
+	(-0.4,0.3)  .. controls (-1.8,1.3) and (-2,2.8) .. (0,3.9) ..  % left half of ell
+	controls (2,2.8)  and (1.5,1) .. (1,0.8) ;% right half of ell
+}
+\newcommand\MacroEllPlusEllMinusR{
+		\draw[->,blue,style = dashed, line width = 2pt, 
+		rounded corners = 15pt,
+	decoration={ markings, mark=at position .3 with {\arrow[line width=2pt]{to};},
+	mark=at position .85 with {\arrow[line width=2pt]{to};}}, 
+	postaction={decorate}]
+	(-1.8,1.5)  -- (-2,2) -- 
+	(-1.5,3.5) -- 	(0,4.1) .. 	controls (2.5,2.8)  and (2,1.5) .. (0.6,0.4) 
+	 ..  controls  (1.5,1) and  (2,2.8)  .. 
+	(0,3.8) .. controls (-1.6,3) and (-2.3,2)  .. 
+	(0,0) -- (0,2.2) ;
+}
+\newcommand\MacroRLMinLPlus{
+		\draw[->,blue,style = dashed, line width = 2pt, rounded corners = 15pt,
+	decoration={ markings, mark=at position .06 with {\arrow[line width=2pt]{to};},
+	mark=at position .15 with {\arrow[line width=2pt]{to};}}, 
+	postaction={decorate}]
+	(-0,2) -- (-0,0) .. controls (1.5,1) and (2,2.8)  .. (0,3.8) 
+	 .. 
+	 controls (-1.6,3) and (-2.3,2)  .. 
+	  (-1,0.6)  ..
+	controls (-2.2,2)  and  (-1.7,3.3)  .. (0,4.1) .. controls (1.7,3.3) and (2.2,2) .. (1.6,1.3);
+}
+
+
+
+\newcommand\MacroEllPlusRR{
+	\draw[->,blue,style = dashed, line width = 2pt, rounded corners = 15pt,
+	decoration={ markings, mark=at position .2 with {\arrow[line width=2pt]{to};}}, postaction={decorate}]
+	(-1.4,1.2)  .. controls (-1.7,2) and (-1.6,3) .. (0,3.8) ..  % left half of ell
+	controls (2,2.8)  and (1.5,1) .. (0.3,0.2) % right half of ell
+	-- (0.1,2.5) -- (-0.3,1);
+}
+\newcommand\MacroRREllMinus{
+	\draw[<-,blue,style = dashed, line width = 2pt, rounded corners = 15pt,
+	decoration={ markings, mark=at position .5 with {\arrow[line width=2pt]{to reversed};}}, postaction={decorate}]
+	(-1.4,1.2)  .. controls (-1.7,2) and (-1.6,3) .. (0,3.8) ..  % left half of ell
+	controls (2,2.8)  and (1.5,1) .. (0.2,0.2) % right half of ell
+	-- (0.1,2.5) -- (-0.3,1);
+}
+\newcommand\TikzEllPlusRR[1]{ % todo not used
+\begin{tikzpicture}[scale={#1}] 	
+	\MacroChubbySelfFoldedTriangle
+	\MacroEllPlusRR
+\end{tikzpicture}
+}
+\newcommand\TikzEllPlusRRConcatenate[1]{
+\begin{tikzpicture}[scale={#1}] 	
+	\MacroChubbySelfFoldedTriangle
+	 \draw [red, line width = 3pt, 
+	decoration={ markings, mark=at position .5 with {\arrow[line width=3pt]{to};}}, postaction={decorate}]  (-0.3,1.1) -- (-1.4,1.1)
+	node[pos=0.5, above]{\Large{$\ga_k^-$}};
+	\MacroEllPlusRR
+\end{tikzpicture}
+}
+
+\newcommand\MacroEllMinusRR{
+	\draw[->,blue,style = dashed, line width = 2pt, rounded corners = 10pt,
+	decoration={ markings, mark=at position .2 with {\arrow[line width=2pt]{to};}}, postaction={decorate}]
+	(-1.6,1)  --  (-1.3,0.4) -- (0.2,0)  
+	-- (0.2,2.5) -- (-0.3,1);
+}
+\newcommand\TikzEllMinusRRConcatenate[1]{
+\begin{tikzpicture}[scale={#1}] 	
+	\MacroChubbySelfFoldedTriangle
+	 \draw [red, line width = 3pt, 
+	decoration={ markings, mark=at position .5 with {\arrow[line width=3pt]{to};}}, postaction={decorate}]  (-0.3,1.1) -- (-1.6,1.1)
+	node[pos=0.5, above]{\Large{$\ga_k^-$}};
+	\MacroEllMinusRR
+\end{tikzpicture}
+}
+
+
+\newcommand\MacroEllPlusRRnonBT{
+	\draw[->,blue,style = dashed, line width = 2pt, rounded corners = 15pt,
+	decoration={ markings, mark=at position .2 with {\arrow[line width=2pt]{to};}}, postaction={decorate}]	
+	(-1.4,1.2)  -- (-1.8,1.8) --  % ell
+	(-1.5,3.2) --  % ell
+	(0,3.8) .. controls (2.6,2.8)  and (1.5,1) .. % right part of ell
+	(0.4,0.2) .. controls (0.3,1) and (0.5,2.8) .. % non backtrack rr
+	(-0.4,3.3) .. controls (-0.3, 2) and (-0.2,1.5) .. % non backtrack rr
+	(-0.3,1); % non backtrack rr
+}
+
+\newcommand\MacroRREllPlusnonBT{
+	\draw[->,blue,style = dashed, line width = 2pt, rounded corners = 15pt,
+	decoration={ markings, mark=at position .3 with {\arrow[line width=2pt]{to};}},
+	decoration={ markings, mark=at position .6 with {\arrow[line width=2pt]{to};}}, postaction={decorate}]	
+	(0.3,0.6) .. controls (0.3,1) and (0.5,2.8) .. % non backtrack rr
+	(-0.4,3.3) .. controls (-0.3, 2) and (-0.2,1.5) .. % non backtrack rr
+	(-0.2,0) % non backtrack rr
+	--
+	(-1.4,0.7)  -- (-1.8,1.8) --  % ell
+	(-1.5,3.2) --  % ell
+	(0,3.8) .. controls (2.6,2.8)  and (1.5,1) .. % right part of ell
+	(0.8,0.4);
+}
+
+\newcommand\TikzEllPlusRRnonBTConcatenate[1]{
+\begin{tikzpicture}[scale={#1}] 	
+	\MacroChubbySelfFoldedTriangle
+	%\draw [fill=violet] (0,2.7) circle (0.6ex) node[below=1pt, violet] {\tiny $P$}; 
+	 \draw [red, line width = 3pt, 
+	decoration={ markings, mark=at position .5 with {\arrow[line width=3pt]{to};}}, postaction={decorate}]  (-0.3,1.1) -- (-1.4,1.1)
+	node[pos=0.5, above]{\Large{$\ga_k^-$}};
+	\MacroEllPlusRRnonBT
+\end{tikzpicture}
+}
+\newcommand\TikzEllPlusRRnonBT[1]{
+\begin{tikzpicture}[scale={#1}] 	
+	\MacroChubbySelfFoldedTriangle
+	%\draw [fill=violet] (0,2.7) circle (0.6ex) node[below=1pt, violet] {\tiny $P$}; 
+	\MacroEllPlusRRnonBT
+\end{tikzpicture}
+}
+%%%%%%%%%
+%%%%%%%%%
+\newcommand \tilTriangleSelfFoldedK[4] {
+\begin{scope} [scale={#1}, orientedTriangulationStyle ]
+	\draw[style = thick, postaction={decorate}] (0,0) -- (-4,4) node[pos = 0.7, left=2pt]{#2};
+	\draw[style = thick, postaction={decorate}] (-4,4) -- (0,4) node[pos=0.5, above=6pt]
+	{#3};
+	\draw[style = thick, postaction={decorate}] (0,0) -- (0,4) node[pos=0.3,right=2pt]
+	{#4}; % common edge of both triangles
+	\draw[fill=violet] (0,4) circle (.6ex);
+\end{scope}
+} 
+\newcommand \tilTriangleSelfFoldedKplusOne[3] { 
+\begin{scope} [scale={#1}, orientedTriangulationStyle ]
+	\draw[style = thick, postaction={decorate}] (4,4) -- (0,0) node[pos = 0.3, right=2pt]{#2};
+	\draw[style = thick, postaction={decorate}] (4,4) -- (0,4) node[pos=0.5, above=6pt]
+	{#3};
+\end{scope}
+}
+
+\newcommand \tilDoubleSelfFoldedTriangleComplicatedLabels[1]{  
+\begin{scope}[gray]
+\tilTriangleSelfFoldedK{#1}{$\tiltaui{k}=\ell$}{$\tiltg{k}=\dot{r}$}{$\tiltaui{k+1}= r$}
+\tilTriangleSelfFoldedKplusOne{#1}{$\tiltaui{k+2}=\ell$}{$\tiltg{k+1}= \ddot{r}$}
+\end{scope}
+}
+\newcommand \tilSDoubleTriangleForPeripheralGamma[1] {
+	\tilDoubleSelfFoldedTriangleComplicatedLabels{#1}	
+	\begin{scope}[scale={#1}]
+	\coordinate (P) at (0,4);
+	\draw [fill=olive] (0,0) circle (.6ex); \draw (0,0) node[below=3pt,olive] {$\tilv^1$};
+	\draw [fill=olive] (-4,4) circle (.6ex); \draw (-4,4) node[left=2pt,olive] {$\tilv^2$};
+	\draw [fill=olive] (4,4) circle (.6ex); \draw (4,4) node[right=2pt,olive] {$\tilv^3$};
+	\draw [fill=violet] (P) circle (.8ex); %\draw (0,4) node[above=3pt, violet] {$\tilP$}; % Puncture
+	\draw [fill=blue] (-2,2) circle (.6ex) node[left=4pt, blue] {$\tilp_k$}; %pk, 
+	\draw [fill=blue] (0,2) circle (.6ex) node[left=10pt, below=3pt, blue] {$\tilp_{k+1}$};%pk1, pk2
+	\draw [fill=blue] (2,2) circle (.6ex) node[right=10pt, blue] {$\tilp_{k+2}$};%pk2
+	\end{scope}
+}
+\newcommand \tilTriangleSelfFoldedOne[4] {
+\begin{scope} [scale={#1}, orientedTriangulationStyle ]
+	\draw[postaction={decorate}] (0,4) -- (0,0) node[pos=0.4, left=3pt]
+	{#2}; % vertical lift of r
+	\draw[postaction={decorate}] (4,0) -- (0,0) node[pos=0.4, below=3pt]
+	{#3}; % horizontal lift of r
+	\draw[postaction={decorate}] (0,4) -- (4,0) node[pos=0.2, right=6pt]
+	{#4}; % diagonal, lift of ell
+	\draw[fill=violet] (0,0) circle (.6ex);
+\end{scope}
+}
+\newcommand \tilTriangleSelfFoldedTwo[3] {
+ \begin{scope}  [scale={#1}, orientedTriangulationStyle ]
+  	\draw[postaction={decorate}] (0,4) -- (4,4) node[pos=0.6, above]
+	{#2}; % lift of a (horizontal)
+	\draw[postaction={decorate}] (4,0) -- (4,4) node[pos=0.7, right=2pt]
+	{#3}; % lift of b (vertical)
+\end{scope}
+}
+
+\newcommand \tilSTriangleOneTwoForRadiusGamma[1] {
+	\begin{scope}[gray,scale={#1}]
+	
+	\coordinate (P2) at (0,4); \coordinate (P1) at (4,0);
+	 \tilTriangleSelfFoldedOne{1}{$\ddot{r}$}{$r$}{$\tiltaui{1} = \tilell$}
+	 \tilTriangleSelfFoldedTwo{1}{$\a$}{\tiny $\b$} 	
+	  
+	  % vertices	
+	\draw [fill=violet] (0,0) circle (.9ex); \draw (0,0) node[below=3pt,violet] {$\tils = \tilP$};
+	\draw [fill=olive] (4,4) circle (.6ex); \draw (4,4) node[above=3pt, right=2pt,olive] {$\tily$};
+	\draw [fill=olive] (P2) circle (.6ex); \draw (P2) node[above=3pt,violet] {$\tilv^2$};%v lift
+	\draw [fill=olive] (P1) circle (.6ex); \draw (P1) node[below=3pt,violet] {$\tilv^2$};%v
+	\draw [fill=blue] (2,2) circle (.6ex) node[right=7pt, blue] {$\tilp_{1}$};%p1
+	
+	\end{scope}
+}
+%%%%%%%%%%%%%  
+\newcommand \MacroTtwoTriangulationCoordinates{
+ \coordinate (t) at (0,0); 
+ \coordinate(s) at (4,0);
+  \coordinate(vL) at (0,4);  \coordinate(vR) at (4,4);
+   \coordinate(x) at (0,4);  \coordinate(z) at (4,4);
+ }
+
+%\newcommand \MacroTtwoTriangulationVertices{
+% \draw [fill=olive] (0,0) circle (.6ex);
+%\draw [fill=olive] (0,4) circle (.6ex);
+% \draw (-0.3,4.2) node[olive] {$v$};
+%\draw [fill=olive] (4,0) circle (.6ex);
+%\draw [fill=olive] (4,4) circle (.6ex);
+%\draw [fill=violet] (1.2,2.2) circle (.6ex); %puncture
+%% \draw (1.4,2) node[violet] {\tiny $P$};
+%  }
+
+
+ \newcommand \MacroTtwoIdealTriangulationWithNumberLabels {
+ \MacroTtwoTriangulationCoordinates
+ \newcommand\tempfontsize{\small}
+\begin{scope}[NonOrientedTriangulationStyle]
+\draw[postaction={decorate}]  (s) -- (vR) node[pos=0.5,left] {\tempfontsize $b_1$};
+\draw[postaction={decorate}]  (vR) -- (vL) node[pos=0.5,below]{\tempfontsize $b_2$};
+\draw[postaction={decorate}]  (vL) -- (t) node[pos=0.5,right] {\tempfontsize $b_3$};
+\draw[postaction={decorate}]  (t) --(s) node[pos=0.5,above] {\tempfontsize $b_4$};
+\draw [postaction={decorate}] (t) ..  controls(3.5,0.4) and (3.5,2) .. (vR) node[left, pos=0.3] {\tempfontsize $1$};
+\draw [postaction={decorate}] (t) ..  controls (3.7,1) and (3.8,3.9)   .. (vL) node[ pos=0.5] {\tempfontsize $2$};%;
+\draw [NooseArrowAtPosStyleSix] (vL) ..  controls (3.9,1.4)  and (0.7,0.1)  .. (vL) node[pos=0.7, right,above] {\tempfontsize $\ell$}; %loop
+\draw[postaction={decorate}] (vL) -- (1.2,2.2) node[ pos=0.7] {\tempfontsize $r$};
+\end{scope}
+ } 
+  \newcommand\TikzTtwoIdealTriangulationWithNumberLabels[1]{ % USED
+ 	\begin{tikzpicture} [scale = {#1}, rotate=180] %% T2 triangulation tagged (IDEAL)
+	\begin{scope}
+	\MacroTtwoIdealTriangulationWithNumberLabels
+	\draw [<-,decorate, line width=2 pt, dashed, red!60] (0,0) ..  controls (0,5) and (4,4)   .. (4,0)
+	node[sloped, rotate=90, pos=0.7, below=6pt] {\small{$\ga$}}; % red gamma
+	%\MacroTtwoTriangulationVertices
+	\draw [fill=violet] (1.2,2.2) circle (.3ex); %puncture
+	\draw [fill=olive] (t) circle (.2ex); 
+	\draw [fill=olive] (vL) circle (.2ex); 
+	\draw [fill=olive] (s) circle (.2ex); 
+	\draw [fill=olive] (vR) circle (.2ex); 
+	\end{scope}
+\end{tikzpicture}
+}  
+\newcommand  \TikzTtwoTagged[1]{
+ \begin{tikzpicture} [scale =#1]%% T2 triangulation tagged (IDEAL)
+ \begin{scope}[rotate=180]
+\MacroTtwoTriangulationCoordinates
+\draw[style = thick]  (0,0) rectangle (4,4);
+\draw [style = thick] (0,0) ..  controls(3.5,0.4) and (3.5,2) .. (4,4);
+\draw [style = thick] (0,0) ..  controls (3.7,1) and (3.8,3.9)   .. (0,4);
+\draw [style = very thick, gray] (0,4) ..  controls (0.7,0.1) and (3.9,1.4)   .. (0,4) node[pos=0.75, left] {$\ell$}; %loop
+\draw[style = thick] (0,4) -- (1.2,2.2);
+\MacroTtwoTriangulationVertices
+\end{scope}
+\end{tikzpicture}
+\begin{tikzpicture}[scale=#1] %% T2 triangulation tagged
+\begin{scope}[rotate=180]
+\MacroTtwoTriangulationCoordinates
+\draw[style = thick]  (0,0) rectangle (4,4); 
+\draw [style = thick] (0,0) ..  controls(3.5,0.4) and (3.5,2) .. (4,4); % the right most peripheral arc
+\draw [style = thick] (0,0) ..  controls (3.7,1) and (3.8,3.9)   .. (0,4); % the middle arc 
+\draw[style = thick] (0,4) .. controls (0.8,1) and (1,2) .. (1.2,2.2);  % the radius (tagged plain) arc
+\draw[style = very thick, gray] (0,4) -- (1.2,2.2) node[pos=0.5, left=1pt] {$\iota(\ell)$};  
+\path[fill, gray] (1,2.5) -- (1.1,2.8) -- (1.3,2.5) -- cycle; % the notching (right)
+\path[fill, gray] (1,2.5) -- (0.9,2.2) -- (0.7,2.5) -- cycle; % the notching (left)
+\MacroTtwoTriangulationVertices
+\end{scope}
+\end{tikzpicture}
+ }
+%%%%%%%
+%%%%%% T1 triangulation %%%%
+\newcommand \TikzTone{ %Draw the triangulation where the arcs are labeled 1,2,3,4
+\draw[style = thick]  (0,0) rectangle (4,4);
+\draw [style = thick] (0,0) ..  controls(3.5,0.4) and (3.5,2) .. node[pos =0.4,right=2pt] {$1$}  (4,4);
+\draw [style = thick] (0,0) ..  controls (3.7,1) and (3.8,3.9)   .. node[pos =0.4,left=2pt] {$2$}  (0,4);
+\draw[style = thick] (0,4) -- node[pos =0.3,right=1pt] {$3$}  (1.2,2.2);
+\draw[style = thick] (1.2,2.2) -- node[pos =0.4,right=1pt] {$4$}  (0,0);
+\draw [fill=violet] (1.2,2.2) circle (.7ex); %puncture
+\draw [fill=olive] (0,0) circle (.6ex);
+\draw [fill=olive] (0,4) circle (.6ex);
+\draw [fill=olive] (4,0) circle (.6ex);
+\draw [fill=olive] (4,4) circle (.6ex);
+\draw (4,2) node [right = 5pt] {\Large{$b_1$}};
+\draw  (2,4) node [above = 5pt] {\Large{$b_2$}};
+\draw  (0,2) node [left = 5pt] {\Large{$b_3$}};
+\draw  (2,0) node [below = 5pt] {\Large{$b_4$}};
+ }
+\newcommand  \TikzToneWithGamma[1]{
+ \begin{tikzpicture} [scale=#1]
+\TikzTone %Draw the triangulation where the arcs are labeled 1,2,3,4
+\draw [red] (4,0) node [right = 5pt] {\Large{$s$}};
+\draw [red] (0,0) node [left = 5pt] {\Large{$t$}};
+\draw [<-,decorate, line width=3 pt, dashed, red] (0,0) ..  controls (0,5) and (4,4)   .. (4,0)
+node[pos=0.7, above=2pt] {\Large{$\ga$}}; % red gamma
+\end{tikzpicture}
+  }
+\newcommand \TikzToneBlackTriangles[1]{
+\begin{tikzpicture} [scale=#1]
+\MacroTikzToneTgk %Draw just the triangulation where the arcs are labeled taui or tgk
+\draw[gray] (3.3,0.5) node {\Large{$\blacktri{0}$}};
+\draw[gray]  (3.2,3.2) node {\Large{$\blacktri{1}$}};
+\draw[gray]  (2,2.5) node {\Large{$\blacktri{2}$}};
+\draw[gray]  (0.5,2) node {\Large{$\blacktri{3}$}};
+\end{tikzpicture}
+}
+\newcommand \MacroTikzToneTgk{
+\begin{scope}[gray]
+\draw [style = thick]  (0,0) rectangle (4,4);
+\draw [style = thick] (0,0) ..  controls(3.5,0.4) and (3.5,2) .. node[black,pos =0.4,right=2pt] {$\taui{1}$}  (4,4);
+\draw [style = thick] (0,0) ..  controls (3.7,1) and (3.8,3.9)   .. node[black,pos =0.4,left=2pt] {$\taui{2}$}  (0,4);
+\draw [style = thick] (0,4) -- node[black, pos =0.4,right=2pt] {$\taui{3}$}  (1.2,2.2);
+\draw [style = thick] (1.2,2.2) -- node[black, pos =0.4,right=2pt] {$\tg{2}$} 
+node [pos=0.6, right, black] {$=\tg{d}$}  (0,0);
+\draw [fill=violet] (1.2,2.2) circle (.7ex); %puncture
+\draw [fill=olive] (0,0) circle (.6ex);
+\draw [fill=olive] (0,4) circle (.6ex);
+\draw [fill=olive] (4,0) circle (.6ex);
+\draw [fill=olive] (4,4) circle (.6ex);
+\draw (4,2) node [right = 2pt, black]  {$\tg{0}$};
+%\draw (4,1.5) node[right = 5pt, blue] {$\tg{0}$};
+\draw (1.5,4) node [above = 2pt, black] {$\tg{1}$};
+\draw  (0,2) node [left = 2pt,black]  {$\tg{d+1}$};
+%\draw (0,1.5) node[left = 5pt, blue] {$\tg{d+1}$};
+\draw  (2,0) node [below = 2pt,black] {$\tg{-1}$};
+%\draw  (3,0) node [below = 5pt, blue] {$\tg{-1}$};
+%\draw  (2.8,4) node [blue, above=2pt] {$\tg{1}$};
+\end{scope}
+}
+
+%%%%%%%%
+\newcommand \MacroSelfFolded[2] {
+\begin{scope}[scale={#1}, {#2},gray]
+	\draw[postaction={decorate}] (0,0) -- (0,2) node[pos=0.7, right=4pt]{r};
+	\draw[fill=violet] (0,2) circle (0.3ex);
+	\draw[fill=olive] (0,0) circle (0.2ex);
+	\draw[postaction={decorate}] (0,0) .. controls (-3,4) and (3,4) .. (0,0) node[pos = 0.3, left]{$\ell$};
+\end{scope}
+}
+
+%%%%
+
+\newcommand\DiskWithPunctureTauPeripheral[1]{
+\begin{tikzpicture}[scale=#1]
+\begin{scope}[xscale=-1]
+	\path (0:0) coordinate (origin);
+	\path (180:2) coordinate (4);
+	\path (255:2) coordinate (v1);
+	\path (300:2) coordinate (v1');
+	\path (7*50:2) coordinate (7);
+	
+	\draw [fill=violet] (origin) circle (.6ex); \draw (origin) node[above=2pt, violet] {\tiny $P$};
+	\draw[thick] (origin) circle (2);
+	\draw[thick] (v1) -- (7) node[pos=0.4,below]{$\al$}; %v1 to vertex (alpha)
+	\draw[thick, dotted] (v1) -- (4) node[pos=0.4,right]{$\lambda$}; 
+
+	\draw [->, line width=3 pt, dashed, red] (v1) ..  controls (-2.5,2.5) and (1.5,2.5)   .. (v1')
+	node[pos=0.6, left=2pt] {\Large{$\si$}}; % red sigma between (5)=(p1) and (6)=p2
+	
+	\draw [fill=olive] (v1) circle (.4ex); \draw (v1) node[below=3pt] {$v_1$};
+	\draw [fill=olive] (v1') circle (.4ex); \draw (v1') node[below=3pt] {$v_1'$};	
+	\draw [fill=olive] (7) circle (.4ex) node[left=3pt] {$v_2$}; 
+	\draw[thick, rounded corners=20pt] (4) -- (270:0.8) -- (7) node[pos=0.2, above] {$\taui{1}$}; % tau is peripheral	
+	\draw [fill=olive] (4) circle (.4ex) node[right=3pt] {$v_0$}; 
+	\draw (290:1.1) node[right=3pt] {$\Large{\blacktri{0}}$}; 
+\end{scope}
+\end{tikzpicture}
+  }
+    
+  
+\newcommand\TikzTauPeripheralSelfFolded[1]{
+\begin{tikzpicture}[scale=#1]
+\begin{scope}[xscale=-1]
+	\path (0:0) coordinate (origin);
+	\path (180:2) coordinate (4);
+	\path (255:2) coordinate (v1);
+	\path (300:2) coordinate (v1');
+	\path (7*50:2) coordinate (7);
+	\path (80:2) coordinate (80);
+	
+	\draw [fill=violet] (origin) circle (.6ex); \draw (origin) node[above=2pt, violet] {\tiny $P$};
+	\draw[thick] (origin) circle (2);
+	
+	\draw[thick, rounded corners=18pt] (v1) --  (320:1.6) -- (30:1.7) 
+	node[pos=0.5,left]{$\al$} -- (80) ; %v1 to vertex (alpha)
+	
+	\draw[thick, dotted, rounded corners=18pt] (v1) -- (210:1.8) -- (160:1.8) -- (100:1.8) 
+	node[pos=0.5,right]{$\lambda$} -- (80); 
+
+	\draw [->, line width=3 pt, dashed, red] (v1) ..  controls (-2.5,2.2) and (1.5,2.2)   .. (v1')
+	node[pos=0.65, above] {\Large{$\si$}}; % red sigma between (5)=(p1) and (6)=p2
+	
+	\draw [fill=olive] (v1) circle (.4ex); \draw (v1) node[below=3pt] {$v_1$};
+	\draw [fill=olive] (v1') circle (.4ex); \draw (v1') node[below=3pt] {$v_1'$};	
+	
+	\draw[thick, rounded corners=15pt] (80) --  (175:0.8) -- (270:0.8) node[pos=0.6, left] {$\taui{1}$} -- (0:1) -- (80) ; % tau is ell-loop	
+	
+	\draw [fill=olive] (80) circle (.4ex) node[above=3pt] {$v_0=v_2$}; 
+
+	
+	\draw (290:1.1) node[right=3pt] {$\Large{\blacktri{0}}$}; 
+\end{scope}
+\end{tikzpicture}
+  }  
+  
+  
+\newcommand\MacroPuncturedDiskMarkedPoints[1]{
+	\draw[fill=olive] (0:2) circle ({#1});
+	\draw[fill=olive] (20:2) circle ({#1}); 
+	\draw[fill=olive] (50:2) circle ({#1}); 
+	\draw[fill=olive] (90:2) circle ({#1}); 
+	\draw[fill=olive] (120:2) circle ({#1}); 
+	\draw[fill=olive] (150:2) circle ({#1}); 
+	\draw[fill=olive] (160:2) circle ({#1});  
+	\draw[fill=olive] (210:2) circle ({#1}); 
+	\draw[fill=olive] (240:2) circle ({#1});
+	\draw[fill=olive] (270:2) circle ({#1}); 
+	\draw[fill=olive] (300:2) circle ({#1}); 
+	\draw[fill=olive] (330:2) circle ({#1});
+}
+\newcommand\DiskLambda[1]{
+\begin{tikzpicture}[scale=#1]
+	\draw[fill=violet] (0:0) circle (\TikzPunctureActualSize); 
+	\draw (0:0) node[left=4pt,below=3pt,violet] {\tiny $\puncture$};	
+	\draw[fill,gray!20]  (20:2) -- (30:2) -- (40:2) -- (50:2) -- (70:2) -- (90:2) -- (110:2) -- (130:2) -- (150:2) -- (160:2) --  cycle;
+	\draw[thick] (0:0) circle (2);
+	\draw[line width=2pt,dashed, cyan] (20:2) -- (160:2) node[pos=0.2,below,cyan] {$\Large{\lambda}$};
+	\draw (90:1.2) node[cyan] {$\Large{\disk{\lambda}}$};
+	\MacroPuncturedDiskMarkedPoints{.4ex}
+\end{tikzpicture}
+}
+
+\newcommand\OncePuncturedDiskLambda[1]{
+\begin{tikzpicture}[scale=#1]
+	\coordinate (vleft) at (150:2); \coordinate (vright) at (30:2);
+	\draw[fill=gray!20] (0:0) circle (2);
+	\draw[fill,white]  (vright)  -- (40:2) -- (50:2) -- (70:2) -- (90:2) -- (110:2) -- (130:2) -- (150:2) -- (vleft) --  cycle;
+	\draw[black,thick] (0:0) circle (2);
+	\draw[line width=2pt,dashed, cyan] (vright) -- (vleft) node[pos=0.4,above,cyan] {$\Large{\lambda}$};
+	\draw (-90:1) node[cyan] {$\Large{\outsidedisk{\lambda}}$};
+	\MacroPuncturedDiskMarkedPoints{.4ex}
+	\draw[fill=violet] (0:0) circle (\TikzPunctureActualSize) (0:0) node[left=4pt,above,violet] {\tiny $\puncture$};	
+	
+	\node at (0:3) {};\node at (180:3) {};
+\end{tikzpicture}
+}
+
+\newcommand\MacroPuncturedDisk{
+	\draw[fill=violet] (0:0) circle (.6ex); 
+	\draw (0:0) node[left=4pt,below=3pt,violet] {\tiny $P$};
+	\draw[thick] (0:0) circle (2);	
+}
+\newcommand\MacroPuncturedDiskNoP{
+	\draw[fill=violet] (0:0) circle (.6ex); 
+	\draw (0:0); 
+	\draw[thick] (0:0) circle (2);	
+}
+
+\newcommand\ChoiceOfSigmaLambdaKs[1]{
+\begin{tikzpicture}[scale=#1]
+	\MacroPuncturedDiskNoP
+	\draw[line width=2pt,dashed, red] (20:2) -- (160:2) node[pos=0.3, below,red] {$\Large{\lambda_r}$};
+	\draw[line width=2pt,dashed, cyan] (50:2) -- (150:2); 
+	\draw[line width=2pt,dashed, cyan, rounded corners] (90:2) -- (100:1.6) -- (150:2); 
+	\draw[line width=2pt,dashed, red, rounded corners=20pt] (20:2) -- (0:1) -- (330:2) node[pos=0.8, left,red] {$\Large{\lambda_1}$};
+	\draw[line width=2pt,dashed, red, rounded corners=20pt] (210:2) -- (240:0.7) node[pos=0.4, above,red] {$\Large{\lambda_2}$} -- (300:2);
+	\draw[line width=2pt,dashed, cyan, rounded corners=20pt] (210:2) -- (240:1) -- (270:2);
+	\MacroPuncturedDiskMarkedPoints{.4ex}
+	\node at (0:3) {};\node at (180:3) {};
+\end{tikzpicture}
+}
+
+\newcommand\ChoiceOfSigmaLambdaR[1]{
+\begin{tikzpicture}[scale=#1]
+	\MacroPuncturedDiskNoP
+	\draw[line width=2pt,dashed, red] (20:2) -- (160:2) node[pos=0.45, above,red] {$\Large{\si:=\lambda_r}$};
+	\draw[line width=2pt,dashed, cyan] (50:2) -- (150:2); 
+	\draw[line width=2pt,dashed, cyan, rounded corners] (90:2) -- (100:1.6) -- (150:2); 
+	\draw[line width=2pt, rounded corners=15pt] (120:2) -- (220:1) node[pos=0.9, left] {$\Large{\tau}$} -- (320:1) -- (50:2); 
+	\MacroPuncturedDiskMarkedPoints{.4ex}
+	\node at (0:3) {};\node at (180:3) {};
+\end{tikzpicture}
+}
+
+\newcommand\ChoiceOfSigmaGoodA[1]{
+\begin{tikzpicture}[scale=#1]
+	\MacroPuncturedDisk
+	\draw[line width=2pt,dashed, red] (20:2) -- (160:2) node[pos=0.2, below,red] {$\Large{\si}$};
+	\draw[line width=2pt,dashed, cyan] (50:2) -- (150:2) node[pos=0.2, below,cyan] {$\Large{\be}$};
+	\MacroPuncturedDiskMarkedPoints{.4ex}
+	\node at (0:3) {}; \node at (180:3) {};
+\end{tikzpicture}
+}
+\newcommand\ChoiceOfSigmaGoodB[1]{
+\begin{tikzpicture}[scale=#1]
+	\MacroPuncturedDisk
+	\draw[line width=2pt,dashed, red] (20:2) -- (160:2) node[pos=0.2, below,red] {$\Large{\si}$};
+	\draw[line width=2pt,dashed, cyan] (330:2) -- (210:2) node[pos=0.2, below,cyan] {$\Large{\be}$};
+	\MacroPuncturedDiskMarkedPoints{.4ex}
+	\node at (0:3) {}; \node at (180:3) {};
+\end{tikzpicture}
+}
+%%%%
+%%%%
+\newcommand\MacroFourCover {
+\begin{scope}[gray]
+	\path (0:0) coordinate (origin);
+	\path (0:2) coordinate (v0);
+	\path (40:2) coordinate (v40);
+	\path (70:2) coordinate (v70); 
+	\path (90:2) coordinate (v90);
+	\path (130:2) coordinate (v130);
+	\path (160:2) coordinate (v160); 
+	\path (180:2) coordinate (v180);
+	\path (270:2) coordinate (v270);
+	
+	\draw [fill=violet] (origin) circle (0.6ex); \draw (origin) node[left=4pt,below=3pt, violet] {\tiny $P$};
+	\draw[thick] (origin) circle (2);
+	
+	\draw [fill=olive] (v0) circle (.4ex);
+	\draw [fill=olive] (v40) circle (.4ex); 
+	\draw [fill=olive] (v90) circle (.4ex);
+	\draw [fill=olive] (v180) circle (.4ex); 
+	\draw [fill=olive] (v130) circle (.4ex); 
+	\draw [fill=olive] (v270) circle (.4ex); 
+\end{scope}
+}
+\newcommand\FourCoverWheelSigmaPeripheral[1]{
+\begin{tikzpicture}[scale=#1,gray]
+	\MacroFourCover
+			
+	\draw[thick,gray] (v0) .. controls (1.5,0.3)  and (1.4,0.8) .. (v40); %node[pos=0.5,right]{$\b$};
+	\draw[thick,gray] (v40)  .. controls (0.6,1.3)  and (0.4,1.4) .. (v90); % node[pos=0.5,right]{$\a$};
+	
+	\begin{scope}[rotate=90]
+		\path (0:2) coordinate (u0);
+		\path (90:2) coordinate (u90);
+		\path (40:2) coordinate (u40);
+		\draw[thick] (u0) .. controls (1.5,0.3)  and (1.4,0.8) .. (u40);
+		\draw[thick] (u40)  .. controls (0.6,1.3)  and (0.4,1.4) .. (u90);
+	\end{scope}
+	
+	\draw[thick] (origin) -- (v0) node[pos=0.6,below]{$1$};
+	\draw[thick] (origin) -- (v180) node[pos=0.6,below]{$1$};
+	\draw[thick] (origin) -- (v90) node[pos=0.4, left]{$1$};
+	\draw[thick] (origin) -- (270:2) node[pos=0.6, left]{$1$};
+	
+	\draw[thick] (origin) -- (v40) node[pos=0.6,below]{$2$};
+	\draw[thick] (origin) -- (v130) node[pos=0.6,below]{$2$};
+	
+	\draw [fill=olive] (150:2) circle (.4ex); 
+	\draw [fill=olive] (v70) circle (.4ex); 
+
+	\draw [line width = 1.5pt, dashed, red, rounded corners = 20pt] (v70) -- (92:0.8) -- (150:2);
+	\draw (150:2) node[left=3pt, red] {\Large{$\tilsi$}}; 
+	
+	\draw [line width = 1.5pt, dashed, cyan, rounded corners = 20pt] (v70) -- (90:1) -- (u40);
+	\draw (130:2) node[left, above=3pt, cyan] {\Large{$\tilbe$}}; 
+
+\end{tikzpicture}
+}  
+\newcommand\FourCoverWheel[1]{
+\begin{tikzpicture}[scale=#1,gray]
+	\MacroFourCover
+		
+	\draw[thick] (v0) .. controls (1.5,0.3)  and (1.4,0.8) .. (v40);% node[pos=0.5,right]{$\b$};
+	\draw[thick] (v40)  .. controls (0.6,1.3)  and (0.4,1.4) .. (v90);% node[pos=0.5,right]{$\a$};
+	
+	\begin{scope}[rotate=90]
+		\path (0:2) coordinate (u0);
+		\path (90:2) coordinate (u90);
+		\path (40:2) coordinate (u40);
+		\draw[thick] (u0) .. controls (1.5,0.3)  and (1.4,0.8) .. (u40);
+		\draw[thick] (u40)  .. controls (0.6,1.3)  and (0.4,1.4) .. (u90);
+	\end{scope}
+	
+	\draw[thick] (origin) -- (v0) node[pos=0.6,below]{$1$};
+	\draw[thick] (origin) -- (v180) node[pos=0.6,below]{$1$};
+	\draw[thick] (origin) -- (v90) node[pos=0.4, left]{$1$};
+	\draw[thick] (origin) -- (270:2) node[pos=0.6, left]{$1$};
+	
+	\draw[thick] (origin) -- (v40) node[pos=0.6,below]{$2$};
+	\draw[thick] (origin) -- (v130) node[pos=0.6,below]{$2$};
+	
+	\draw [fill=olive] (v70) circle (.4ex); 
+	\draw[line width=2 pt, dashed, red] (origin) -- (v70); \draw (v70) node[right, above=3pt, red] {\Large{$\tilsi$}}; 
+	
+	\draw [fill=olive] (v160) circle (.4ex); 
+	\draw[line width=2 pt, dashed, red] (origin) -- (v160); \draw (v160) node[left=5pt, above=3pt, red] {\Large{$\tilsi$'}}; 
+	
+	\draw [line width = 1.5pt, dashed, cyan, rounded corners = 20pt] (v70) -- (90:1) -- (u40);
+	\draw (130:2) node[left, above=3pt, cyan] {\Large{$\tilbe$}}; 
+\end{tikzpicture}
+  }
+\newcommand\FourCoverSelfFolded[1]{
+\begin{tikzpicture}[scale=#1,gray]
+	\MacroFourCover
+		
+	\draw[thick] (v0) .. controls (1.5,0.3)  and (1.4,0.8) .. (v40) node[pos=0.5,right]{\tiny $\b$};
+	\draw[thick] (v40)  .. controls (0.6,1.3)  and (0.4,1.4) .. (v90) node[pos=0.5,right]{$\a$};
+	
+	\begin{scope}[rotate=90]
+		\path (0:2) coordinate (u0);
+		\path (90:2) coordinate (u90);
+		\path (40:2) coordinate (u40);
+		\draw[thick] (u0) .. controls (1.5,0.3)  and (1.4,0.8) .. (u40) node[pos=0.5,left]{\tiny $\b$};
+		\draw[thick] (u40)  .. controls (0.6,1.3)  and (0.4,1.4) .. (u90) node[pos=0.3]{$\a$};
+	\end{scope}
+	
+	\draw[thick] (origin) -- (v0) node[pos=0.4,below]{$r$};
+	\draw[thick] (origin) -- (v180) node[pos=0.4,below]{$r$};
+	\draw[thick] (origin) -- (v90) node[pos=0.4, left]{$r$};
+	\draw[thick] (origin) -- (270:2) node[pos=0.6, left]{$r$};
+	
+	\draw[thick] (v0) .. controls (0.5,0.4)  and (0.1,1.2) .. (v90) node[pos=0.3,right]{$\ell$};
+	\draw[thick] (v180)  .. controls (-0.5,0.4)  and (-0.1,1.2) .. (v90) node[pos=0.3,right]{$\ell$};
+	
+	\draw [fill=olive] (v70) circle (.4ex); 
+	\draw[line width=2 pt, dashed, red] (origin) -- (v70); \draw (v70) node[right, above=3pt, red] {\Large{$\tilsi$}}; 
+	
+	\draw [fill=olive] (v160) circle (.4ex); 
+	\draw[line width=2 pt, dashed, red] (origin) -- (v160); \draw (v160) node[left=5pt, above=3pt, red] {\Large{$\tilsi$'}}; 
+	
+	\draw [line width = 1.5pt, dashed, cyan, rounded corners = 20pt] (v70) -- (90:1) -- (u40);
+	\draw (130:2) node[left, above=3pt, cyan] {\Large{$\tilbe$}}; 
+	
+	\draw (v0) node[right,olive] {$v$}; %{$x$}; 
+	\draw (v90) node[above=2pt,olive] {$v$}; %{$x$}; 
+	\draw (v180) node[left,olive] {$v$}; %{$x$}; 
+	\draw (270:2) node[below=2pt,olive] {$v$}; %{$x$}; 
+	
+	\draw (v40) node[right, olive] {$y$}; \draw (v130) node[left, olive] {$y$};
+\end{tikzpicture}
+  }
+  %%%
+  %%%
+
+
+\newcommand\MacroMiniLemmaPeripheralPolygon[2]{
+\begin{scope}[scale={#1}, {#2},gray]
+\coordinate(theta1A) at (-4,-2); 
+\coordinate(theta1B) at (4,-2); 
+\coordinate(theta2A) at (-4,-1); \coordinate(theta3A) at (-4,0);  \coordinate(theta4A) at (-4,1); 
+\coordinate(theta2B) at (4,-1); \coordinate(theta3B) at (4,0);  \coordinate(theta4B) at (4,1); 
+\coordinate(thetahA) at (-4,2);
+\coordinate(thetahB) at (4,2);
+
+
+\draw (theta1A) -- (theta1B) node[pos=0.2, above,black] {$\taui{d}$}; %{$\theta_1$};
+\draw (thetahA) -- (thetahB); %node[pos=0.7, above] {$\theta_h$};
+\draw (theta1A) -- (thetahA) -- (thetahB) -- (theta1B) -- (theta1A);
+
+\draw[style=dashed] (theta2A) -- (theta1B); 
+\draw[style=dashed] (theta3A) -- (theta1B);
+\draw[style=dashed] (theta3A) -- (theta3B);
+\draw[style=dashed] (theta4A) -- (theta3B);
+\draw[style=dashed] (theta4A) -- (thetahB);
+
+
+\draw [fill=olive] (theta1A) circle (.6ex) node[left] {$t$}; %{$\theta_1^A$};
+\draw [fill=olive] (theta1B) circle (.6ex); %node[right=2pt] {$\theta_1^B$};
+
+\draw [fill=olive] (theta2A) circle (.6ex); %node[left=2pt] {$\theta_2^A$};
+\draw [fill=olive] (theta4A) circle (.6ex); %node[left=2pt, left=2pt] {$\theta_{h-1}^A$};
+\draw [fill=olive] (theta3B) circle (.6ex); %node[right=2pt] {$\theta_{h-1}^B$};
+
+\end{scope}
+}
+
+\newcommand \MacroMiniLemmaWheelPolygon[2]{
+\begin{scope}[scale={#1}, {#2},gray]
+\coordinate(rho1A) at (-4,-2); \coordinate(rho2A) at (-4,0); \coordinate(rho3A) at (-3,2);  
+\coordinate(rho4A) at (0,2.5); \coordinate(rho5A) at (3,2); 
+\coordinate(P) at (0,0); \coordinate(rhof1A) at (4,0); \coordinate(rhofA) at (4,-2);
+\draw (P) -- (rho1A) node[pos=0.5, above,black] {$\rho_1$};
+\draw (P) -- (rho2A) node[pos=0.6, above,black] {$\rho_2$};
+\draw (P) -- (rho3A) node[pos=0.4, above,black] {$\rho_3$};
+\draw[style=dashed] (P) -- (rho4A); \draw[style=dashed] (P) -- (rho5A);
+\draw (P) -- (rhof1A) node[pos=0.6, above,black] {$\rho_{f-1}$};
+\draw (P) -- (rhofA) node[pos=0.6, above,black] {$\rho_{f}$};
+\draw (rho1A) -- (rho2A) -- (rho3A) -- (rho4A) -- (rho5A) -- (rhof1A) -- (rhofA);
+
+\draw[fill=violet] (P) circle(1 ex);
+\draw [fill=olive] (rho2A) circle (.6ex);
+\draw [fill=olive] (rho3A) circle (.6ex);
+\draw [fill=olive] (rhof1A) circle (.6ex);
+\end{scope}
+}
+
+\newcommand\MacroTechnicalLemma{
+\MacroMiniLemmaWheelPolygon{1}{NonOrientedTriangulationStyle}
+	\draw [fill=olive] (rho1A) circle (.4ex);% node[left=2pt] {$\rho_1^A=\theta_h^A$};
+	\draw [fill=olive] (rhofA) circle (.4ex);% node[right=2pt] {$\rho_{f}^A=\theta_h^B$};
+	\draw (1,-2) node[above,black] {$\taui{1}$};
+	\begin{scope}[yshift=-4cm]
+		\MacroMiniLemmaPeripheralPolygon{1}{NonOrientedTriangulationStyle}
+	\end{scope}
+}
+
+\newcommand\MacroTechnicalLemmaSelfFolded{
+       %  \coordinate(rho1A) at (-4,-2); 
+        % \coordinate(P) at (0,0); 
+         \begin{scope}[gray]
+         \coordinate(rho1A) at (-4,-2); \coordinate(rho2A) at (-4,0); \coordinate(rho3A) at (-3,2);  
+	\coordinate(rho4A) at (0,2.5); \coordinate(rho5A) at (3,2); 
+	\coordinate(P) at (0,0); \coordinate(rhof1A) at (4,0); \coordinate(rhofA) at (4,-2);
+         
+	\draw (P) -- (rho1A) node[pos=0.5, above,black] {$\rho_1=r$};
+	\draw[NonOrientedTriangulationStyle, rounded corners = 10pt] (rho1A) -- (rho2A) -- (rho3A) -- (rho4A) -- (rho5A) -- (rhof1A) -- (rhofA);
+	\draw[fill=violet] (P) circle(1 ex); %node[below, violet] {\tiny $P$};
+	\draw (2,-2) node[above,black] {$\taui{2}$};
+         
+	% draw loop around rho 1
+	\coordinate (startL1) at (rho1A);
+	\draw[NonOrientedTriangulationStyle] (rho1A) 
+	.. controls ($(P)+(3,6)$) and ($(P)+(3,-2)$) .. (rho1A) node[pos=0.5, above=3pt,black] {$\ell=\taui{1}$};
+	\draw [fill=olive] (rho1A) circle (.6ex);
+	\draw [fill=olive] (rhofA) circle (.6ex);
+	\begin{scope}[yshift=-4cm]
+		\MacroMiniLemmaPeripheralPolygon{1}{NonOrientedTriangulationStyle}
+	\end{scope}
+	\end{scope}
+}
+
+\newcommand\TikzMinilemmaRadiusGammaPolygonRhoOneLoop[1]{
+\begin{tikzpicture}[scale=#1]
+	\MacroTechnicalLemma
+	% draw loop around rho 1
+	\coordinate (startL1) at (rho1A);
+	\draw[ inducedmapTPathonCnStyle, %GammaonCnStyle,
+	postaction={decorate} ] (rho1A) 
+	.. controls ($(P)+(3,6)$) and ($(P)+(3,-2)$) .. (rho1A) node[pos=0.5, above=5pt] {$\ell_1$};
+\end{tikzpicture}
+}
+
+\newcommand\TikzTechnicalLemmaUnnotchedRadius[1]{
+\begin{tikzpicture}[scale=#1]
+	\MacroTechnicalLemma
+	\draw[line width=2 pt, dashed, red,PathArrowAtPosStyleSeven] (P) -- (theta1A) node[pos=0.5,right=2pt, red] {\Large{$\si$}}; 
+\end{tikzpicture}
+}
+
+\newcommand\TikzTechnicalLemmaUnnotchedRadiusSelfFolded[1]{
+\begin{tikzpicture}[scale=#1]
+	\MacroTechnicalLemmaSelfFolded
+	\draw[line width=2 pt, dashed, red,PathArrowAtPosStyleSeven] (P) -- (theta1A) node[pos=0.5,right=2pt, red] {\Large{$\si$}}; 
+\end{tikzpicture}
+}
+
+\newcommand\TikzTechnicalLemmaNotchedRadiusSelfFolded[1]{
+\begin{tikzpicture}[scale=#1]
+	\MacroTechnicalLemmaSelfFolded
+	\draw[line width=2 pt, dashed, red] (P) -- (theta1A) node[pos=0.6,right=2pt, red] {\Large{$\si$}}; 
+	\begin{scope}[yshift=-0.5cm,xshift=-0.2cm]
+	\draw (-0.8,-0.4) node[red] {\Large{$\blacktriangleleft$}};
+	\draw (-0.3,-0.9) node[red] {\Large{$\blacktriangleright$}};
+	\end{scope}
+\end{tikzpicture}
+}
+
+\newcommand\TikzTechnicalLemmaNotchedRadius[1]{
+\begin{tikzpicture}[scale=#1]
+	\MacroTechnicalLemma
+	\draw[line width=2 pt, dashed, red] (P) -- (theta1A) node[pos=0.5,right=2pt, red] {\Large{$\si$}}; 
+	%\draw (P) node[red, left=9pt,below=8pt] {\Huge{$\filledbowtie$}};
+	\draw (-0.8,-0.4) node[red] {\Large{$\blacktriangleleft$}};
+	\draw (-0.3,-0.9) node[red] {\Large{$\blacktriangleright$}};
+\end{tikzpicture}
+}
+
+\newcommand\TikzTechnicalLemmaRhoOne[1]{
+\begin{tikzpicture}[scale=#1]
+	\MacroTechnicalLemma
+	\draw[line width=2 pt, dashed, red] (P) -- (rho1A) node[pos=0.75,above=5pt, red] {\Large{$\si=$}}; 
+	\draw (-1,0) node[red] {\Large{$\blacktriangleleft$}};
+	\draw (-0.4,-0.6) node[red] {\Large{$\blacktriangleright$}};
+\end{tikzpicture}
+}
+
+%%%%%% MAKE TRIANGULATED POLYGON %%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% and snake graph
+
+\newcommand \tilTtwoIdealTriangulationCoordinates {
+	\coordinate (P) at (0,4);
+	\coordinate (rightd) at (0.2,0); \coordinate (leftd) at (-0.2,0); 
+	\coordinate (downd) at (0,-0.2); \coordinate (upd) at (0,0.2); 
+	\coordinate (x1) at (0,0); \coordinate (x2) at (-4,4); \coordinate (x3) at (4,4); 
+	\coordinate (t1) at (-4,0); \coordinate (s) at (-4,-4); \coordinate (z) at (0,-4);  \coordinate (t2) at (4,0);
+}  
+
+\newcommand \tilTtwoIdealTriangulationVertices {
+\tilTtwoIdealTriangulationCoordinates
+\draw [fill=violet] (P) circle (1ex); % the six vertices to make the top rectangular
+\draw [fill=olive] (x2) circle (.6ex); % node[above=5pt,olive] {$\tilx^2$};
+\draw [fill=olive] (x3) circle (.6ex); % node[above=5pt,olive] {$\tilx^3$};
+\draw [fill=olive] (t1) circle (.6ex); % node[left=5pt,olive] {$\tilt^1$};
+\draw [fill=olive] (t2) circle (.6ex); % node[below=5pt,olive] {$\tilt^2$};
+\draw [fill=olive] (x1) circle (.6ex); % node[right=18pt, above=1pt,olive] {$\tilx^1$};
+
+\draw [fill=olive] (s) circle (.6ex); % node[left=5pt,olive] {$\tils$}; % the two bottom vertices 
+\draw [fill=olive] (z) circle (.6ex); % node[right=5pt,olive] {$\tilz$};
+}
+
+\newcommand\TtwoTriangulatedPolygonPlainer[1]{
+\begin{tikzpicture}[scale={#1},NonOrientedTriangulationStyle]
+\begin{scope}[rotate=-90]
+	\tilTtwoIdealTriangulationCoordinates
+
+	\draw[style = thick, NooseArrowAtPosStyleSix] 
+	(x1) -- (-4,4) node[pos = 0.6, left=2pt]{$\ell$};
+	\draw[style = thick, postaction={decorate}] 
+	(-4,4) -- (0,4) node[pos=0.5, right]
+	{$\dot{r}$};  %{$\tiltg{3}=\dot{r}$};
+	\draw[style = thick, postaction={decorate}] 
+	(0,0) -- (0,4) node[pos=0.4, above]
+	{$r$}; %{$\tiltaui{4}= r$}; 
+	\draw[style = thick, NooseArrowAtPosStyleFive] 
+	(4,4) -- (0,0) node[pos = 0.3, right=2pt]{$\ell$};
+	\draw[style = thick, postaction={decorate}] 
+	(4,4) -- (0,4) node[pos=0.5, right]
+	{$\ddot{r}$}; %{$\tiltg{4}= \ddot{r}$};
+
+	% The rest of the top rectangle
+	\draw [postaction={decorate}] (x2) -- (t1) node[pos=0.3, above] {$b_3$};
+	\draw [postaction={decorate}] (t1) -- (x1) node[pos=0.3, left] {$2$};
+	\draw [postaction={decorate}] (x1) -- (t2) node[pos=0.6, left] {$b_3$}; %{$\tiltg{6}=b_3$};
+	\draw [postaction={decorate}] (t2) -- (x3) node[pos=0.5, below] {$2$}; %{$\tiltg{5} = 2$};
+	
+	\draw [postaction={decorate}] (t1) -- (s) node[pos=0.5, above] {$b_4$}; %{$\tiltg{-1}=b_4$};
+	\draw [postaction={decorate}] (s) -- (z) node[pos=0.3, left] {$b_1$};%{$\tiltg{0}=b_1$};
+	\draw [postaction={decorate}] (z) -- (x1) node[pos=0.5, below] {$b_2$}; % {$\tiltg{1}=b_2$};
+	\draw [postaction={decorate}] (t1) -- (z) node[pos=0.3, left] {$1$};
+	
+	\begin{scope}[gray!65]
+	\draw (-3,-3) node {\large$\tilblacktri{0}$};
+	\draw (-1,-1) node {\large$\tilblacktri{1}$};
+	\draw (-3,1) node {\large$\tilblacktri{2}$};
+	\draw (-1,3) node {\large$\tilblacktri{3}$};
+	\draw (1,3) node {\large$\tilblacktri{4}$};
+	\draw (3,1) node {\large$\tilblacktri{5}$};
+	\end{scope}
+	
+	\draw
+	[red!60, line width = 2.5pt, ->, style=dashed, rounded corners = 10pt,
+	decoration={ markings, mark=at position .6 with {\arrow[red!80, line width=2.5pt]{to};}}]
+	(s) -- (-2,-2) %-- (-2,0)
+	 -- (-2,2) 
+	-- (-0,2) -- (2,2) node[pos=0.3,left] {\Large$\tilga$}  -- ($(t2)+(-0.1,0.1)$);
+
+	\tilTtwoIdealTriangulationVertices
+\end{scope}
+	\end{tikzpicture}
+}
+
+
+\newcommand \TtwoTriangulatedPolygon[1]{
+\begin{tikzpicture}[scale={#1},NonOrientedTriangulationStyle]
+\begin{scope}[rotate=-90]
+	\tilTtwoIdealTriangulationCoordinates
+
+	\draw[style = thick, NooseArrowAtPosStyleSix] 
+	(x1) -- (-4,4) node[pos = 0.6, left=2pt]{$\ell$};
+	\draw[style = thick, postaction={decorate}] 
+	(-4,4) -- (0,4) node[pos=0.5, right]
+	{$\tiltg{3}=\dot{r}$};
+	\draw[style = thick, postaction={decorate}] 
+	(0,0) -- (0,4) node[pos=0.4, above]
+	{$\tiltaui{4}= r$}; 
+	\draw[style = thick, NooseArrowAtPosStyleFive] 
+	(4,4) -- (0,0) node[pos = 0.3, right=2pt]{$\ell$};
+	\draw[style = thick, postaction={decorate}] 
+	(4,4) -- (0,4) node[pos=0.5, right]
+	{$\tiltg{4}= \ddot{r}$};
+
+	% The rest of the top rectangle
+	\draw [postaction={decorate}] (x2) -- (t1) node[pos=0.3, above] {$b_3$};
+	\draw [postaction={decorate}] (t1) -- (x1) node[pos=0.3, left] {$2$};
+	\draw [postaction={decorate}] (x1) -- (t2) node[pos=0.6, left] {$\tiltg{6}=b_3$};
+	\draw [postaction={decorate}] (t2) -- (x3) node[pos=0.5, below] {$\tiltg{5} = 2$};
+	
+	\draw [postaction={decorate}] (t1) -- (s) node[pos=0.5, above] {$\tiltg{-1}=b_4$};
+	\draw [postaction={decorate}] (s) -- (z) node[pos=0.3, left] {$\tiltg{0}=b_1$};
+	\draw [postaction={decorate}] (z) -- (x1) node[pos=0.5, below] {$\tiltg{1}=b_2$};
+	\draw [postaction={decorate}] (t1) -- (z) node[pos=0.3, left] {$1$};
+	
+	\begin{scope}[gray!65]
+	%\draw (-3,-3) node {\large$\tilblacktri{0}$};
+	%\draw (-1,-1) node {\large$\tilblacktri{1}$};
+	\draw (-3,1) node {\large$\tilblacktri{2}$};
+	%\draw (-1,3) node {\large$\tilblacktri{3}$};
+	%\draw (1,3) node {\large$\tilblacktri{4}$};
+	%\draw (3,1) node {\large$\tilblacktri{5}$};
+	\end{scope}
+	
+	\draw
+	[red!60, line width = 2.5pt, ->, style=dashed, rounded corners = 10pt,
+	decoration={ markings, mark=at position .6 with {\arrow[red!80, line width=2.5pt]{to};}}]
+	(s) -- (-2,-2) %-- (-2,0)
+	 -- (-2,2) 
+	-- (-0,2) -- (2,2) node[pos=0.3,left] {\Large$\tilga$}  -- ($(t2)+(-0.1,0.1)$);
+
+	\tilTtwoIdealTriangulationVertices
+	\end{scope}
+	\node at (10,0) {};
+	\node at (-10,0) {};
+	\node[gray!65] at (-3.2,2.2) {\large$\tilblacktri{0}$};
+	\node[gray!65] at (3.1,1.6) {\large$\tilblacktri{3}$};
+	\node[gray!65] at (-1.4,1) {\large$\tilblacktri{1}$};
+	\node[gray!65] at (3.1,-1.2) {\large$\tilblacktri{4}$};
+	\node[gray!65] at (2.1,-3.2) {\large$\tilblacktri{5}$};
+	\end{tikzpicture}
+}
+\newcommand \tilTtwoSnakeGraphCoordinates {
+	\coordinate (P) at (8,0);
+	\coordinate (rightd) at (0.2,0); \coordinate (leftd) at (-0.2,0); 
+	\coordinate (downd) at (0,-0.2); \coordinate (upd) at (0,0.2); 
+	\coordinate (x1a) at (0,0); \coordinate (x2) at (4,0);  
+	\coordinate (x1b) at (4,4); \coordinate (x1c) at (8,-4);
+	\coordinate (x3a) at (8,4);  \coordinate (x3b) at (12,0); 
+	\coordinate (t1a) at (-4,0);  \coordinate (t1b) at (4,-4); 
+	\coordinate (s) at (-4,-4); \coordinate (z) at (0,-4);  
+	\coordinate (t2) at (12,4);
+}  
+
+\newcommand \tilTtwoSnakeGraphVertices {
+\tilTtwoSnakeGraphCoordinates
+\draw [fill=violet] (P) circle (1ex); % the six vertices to make the top rectangular
+\draw [fill=olive] (x2) circle (.6ex); % node[above=5pt, left=2pt,olive] {$\tilx^2$};
+\draw [fill=olive] (x3a) circle (.6ex); % node[above=5pt,olive] {$\tilx^3_a$};
+\draw [fill=olive] (x3b) circle (.6ex); % node[below=5pt,olive] {$\tilx^3_b$};
+\draw [fill=olive] (t1a) circle (.6ex); % node[above=5pt,olive] {$\tilt^1_a$};
+\draw [fill=olive] (t1b) circle (.6ex); % node[below=5pt,olive] {$\tilt^1_b$};
+\draw [fill=olive] (t2) circle (.6ex); % node[right=5pt,olive] {$\tilt^2$};
+\draw [fill=olive] (x1a) circle (.6ex); % node[right=2pt, above=1pt,olive] {$\tilx^1_a$};
+\draw [fill=olive] (x1b) circle (.6ex); % node[left=2pt, above=1pt,olive] {$\tilx^1_b$};
+\draw [fill=olive] (x1c) circle (.6ex); % node[right=2pt, right=1pt,olive] {$\tilx^1_c$};
+\draw [fill=olive] (s) circle (.6ex); % node[left=5pt,olive] {$\tils$}; % the two bottom vertices 
+\draw [fill=olive] (z) circle (.6ex); %node[below=5pt,olive] {$\tilz$};
+}
+
+\tikzstyle{orientedAtEllTriangulationStyle}=[style=thick,
+decoration={ markings, mark=at position .6 with {\arrow{to};}} ]
+\newcommand\TtwoSnakeGraphPlainer[1]{
+\begin{tikzpicture}[scale={#1},orientedAtEllTriangulationStyle,gray!80]
+	\tilTtwoSnakeGraphCoordinates
+	% fifth tile
+	\draw [postaction={decorate}] (x3a) -- (x3b) node[black,pos=0.4, below] {$\ell$}; % diagonal
+	\draw (t2) -- (x3a) node[black,pos=0.4, above] {$2$}; % node[pos=0.4, above] {$2^b$};
+	\draw (x3b) -- (t2) node[black,pos=0.5, right] {$b_3$}; % node[pos=0.4, right] {$b_3^b$};
+	\draw (x3b) -- (P) node[black,pos=0.5, below] {$r$}; % node[pos=0.3, below] {$r^b$};
+	
+
+	% the fourth tile (negative)
+	\draw (x1b) -- (P) node[black,pos=0.4, below] {$r$}; % diagonal
+	\draw [postaction={decorate}] (x1b) -- (x2) node[black,pos=0.5, left] {$\ell$}; % node[pos=0.3, left] {$\ell^b$};
+	\draw [postaction={decorate}] (x3a) -- (x1b) node[black,pos=0.4, above] {$\ell$}; % node[pos=0.3, above] {$\ell^b$};
+	\draw (x3a) -- (P) node[black,pos=0.5] {\large $\ddot{r}$}; % not a border of snake graph
+	
+	% the third tile (positive)
+	\draw [postaction={decorate}] (x1c) -- (x2) node[black,pos=0.5, below] {$\ell$}; % diagonal
+	\draw (t1b) -- (x1c) node[black,pos=0.3, below] {$2$}; % node[pos=0.3, below] {$2^b$}; 
+	\draw (x1c) -- (P) node[black,pos=0.5, right] {$r$}; % node[pos=0.3, right] {$r^b$};
+	\draw (x2) -- (P) node[black,pos=0.5] {\large $\dot{r}$}; % not a border of snake graph
+
+	% The second tile (negative)
+	\draw (t1b) -- (x1a) node[black,pos=0.5] {$2$}; % diagonal
+	\draw (x2) -- (t1b) node[black,pos=0.5] {$b_3$}; % not a border of snake graph 
+	\draw (t1b) -- (z) node[black,pos=0.5, below] {$1$}; % node[pos=0.3, below] {$1^b$};
+	\draw [postaction={decorate}] (x1a) -- (x2) node[black,pos=0.5, above] {$\ell$}; % boundary
+	
+	% first tile (positive)
+	\draw (t1a) -- (z) node[black,pos=0.5, below] {$1$}; % diagonal
+	\draw (t1a) -- (s) node[black,pos=0.4, left] {$b_4$}; %{$\tiltg{-1}=b_4$}; % node[pos=0.4, left] {$\tiltg{-1}^b=b_4^b$};
+	\draw (s) -- (z) node[black,pos=0.5, below] {$b_1$};%{$\tiltg{0}=b_1$}; % node[pos=0.4, below=5pt] {$\tiltg{0}^b=b_1^b$};
+	\draw (z) -- (x1a) node[black,pos=0.6] {$b_2$};%{$\tiltg{1}=b_2$}; % not a border of snake graph
+	\draw (t1a) -- (x1a) node[black,pos=0.5, above] {$2$}; % node[pos=0.3, above] {$2^b$};
+	
+	\begin{scope}[gray]
+	\draw (-3,-3) node {\Large$\tilblacktri{0}$};
+	\draw (-1.4,-0.8) node {\Large$\tilblacktri{1}$};
+	\draw (1.4,-3) node {$\tilblacktri{1}^{(-)}$};
+	\draw (2.5,-1) node {$\tilblacktri{2}^{(-)}$};
+	\draw (5,-3) node {\Large$\tilblacktri{2}$};
+	\draw (6.5,-1) node {\Large$\tilblacktri{3}$};
+	\draw (5.5,1) node {$\tilblacktri{3}^{(-)}$}; 
+	\draw (7,3) node {$\tilblacktri{4}^{(-)}$}; %good
+	\draw (9,1) node {\Large$\tilblacktri{4}$}; %good
+	\draw (11,3) node {\Large$\tilblacktri{5}$}; 
+	\end{scope}
+
+	\tilTtwoSnakeGraphVertices
+	%\node at (-6,0) {};
+	\end{tikzpicture}
+}
+
+\newcommand\MacroTtwoPerfectMatchingsWithDiagonals{
+
+	\tilTtwoSnakeGraphCoordinates
+	\MacroTtwoPerfectMatchings
+	% fifth tile
+	\begin{scope}[line width=2pt, dashed]
+	\draw (x3a) -- (x3b) node[pos=0.4, right] {$\ell$}; % diagonal
+	
+	% the fourth tile (negative)
+	\draw [postaction={decorate}] (x1b) -- (P) node[pos=0.5, below] {$r$};
+
+	% the third tile (positive)
+	\draw [postaction={decorate}] (x1c) -- (x2) node[pos=0.6, right] {$\ell$};
+	
+
+	% The second tile (negative)
+	\draw [postaction={decorate}] (t1b) -- (x1a) node[pos=0.5, right] {$2$};
+	
+	% first tile (positive)
+	\draw [postaction={decorate}] (t1a) -- (z) node[pos=0.4, right] {$1$};
+	\end{scope}
+}
+
+
+
+\newcommand\MacroTtwoPerfectMatchings{
+
+	\tilTtwoSnakeGraphCoordinates
+	% fifth tile
+	%\draw (x3a) -- (x3b) node[pos=0.4, below] {$\ell$}; % diagonal
+	\draw (t2) -- (x3a) ;%node[pos=0.4, above]; %{$2$};
+	\draw (x3b) -- (t2) ;%node[pos=0.4, right];% {$b_3$};
+	\draw (x3b) -- (P) ;%node[pos=0.3, below];% {$r$};
+	
+	% the fourth tile (negative)
+	%\draw [postaction={decorate}] (x1b) -- (P) node[pos=0.3, below] {$r$};
+	\draw [fill=gray, fill opacity=0.3] (x3a)  -- (x1b) -- (x2) -- (P) -- cycle;
+	\draw (x1b) -- (x2);% node[pos=0.3, left];% {$\ell$};
+	\draw (x3a) -- (x1b);% node[pos=0.3, above];% {$\ell$};
+	\draw  (x3a) -- (P);% node[pos=0.3, right];% {$\ddot{r}$};
+	
+	% the third tile (positive)
+	%\draw [postaction={decorate}] (x1c) -- (x2) node[pos=0.3, below] {$\ell$};
+	\draw (t1b) -- (x1c);% node[pos=0.3, below]; %{$2$};
+	\draw (x1c) -- (P) ;%node[pos=0.3, right];% {$r$};
+	\draw (x2) -- (P);% node[pos=0.3, below];% {$\dot{r}$};
+
+	% The second tile (negative)
+	%\draw [postaction={decorate}] (t1b) -- (x1a) node[pos=0.3, below] {$2$};
+	\draw(x2) -- (t1b) ;%node[pos=0.5, left];% {$b_3$};
+	\draw (t1b) -- (z) node[white,pos=0.1, below] {$1$};%node[pos=0.3, below];% {$1$};
+	\draw (x1a) -- (x2) ;%node[pos=0.6, above]% {$\ell$};
+	
+	% first tile (positive)
+	%\draw [postaction={decorate}] (t1a) -- (z) node[pos=0.4, below] {$1$};
+	\draw  (t1a) -- (s);% node[pos=0.4, left] ;%{$\tiltg{-1}=b_4$};
+	\draw (s) -- (z);% node[pos=0.4, below=5pt];% {$\tiltg{0}=b_1$};
+	\draw (z) -- (x1a);% node[pos=0.6];% {$\tiltg{1}=b_2$};
+	\draw (t1a) -- (x1a); %node[pos=0.3, above]; {$2$};
+	
+	%\tilTtwoSnakeGraphVertices
+	\node at (t1b) {};
+	\node at (x1b) {};% node[pos=0.3, above];% {$\ell$};
+}
+
+
+\newcommand\TtwoPerfectMatchingsOne[1]{
+\begin{tikzpicture}[scale={#1}]
+	\MacroTtwoPerfectMatchings
+	\begin{scope}[line width=4pt]
+	\draw  (t1a) -- (s) node[pos=0.4, left] {$b_4$}; 
+	\draw (z) -- (x1a) node[pos=0.6, left=2pt] {$b_2$};
+	\draw(x2) -- (t1b) node[pos=0.5, left] {$b_3$};
+	\draw (x1c) -- (P) node[pos=0.3, right] {$r$};
+	\draw (x3a) -- (x1b) node[pos=0.3, below] {$\ell$};
+	\draw (x3b) -- (t2) node[pos=0.4, right] {$b_3$};
+	%\draw (-4,4) node {($1$)};
+	\end{scope}
+\end{tikzpicture}
+}
+
+
+\newcommand\TtwoPerfectMatchingsThree[1]{
+\begin{tikzpicture}[scale={#1}]
+	\MacroTtwoPerfectMatchings
+	\begin{scope}[line width=4pt]
+	 \draw  (t1a) -- (x1a) node[pos=0.3, above] {$2$};
+	\draw (s) -- (z) node[pos=0.4, below] {$b_1$};
+	\draw (t1b) -- (x1c) node[pos=0.3, below] {$2$};
+	\draw (x1b) -- (x2) node[pos=0.3, left] {$\ell$};
+	\draw (t2) -- (x3a) node[pos=0.4, below] {$2$};
+	\draw (x3b) -- (P) node[pos=0.3, below] {$r$};
+	%\draw (-4,4) node {($3$)};
+	\end{scope}
+\end{tikzpicture}
+}
+
+\newcommand\TtwoPerfectMatchingsFour[1]{
+\begin{tikzpicture}[scale={#1}]
+	\MacroTtwoPerfectMatchings
+	\begin{scope}[line width=4pt]
+	 \draw (t1a) -- (x1a) node[pos=0.3, above] {$2$};
+	\draw (s) -- (z) node[pos=0.4, above=2pt] {$b_1$};
+	\draw(x2) -- (t1b) node[pos=0.5, left] {$b_3$};
+	\draw (x1c) -- (P) node[pos=0.3, right] {$r$};
+	\draw (x3a) -- (x1b) node[pos=0.3, below] {$\ell$};
+	\draw (x3b) -- (t2) node[pos=0.4, right] {$b_3$};
+	%\draw (-4,4) node {($4$)};
+	\end{scope}
+\end{tikzpicture}
+}
+
+\newcommand\TtwoPerfectMatchingsFive[1]{
+\begin{tikzpicture}[scale={#1}]
+	\MacroTtwoPerfectMatchings
+	\begin{scope}[line width=4pt]
+	\draw  (t1a) -- (s) node[pos=0.4, left=2pt] {$b_4$}; 
+	\draw (z) -- (x1a) node[pos=0.6, left=2pt] {$b_2$};
+	\draw (t1b) -- (x1c) node[pos=0.3, below] {$2$};
+	\draw (x1b) -- (x2) node[pos=0.3, left] {$\ell$};
+	\draw (t2) -- (x3a) node[pos=0.4, above] {$2$};
+	\draw (x3b) -- (P) node[pos=0.3, below] {$r$};
+	%\draw (-4,4) node {($5$)};
+	\end{scope}
+\end{tikzpicture}
+}
+
+\newcommand\TtwoPerfectMatchingsTwo[1]{
+\begin{tikzpicture}[scale={#1}]
+	\MacroTtwoPerfectMatchings
+	\begin{scope}[line width=4pt]
+	\draw  (t1a) -- (s) node[pos=0.4, left=2pt] {$b_4$}; 
+	\draw (t1b) -- (z) node[pos=0.3, below] {$1$};
+	\draw (x1a) -- (x2) node[pos=0.6, above] {$\ell$};
+	\draw (x1c) -- (P) node[pos=0.3, right] {$r$};
+	\draw (x3a) -- (x1b) node[pos=0.3, above] {$\ell$};
+	\draw (x3b) -- (t2) node[pos=0.4, right=2pt] {$b_3$};
+	%\draw (-4,4) node {($2$)};
+	\end{scope}
+\end{tikzpicture}
+}
+
+\newcommand\TtwoPerfectMatchingsSix[1]{
+\begin{tikzpicture}[scale={#1}]
+	\MacroTtwoPerfectMatchings
+	\begin{scope}[line width=4pt]
+	\draw  (t1a) -- (s) node[pos=0.4, left=2pt] {$b_4$}; 
+	\draw (z) -- (x1a) node[pos=0.6, left=2pt] {$b_2$};
+	\draw (t1b) -- (x1c) node[pos=0.3, above] {$2$};
+	\draw (x1b) -- (x2) node[pos=0.3, left=2pt] {$\ell$};
+	\draw  (x3a) -- (P) node[pos=0.3, right=2pt] {$\ddot{r}$};
+	\draw (x3b) -- (t2) node[pos=0.4, right=2pt] {$b_3$};
+	%\draw (-4,4) node {($6$)};
+	\end{scope}
+\end{tikzpicture}
+}
+
+\newcommand\TtwoPerfectMatchingsSeven[1]{
+\begin{tikzpicture}[scale={#1}]
+	\MacroTtwoPerfectMatchings
+	\begin{scope}[line width=4pt]
+	\draw  (t1a) -- (s) node[pos=0.4, left=2pt] {$b_4$}; 
+	\draw (z) -- (x1a) node[pos=0.6, left=2pt] {$b_2$};
+	\draw (t1b) -- (x1c) node[pos=0.3, below] {$2$};
+	\draw (x2) -- (P) node[pos=0.3, below] {$\dot{r}$};
+	\draw (x3a) -- (x1b) node[pos=0.3, above] {$\ell$};
+	\draw (x3b) -- (t2) node[pos=0.4, right=2pt] {$b_3$};
+	%\draw (-4,4) node {($7$)};
+	\end{scope}
+\end{tikzpicture}
+}
+
+\newcommand\MacroTtwoPerfectMatchingsEight[1]{
+\begin{scope}[scale={#1}]
+	\MacroTtwoPerfectMatchings
+	\begin{scope}[line width=4pt]
+	\draw (s) -- (z) node[pos=0.4, below] {$b_1$};
+	\draw [postaction={decorate}] (t1a) -- (x1a) node[pos=0.3, above] {$2$};
+	\draw (t1b) -- (x1c) node[pos=0.3, below] {$2$};
+	\draw (x1b) -- (x2) node[pos=0.3, left=2pt] {$\ell$};
+	\draw  (x3a) -- (P) node[pos=0.6, right] {$\ddot{r}$};
+	\draw (x3b) -- (t2) node[pos=0.4, right] {$b_3$};
+	%\draw (-4,4) node {($8$)};
+	\end{scope}
+\end{scope}
+}
+
+\newcommand\TtwoPerfectMatchingsWithDiagonalsEight[1]{
+\begin{tikzpicture}[scale={#1}]
+\MacroTtwoPerfectMatchingsEight{1}
+\MacroTtwoPerfectMatchingsWithDiagonals
+\node at (-8,0) {};\node at (6,0) {};
+\end{tikzpicture}
+}
+
+
+\newcommand\TtwoPerfectMatchingsEight[1]{
+\begin{tikzpicture}[scale={#1}]
+\MacroTtwoPerfectMatchingsEight{1}
+\end{tikzpicture}
+}
+
+\newcommand\TtwoPerfectMatchingsNine[1]{
+\begin{tikzpicture}[scale={#1}]
+	\MacroTtwoPerfectMatchings
+	\begin{scope}[line width=4pt]
+	\draw (s) -- (z) node[pos=0.4, below] {$b_1$};
+	\draw [postaction={decorate}] (t1a) -- (x1a) node[pos=0.3, above] {$2$};
+	\draw (t1b) -- (x1c) node[pos=0.5, below] {$2$};
+	\draw (x2) -- (P) node[pos=0.3, below]{$\dot{r}$};
+	\draw (x3a) -- (x1b) node[pos=0.3, below]{$\ell$};
+	\draw (x3b) -- (t2) node[pos=0.4, right=2pt] {$b_3$};
+	%\draw (-4,4) node {($9$)};
+	\end{scope}
+\end{tikzpicture}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% LIFTED T-PATHS %%%%%%%%%
+\newcommand \tilTriangleDiagonalL {
+	\begin{scope}[orientedTriangulationStyle]
+	\draw[style = thick, postaction={decorate}] (0,4) -- (4,0) node[pos=0.2, right=15pt]
+	%{$\tiltaui{1}$ = 
+	{$\tilell$}; % diagonal, lift of ell
+	\end{scope}
+}
+
+
+
+%%%%%%%%%%%%%%
+\newcommand \inducedmapLAorLBCoordinates {
+	\coordinate (P2) at (0,4); \coordinate (P1) at (4,0);
+	\coordinate (rightd) at (0.2,0); \coordinate (leftd) at (-0.4,0); 
+	\coordinate (downd) at (0,-0.3); \coordinate (upd) at (0,0.3); 
+	\coordinate (x) at (0,0); 
+	\coordinate (y) at (4,4);
+}  
+\newcommand \inducedmapLAorLBleft[1] {
+\begin{tikzpicture}[scale={#1}] 	
+	\begin{scope}[xshift=5cm]
+	 \tilTriangleSelfFoldedTwo{1}{$\a$}{\tiny $\b$} 	
+	\tilTriangleDiagonalL
+	
+	\inducedmapLAorLBCoordinates
+	\draw (x) node[right=30pt, above=3pt] {$\tilS$};
+		
+	 \begin{scope}[inducedmapTPathStyle] 	
+		\draw ($(P2)+3*(rightd)+(downd)$) 
+		-- ($(P1)+(leftd)+2*(upd)$) 
+		node[pos=0.2, left=3pt]{$\tilom_j$} 
+		-- ($(y)+(leftd)+2*(downd)$)
+		node[pos=0.6, right=15pt]{$\tilom_{j+1}$};
+	\end{scope}
+	\end{scope}
+	
+	\begin{scope}[xshift=5cm, yshift=-5cm]
+		  \tilTriangleSelfFoldedTwo{1}{$\a$}{\tiny $\b$} 	
+		\tilTriangleDiagonalL
+		
+		\inducedmapLAorLBCoordinates
+		\draw (x) node[right=30pt, above=3pt] {$\tilS$};
+		
+		\begin{scope}[inducedmapTPathStyle]
+			\draw ($(P1)+(upd)$) 
+			-- ($(P2)+3*(rightd)+(downd)$) 
+			node[pos=0.2, left=8pt]{$\tilom_j$} 
+			-- ($(y)+2*(leftd)+(downd)$)
+			node[pos=1, above=11pt]{$\tilom_{j+1}$};
+		\end{scope}
+	\end{scope}
+\end{tikzpicture}
+} 
+
+%%%%
+%%%%
+\newcommand \inducedmapLAorLBright[1] {
+\begin{tikzpicture}[scale={#1}] 	
+
+	\begin{scope}[xshift=15cm]
+		\MacroSelfFoldedLocalTriangulation{1}
+		\inducedmapLAorLBCoordinatesOnS
+		\draw (x) node[left=30pt, above=3pt] {$\Cn$};
+		
+		\begin{scope}[inducedmapTPathonCnStyle]
+			\draw[postaction={decorate}] ($(x)+4*(upd)+3*(leftd)$) ..
+			 controls (-2.5,3.5) and (3,4) .. ($(x)+(rightd)+(upd)$) 
+			node[pos = 0.7, left=1.5pt]{$w_j$};
+			\draw[ postaction={decorate}] 
+			($(x)+(rightd)+(upd)$) 
+			 .. controls (3,2) and (2,3.5) .. ($(y)+(downd)$)
+		node[pos = 0.5, right=3pt]{$w_{j+1}$};
+		\end{scope}
+	\end{scope}
+	
+	\begin{scope}[yshift=-5cm, xshift=15cm]
+		\MacroSelfFoldedLocalTriangulation{1}
+		\inducedmapLAorLBCoordinatesOnS
+		\draw (x) node[left=30pt, above=3pt] {$\Cn$};
+		
+		\begin{scope}[inducedmapTPathonCnStyle]
+			\draw[postaction={decorate}] 
+			($(x)+2*(rightd)+2*(upd)$) ..
+			controls (3,4) and (-3,4) ..
+			($(x)+(upd)+(leftd)$) 
+			node[pos = 0.8, right=1.5pt]{$w_j$};
+			
+			\draw[postaction={decorate}] ($(x)+(upd)+(leftd)$) 
+			.. controls (-3,2) and (-2,3.5) .. ($(y)+(downd)$) 
+			node[pos = 0.5, left=3pt]{$w_{j+1}$};
+		\end{scope}
+	\end{scope}
+\end{tikzpicture}
+} 
+%%%%%%%%%
+\newcommand\MacroRLTileMatchingA[2]{
+\begin{scope}[scale={#1}]
+	\MacroRLTileWithoutDiagonal{1} % matching a
+	\draw[line width = {#2}] (v1)-- (v2);
+	%\draw ($(v2)$) node[left=5pt, above=10pt] {$(a)$};
+	\draw (v3) node[left=10pt, below=5pt] {$+$};
+\end{scope}
+}
+
+\newcommand\MacroRLTileMatchingC[2]{ % A is possible for this matching
+\begin{scope}[scale={#1}]
+	\MacroRLTileWithoutDiagonal{1} % matching a
+	\draw[line width = {#2}] (v3)-- (v4);
+	%\draw ($(v2)$) node[left=5pt, above=10pt] {$(c)$};
+	\draw (v3) node[left=10pt, below=5pt] {$+$};
+\end{scope}
+}
+
+\newcommand\MacroRLTileMatchingB[2]{
+\begin{scope}[scale={#1}]
+	\MacroRLTileWithoutDiagonal{1} % matching a
+	\draw[line width = {#2}] %(v2)-- (v3) 
+	(v1) -- (v4);
+	%\draw ($(v2)$) node[left=5pt, above=10pt] {$(b)$};
+	\draw (v3) node[left=10pt, below=5pt] {$+$};
+\end{scope}
+}
+\newcommand \RLmatching[1] {
+\begin{tikzpicture}[scale={#1}] 			
+	\MacroRLTileMatchingA{0.55}{5pt}	
+	\begin{scope}[yshift=-6cm]
+		\MacroRLTileMatchingB{0.55}{5pt}
+	\end{scope}
+\end{tikzpicture}
+} 
+\newcommand \inducedmapRLCoordinates {
+	\coordinate (P2) at (0,4); \coordinate (P1) at (4,0);
+	\coordinate (rightd) at (0.2,0); \coordinate (leftd) at (-0.4,0); 
+	\coordinate (downd) at (0,-0.3); \coordinate (upd) at (0,0.3); 
+	\coordinate (x) at (0,0); %\coordinate (y) at (4,4);
+}  
+\newcommand \RLtilS[1] {
+\begin{tikzpicture}[scale={#1}] 	
+	\begin{scope}
+		 \tilTriangleSelfFoldedOne{1}{$\ddot{r}$}{$r$}{$\tiltaui{1} = \ell$}
+		 \begin{scope}[inducedmapTPathStyle]
+	 		\inducedmapRLCoordinates
+			\draw ($(x)+(rightd)+(upd)$) -- ($(P2)+(rightd)+(downd)$) 
+			node[pos=0.3, right=3pt]{$\tilom_1$} 
+			-- ($(P1)+(leftd)+(-2,2)$)
+			node[pos=0.6, right=10pt]{$\tilom_2$};
+		\end{scope}
+	\draw (x) node[left=10pt, below=3pt] {$\tilS$};
+	\end{scope}
+	\begin{scope}[yshift=-6cm]
+		%\tilTriangleSelfFoldedOne{#1} % path from vertical r (ddot r) then ell
+		  \tilTriangleSelfFoldedOne{1}{$\ddot{r}$}{$r$}{$\tiltaui{1} = \ell$}
+		
+		\begin{scope}[inducedmapTPathStyle]
+			\inducedmapRLCoordinates
+			\draw ($(x)+(upd)+(rightd)$) -- ($(P1)+(upd)+(leftd)$) 
+			node[pos=0.3, above=3pt]{$\tilom_1$} 
+			-- ($(P2)+(leftd)+(2,-2)$)
+			node[pos=0.6, right=7pt]{$\tilom_2$};
+		\end{scope}
+		\draw (x) node[left=10pt, below=3pt] {$\tilS$};		
+	\end{scope}
+\end{tikzpicture}
+} 
+\newcommand \RLactual[1] {
+\begin{tikzpicture}[scale={#1}] 	
+	\begin{scope}
+		\inducedmapLRRLCoordinatesOnS
+		\MacroSelfFolded{2}{orientedTriangulationStyle}
+		\draw (x) node[left=30pt, above=2pt] {$\Cn$};
+		\begin{scope}[inducedmapTPathonCnStyle]
+			\draw [postaction={decorate}]  ($(P)+(leftd)$) -- ($(x)+3*(upd)+(leftd)$) 
+			node[pos=0.5, right=4pt]{$w_1$};
+		
+			\draw [postaction={decorate}]  ($(x)+3*(upd)+ (leftd)$) .. controls (-5,8) and (4,6) .. ($(x)+(1,2)$) 
+			node[pos = 0.2, left=3pt]{$w_2$};
+		\end{scope}
+	\end{scope}
+	\begin{scope}[yshift=-6.3cm]
+		\inducedmapLRRLCoordinatesOnS
+		\MacroSelfFolded{2}{orientedTriangulationStyle}
+		\draw (x) node[left=30pt, above=2pt] {$\Cn$};
+		\begin{scope}[inducedmapTPathonCnStyle]
+			\draw [postaction={decorate}]  ($(P)+(leftd)$) -- ($(x)+3*(upd)+(leftd)$) 
+			node[pos=0.5, right=4pt]{$w_1$};
+			\draw [postaction={decorate}]   ($(x)+3*(upd)+ (leftd)$)  .. 
+			controls  (5,8) and  (-4,6) ..  ($(x)+(-1,2)$) 
+			node[pos = 0.2, left=3pt]{$w_2$};
+		\end{scope}
+	\end{scope}
+\end{tikzpicture}
+} 
+
+
+  
+\newcommand \inducedmapLRRLCoordinates {
+	\coordinate (P) at (0,4);
+	\coordinate (rightd) at (0.2,0); \coordinate (leftd) at (-0.2,0); 
+	\coordinate (downd) at (0,-0.2); \coordinate (upd) at (0,0.2); 
+	\coordinate (x1) at (0,0); \coordinate (x2) at (-4,4); \coordinate (x3) at (4,4);
+}  
+  
+\newcommand \inducedmapLRRLCoordinatesOnS {
+	\coordinate (P) at (0,4); \coordinate (x) at (0,0);
+	\coordinate (rightd) at (0.2,0); \coordinate (leftd) at (-0.2,0); 
+	\coordinate (downd) at (0,-0.2); \coordinate (upd) at (0,0.2); 
+}  
+
+\newcommand \inducedmapLAorLBCoordinatesOnS {
+	\coordinate (y) at (0,4); \coordinate (x) at (0,0);
+	\coordinate (rightd) at (0.2,0); \coordinate (leftd) at (-0.2,0); 
+	\coordinate (downd) at (0,-0.2); \coordinate (upd) at (0,0.2); 
+}  
+ %%% 
+\newcommand\LRRLmatching[1]{
+\begin{tikzpicture}[scale={#1}] 	
+	\begin{scope}[yshift=1.5cm]	
+		\MacroTripleTilesMatchingD{0.55}{5pt}	
+	\end{scope}	
+	\begin{scope}[yshift=-5.5cm]	
+		\MacroTripleTilesMatchingC{0.55}{5pt}	
+	\end{scope}
+\end{tikzpicture}
+}
+\newcommand\LRRLtilS[1]{
+\begin{tikzpicture}[scale={#1}] 	
+\begin{scope}
+		\tilDoubleSelfFoldedTriangleComplicatedLabels{1}
+		\inducedmapLRRLCoordinates
+		\draw (x1) node[left=50pt, above=3pt] {$\tilS$};
+		\draw (x1) node[right=6pt] {Lemma \ref{lemma:four_paths} (\ref{item:four_paths_lrrll_nonbacktrack})}; %(4)
+	
+		 \begin{scope}[inducedmapTPathStyle] 	
+			\draw  ($(x1)+(rightd)+(upd)+(-2,2)$) -- ($(x2)+2*(rightd)+(downd)$) 
+			node[pos=0.1, left=10pt]{$\tilom_{2k}$} 
+			-- ($(P)+(leftd)+(downd)$) 
+			%node[pos=0.5, below]{$\tilom_{2k+1}$} 
+			-- ($(x1)+(leftd)+(upd)$)
+			%node[pos=0.3, right=10pt]{$\tilom_{2k+2}$}			
+			-- ($(x3)+(leftd)$)
+			%node[pos=0.54, right=12pt]{$\tilom_{2k+3}$}
+			-- ($(x1)+(0.8,0.8)+5*(rightd) + 2*(upd)$) 
+			node[pos=0.83, right=4pt]{$\tilom_{2k+4}$} ;
+			
+		\end{scope}
+	\end{scope}
+	
+	\begin{scope}[yshift=-7cm]
+		\tilDoubleSelfFoldedTriangleComplicatedLabels{1}
+		\inducedmapLRRLCoordinates
+		\draw (x1) node[left=50pt, above=3pt] {$\tilS$};
+		\draw (x1) node[right=6pt] {Lemma \ref{lemma:four_paths} (\ref{item:four_paths_llrrl_nonbacktrack})}; % (2)
+		
+		\begin{scope}[inducedmapTPathStyle]
+			\draw 
+			 ($(x1)+9*(leftd)+6*(upd)$) 
+			--
+			 ($(x1)+(rightd)+(upd)+(-4,4)$)
+			 node[pos=0.3,left]{$\tilom_{2k}$} 
+			  -- ($(x1)+(leftd)+2*(upd)$) 
+			%node[pos=0.2, left=10pt]{$\tilom_{2k+1}$} 
+			-- ($(P)+(leftd)+(downd)$) 
+			%node[pos=0.7, left]{$\tilom_{2k+2}$} 
+			-- ($(x3)+2*(leftd)+(downd)$)
+			%node[pos=0.5, below]{$\tilom_{2k+3}$}
+			-- ($(x3)+(leftd)+(-2.2,-2)$)
+			node[pos=0.85, right=15pt]{$\tilom_{2k+4}$};
+		\end{scope}
+	\end{scope}
+\end{tikzpicture}
+}
+\newcommand\LRRLactual[1]{
+\begin{tikzpicture}[scale={#1}] 	
+\begin{scope}
+		\inducedmapLRRLCoordinatesOnS
+		\MacroSelfFolded{2}{orientedTriangulationStyle}
+		\draw (x) node[left=40pt, above=3pt] {$\Cn$};
+		
+		\begin{scope}[inducedmapTPathonCnStyle]
+			\draw [postaction={decorate}]  ($(x)+15*(upd)+ 8*(leftd)$)
+			 .. controls (-3,8.5) and (4,6) .. ($(x)+6*(upd)+1*(rightd)$)
+			node[pos = 0.3, left=3pt]{$w_{2k}$};
+
+			\draw [postaction={decorate},rounded corners=10pt] 
+			($(x)+6*(upd)+1*(rightd)$)
+			-- ($(P)+(0.5,1)$) 
+			-- ($(P)+(-0.5,1)$) 
+			-- ($(P)+(-0.5,-2)$) 
+			--(x);% ($(x)+(leftd)+3*(downd)$);
+
+			\draw [postaction={decorate}, ->]  (x) %($(x)+(leftd)+3*(downd)$)
+			.. controls (3,3) and (3,6) .. 
+			($(P)+(-1.5,3)$) node[pos=0.3, right=3pt] {$w_{2k+3}$} %;	
+			--  (2,7.3)  --  (3.1,4) node[pos=0.1,right]{$w_{2k+4}$};		
+		\end{scope}
+	\end{scope}
+	\begin{scope}[yshift=-7cm]
+		\inducedmapLRRLCoordinatesOnS
+		\draw (x) node[left=40pt, above=3pt] {$\Cn$};
+		\MacroSelfFolded{2}{orientedTriangulationStyle}
+		\begin{scope}[inducedmapTPathonCnStyle]
+			
+			\draw [postaction={decorate}] 
+			%($(x)+5*(upd)+5*(leftd)$) ..
+			(-2,1) ..
+			controls (-2.6,2) and (-3,3)
+			.. ($(P)+(-2.1,1)$) 
+			node[pos=0.3, left]{$w_{2k}$};
+			
+			\draw [postaction={decorate}] 
+			($(P)+(-2.1,1)$) %--  ($(x)+(-1.5,1)$) -- 
+			.. controls (-2.5,3) and (-2,1) .. ($(x)+(0.2,0)$) %($(x)+5*(upd)+1*(rightd)$)
+			node[pos = 0.4, left=8pt]{$w_{2k+1}$};
+
+			\draw [postaction={decorate},->]  
+			 ($(P)+(-0.5,-2)$)
+			.. controls (-4,8) and (4,6) .. ($(x)+(1.2,2)$) 
+			node[pos = 0.9, right=4pt]{$w_{2k+4}$};	
+		\end{scope}
+		
+			\draw[blue, very thick, %line width = 2pt, 
+			style=dashed, rounded corners = 5pt,
+			decoration={ markings, mark=at position .8 with {\arrow[blue, line width=2.5pt]{to};}}, 
+			postaction={decorate}]
+			($(x)+(0.2,0)$) %($(x)+5*(upd)+1*(rightd)$)
+			-- ($(P)+(0.4,1)$) 
+			-- ($(P)+(-0.4,1)$)
+			-- ($(P)+(-0.5,-2)$);
+	\end{scope}	
+\end{tikzpicture}
+}
+
+
+%%%%%%%%
+%begin new%%
+\newcommand\TikzPMLRR[1]{
+\begin{tikzpicture}[scale={#1}] 	
+\MacroTripleTilesOrientationDiagonalsLR{1}
+\draw [tilTwoSnakeGraphMatchingStyle] (x1c) -- (P) node[pos=0.3, right] {$r$};
+\end{tikzpicture}
+}
+\newcommand\TikzPMLLR[1]{ 
+\begin{tikzpicture}[scale={#1}] 	
+\MacroTripleTilesOrientationDiagonalsLR{1}
+\draw [tilTwoSnakeGraphMatchingStyle] (x1b) -- (x2) node[pos=0.3, left] {$\ell$};
+\end{tikzpicture}
+}
+\newcommand\TikzPMLRdotR[1]{
+\begin{tikzpicture}[scale={#1}] 	
+\MacroTripleTilesOrientationDiagonalsLR{1}
+\draw [tilTwoSnakeGraphMatchingStyle] (x2) -- (P) node[pos=0.7, below] {$\dot{r}$};
+\end{tikzpicture}
+}
+
+%%%
+\newcommand\TikzPMRLL[1]{
+\begin{tikzpicture}[scale={#1}] 	
+\MacroTripleTilesOrientationDiagonalsRL{1}
+\draw [tilTwoSnakeGraphMatchingStyle] (x3a) -- (x1b) node[pos=0.3, above] {$\ell$}; 
+\end{tikzpicture}
+}
+\newcommand\TikzPMRRL[1]{ 
+\begin{tikzpicture}[scale={#1}] 	
+\MacroTripleTilesOrientationDiagonalsRL{1}
+\draw [tilTwoSnakeGraphMatchingStyle] (x3b) -- (P) node[pos=0.3, below] {$r$};
+\end{tikzpicture}
+}
+\newcommand\TikzPMRRddotL[1]{
+\begin{tikzpicture}[scale={#1}] 	
+\MacroTripleTilesOrientationDiagonalsRL{1}
+\draw [tilTwoSnakeGraphMatchingStyle] (x3a) -- (P) node[pos=0.3, left] {$\ddot{r}$};
+\end{tikzpicture}
+}
+
+%% end new %%
+
+
+\newcommand\BacktrackLRRLmatching[1]{
+\begin{tikzpicture}[scale={#1}] 	
+	\begin{scope}[yshift=1.5cm] 
+		\MacroTripleTilesMatchingB{0.55}{5pt}	 %	Lemma 3.9(3)
+	\end{scope}
+	\begin{scope}[yshift=-5cm]	
+		\MacroTripleTilesMatchingA{0.55}{5pt}	%	Lemma 3.9(1)
+	\end{scope}
+\end{tikzpicture}
+}
+\newcommand\BacktrackLRRLtilS[1]{
+\begin{tikzpicture}[scale={#1}] 	
+	\begin{scope}
+		\tilDoubleSelfFoldedTriangleComplicatedLabels{1}
+		\inducedmapLRRLCoordinates
+		\draw (x1) node[left=50pt, above=3pt] {$\tilS$};
+		\draw (x1) node[right=6pt] {Lemma \ref{lemma:four_paths} (\ref{item:four_paths_lrrll_backtrack})}; %  (3)
+	
+		 \begin{scope}[inducedmapTPathStyle] 	%	Lemma 3.9(3)
+			\draw  ($(x2)+2*(rightd)+(downd)$) --
+			 ($(x1)+(leftd)+2*(upd)$) 
+			node[pos=0.1, left=5pt]{$\tilom_{2k}$} 
+			-- ($(P)$) 
+			node[pos=0.6, left]{$\tilom_{2k+1}$} 
+			-- ($(x1)+2*(rightd)+2*(upd)$)
+			node[pos=0.3, right=2pt]{$\tilom_{2k+2}$}
+			-- ($(x3)+(leftd)$)
+			node[pos=0.5, right=10pt]{$\tilom_{2k+3}$}
+			-- ($(x1)+(0.8,0.8)+5*(rightd) + 2*(upd)$) 
+			node[pos=0.8, right]{$\tilom_{2k+4}$} ;
+		\end{scope}	
+	\end{scope}
+	\begin{scope}[yshift=-7cm] %	Lemma 3.9(1)
+		\tilDoubleSelfFoldedTriangleComplicatedLabels{1}
+		\inducedmapLRRLCoordinates
+		\draw (x1) node[left=50pt, above=3pt] {$\tilS$};
+		\draw (x1) node[right=6pt] {Lemma \ref{lemma:four_paths} (\ref{item:four_paths_llrrl_backtrack})}; %  (1)
+	
+		 \begin{scope}[inducedmapTPathStyle] 	
+			\draw
+			($(x1)+9*(leftd)+6*(upd)$) 
+			-- ($(x1)+(rightd)+(upd)+(-4,4)$)
+			 node[pos=0.3,left]{$\tilom_{2k}$} 
+			 --
+			 ($(x1)+(leftd)+2*(upd)$) 
+			%node[pos=0.2, left=5pt]{$\tilom_{2k+1}$} 
+			-- ($(P)$) 
+			%node[pos=0.6, left]{$\tilom_{2k+2}$} 
+			-- ($(x1)+2*(rightd)+2*(upd)$)
+			%node[pos=0.3, right=2pt]{$\tilom_{2k+3}$}
+			-- ($(x3)+(leftd)+(-1.2,-1)$)
+			node[pos=0.7, right=5pt]{$\tilom_{2k+4}$};
+		\end{scope}
+	\end{scope}
+\end{tikzpicture}
+}
+
+\newcommand\BacktrackLRRLactual[1]{
+\begin{tikzpicture}[scale={#1}] 
+
+	\begin{scope} %	Lemma 3.9(3)
+		\inducedmapLRRLCoordinatesOnS
+		\MacroSelfFolded{2}{orientedTriangulationStyle}
+		\draw (x) node[left=30pt, above=2pt] {$\Cn$};
+		\begin{scope}[inducedmapTPathonCnStyle]
+		\draw [postaction={decorate}]  ($(P)+(1,1.5)$) .. controls (1,6) and (-4,7)  ..  ($(x)+3*(upd)+ (leftd)$)
+		node[pos = 0.7, left]{$w_{2k}$};
+		
+		\draw [postaction={decorate}, ->]  ($(x)+4*(upd)+(leftd)$)%  -- ($(P)+2*(downd)+(leftd)$)
+		%node[pos=0.5, right=4pt]{$w_1$};
+		.. controls  (-0.5,4) and (0.5,4) .. ($(x)+(upd)+(rightd)$)
+		.. controls (2,2) and (2, 3) .. ($(P)+10*(rightd)+(0,2)$) node[pos=0.6, right=14pt] {$w_{2k+3}$}
+		-- ($(P)+10*(rightd)+(1,-1)$) --   ($(P)+10*(rightd)+(0.5,-3)$) node[pos=0.3,right]{$w_{2k+4}$};
+		\end{scope}
+	\end{scope}
+	
+	\begin{scope}[yshift=-6.5cm] %	Lemma 3.9(1)
+		\inducedmapLRRLCoordinatesOnS
+		\MacroSelfFolded{2}{orientedTriangulationStyle}
+		\draw (x) node[left=30pt, above=2pt] {$\Cn$};
+		\begin{scope}[inducedmapTPathonCnStyle]
+		
+		\draw [postaction={decorate}]  ($(P)+(-2,-2.5)$) ..
+		 controls  (-4,8)  and (1,6) .. ($(P)+(1,1.5)$) node[pos=0.15,left]{$w_{2k}$};
+		
+		\draw [postaction={decorate}]  ($(P)+(1,1.5)$) .. controls (1,6) and (-4,7)  ..  ($(x)+3*(upd)+ (leftd)$)
+		node[pos = 0.7, left=14pt]{$w_{2k+1}$};
+		
+		\draw [postaction={decorate}, ->]  ($(x)+4*(upd)+(leftd)$)%  -- ($(P)+2*(downd)+(leftd)$)
+		%node[pos=0.5, right=4pt]{$w_1$};
+		.. controls  (-0.5,4) and (0.5,4) .. ($(x)+(upd)+(rightd)$)
+		.. controls (2,2) and (2, 3) .. ($(P)+10*(rightd)$) node[pos=0.5, right=4pt] {$w_{2k+4}$};
+		\end{scope}
+	\end{scope}
+\end{tikzpicture}
+}
+
+
+\tikzstyle{tilTwoSnakeGraphMatchingStyle}=[line width=3pt, blue]
+\newcommand\MacroTripleTilesOrientationDiagonalsLR[1]{ % current
+
+	\tilTtwoSnakeGraphCoordinates
+	\MacroTtwoPerfectMatchings
+	% fifth tile
+	\begin{scope}[tilTwoSnakeGraphMatchingStyle, dashed]
+	%\draw (x3a) -- (x3b) node[pos=0.4, right] {$\ell$}; % diagonal
+	
+	% the fourth tile (negative)
+	\draw [postaction={decorate}] (x1b) -- (P) node[pos=0.5, above] {$r$};
+
+	% the third tile (positive)
+	\draw [postaction={decorate}] (x1c) -- (x2) node[pos=0.6, below] {$\ell$};
+	
+	\end{scope}
+}
+
+\newcommand\MacroTripleTilesOrientationDiagonalsRL[1]{ 
+
+	\tilTtwoSnakeGraphCoordinates
+	\MacroTtwoPerfectMatchings
+	% fifth tile
+	\begin{scope}[tilTwoSnakeGraphMatchingStyle, dashed]
+	\draw (x3a) -- (x3b) node[pos=0.4, right] {$\ell$}; % diagonal
+	
+	% the fourth tile (negative)
+	\draw [postaction={decorate}] (x1b) -- (P) node[pos=0.5, below] {$r$};
+
+	% the third tile (positive)
+	%\draw [postaction={decorate}] (x1c) -- (x2) node[pos=0.6, right] {$\ell$};
+	
+	\end{scope}
+}
+
+
+
+
+
+\newcommand\MacroTripleTilesOrientationWithoutDiagonals[1]{
+	\begin{scope}[style=thick]
+	\MacroTripleTilesWithoutDiagonals{#1}
+	\draw (P) node[left=10pt, below=1pt] {$-$};
+	\draw (x3) node[left=10pt, below=2pt] {$+$};
+	\draw (yr) node[left=10pt, below=1pt] {$-$};
+	\end{scope}
+}
+
+\newcommand\MacroTripleTilesMatchingA[2]{
+\begin{scope}[scale={#1}]
+	\MacroTripleTilesOrientationWithoutDiagonals{1} % matching a
+	\draw[line width = {#2}] (P)-- (x5) (x2) -- (x1);
+	%\draw ($(P)-(x1)$) node {$(a)$};
+\end{scope}
+}
+
+\newcommand\MacroTripleTilesMatchingB[2]{
+\begin{scope}[scale={#1}]
+	\MacroTripleTilesOrientationWithoutDiagonals{1}
+	\draw[line width = {#2}] (x1) -- (x3)  (P) -- (x4);
+	%\draw ($(P)-(x1)$) node {$(b)$};
+\end{scope}
+}
+
+\newcommand\MacroTripleTilesMatchingC[2]{
+\begin{scope}[scale={#1}]
+	\MacroTripleTilesOrientationWithoutDiagonals{1}
+	\draw[line width = {#2}] (x3) -- (P) (x2) -- (x1);
+	%\draw ($(P)-(x1)$) node {$(c)$};
+\end{scope}
+}
+
+\newcommand\MacroTripleTilesMatchingD[2]{
+\begin{scope}[scale={#1}]
+\MacroTripleTilesOrientationWithoutDiagonals{1}
+	\draw[line width = {#2}] (P) -- (x2) (x1) -- (x3);
+\end{scope}
+}
+
+
+\newcommand\TikzTripleTilesFourPerfectMatchings[2] {
+\begin{scope}[scale={#1}]
+	\MacroTripleTilesMatchingA{1}{#2}
+	
+	\begin{scope}[xshift=9cm] % matching b
+	\MacroTripleTilesMatchingB{1}{#2}
+	 \end{scope}
+	 
+	 \begin{scope}[yshift=-6cm] % matching c
+	 \MacroTripleTilesMatchingC{1}{#2}
+	 \end{scope}
+	 
+	 \begin{scope}[yshift=-6cm, xshift=9cm] % matching d
+	 \MacroTripleTilesMatchingD{1}{#2}
+	 \end{scope} 
+\end{scope}
+}
+
+\newcommand \MacroTripleTilesCoordinates {
+		\coordinate (x1) at (3,-2); \coordinate (x2) at (0,-2); \coordinate (x3) at (3,0);
+		\coordinate (x4) at (-3,0); \coordinate (x5) at (0,2);
+		\coordinate (yl) at (-3,-2); \coordinate (yr) at (3,2);
+		\coordinate (P) at (0,0);
+}
+
+\newcommand \MacroTripleTilesWithoutDiagonals[1] {
+	\begin{scope}[scale=#1]
+		\MacroTripleTilesCoordinates
+		\draw (P)-- (x5) node[pos=0.5, left=1pt] {$r$}; 
+		\draw (x5) -- (yr) node[pos=0.5, above=1pt] {\tiny $\b$};
+		\draw (yr) -- (x3) node[pos=0.5, right=1pt] {$\a$}; 
+		\draw (x3) -- (P) node[pos=0.5, above=1pt] {$\ddot{r}$};
+		
+		\draw (P) -- (x2) node[pos=0.5, left=1pt] {$\dot{r}$};
+		 \draw (x2) -- (x1) node[pos=0.5, below=1pt] {$\ell$}; 
+		 \draw (x1) -- (x3) node[pos=0.5, right=1pt] {$\ell$};
+		 
+		 \draw (P) -- (x4) node[pos=0.5, above=1pt] {$r$};
+		 \draw (x4) -- (yl) node[pos=0.5, left=1pt] {$\a$};
+		 \draw (yl) -- (x2) node[pos=0.5, below=1pt] {\tiny $\b$};		
+	\end{scope}
+}
+
+\newcommand \MacroRLTileWithoutDiagonalCoordinates {
+		\coordinate (v1) at (0,0); \coordinate (v2) at (0,2); 
+		\coordinate (v3) at (3,2); \coordinate (v4) at (3,0); 
+		%\coordinate (v5) at (6,2); \coordinate (v6) at (6,0); 
+}
+
+\newcommand \MacroRLTileWithoutDiagonal[1] {
+	\begin{scope}[scale=#1]
+		\MacroRLTileWithoutDiagonalCoordinates
+		\draw (v1)-- (v2) node[pos=0.5, left=1pt] {$\ddot{r}$}; 
+		\draw (v2) -- (v3) node[pos=0.5, above=1pt] {$\a$};
+		\draw (v3) -- (v4) node[pos=0.5, right=1pt] {\tiny $\b$}; 
+		\draw (v4) -- (v1) node[pos=0.5, above=1pt] {$r$};	
+	\end{scope}
+}
+
+\newcommand\MacroSubsequenceDoublecross{ % the triangle
+	\draw (0,0) -- (-4,0)   node[pos=0.05, below] {$w_{2k+1}$} 
+	-- (0,5) node[pos=0.4, left] {$w_{2k+2}$}
+	-- (0,0) node[pos=0.4, right] {$w_{2k}$};
+	\draw[cyan, line width=3pt] (-3,3) -- (1,4) node[pos=0.2, above]{\Large{$\be$}};
+}
+
+\newcommand\MacroSubsequencePuncture{
+	\draw [fill=violet] (-2,-1) circle (.6ex) node[violet, left=5pt, above=1pt] {\tiny $P$};
+}
+\newcommand\TikzSubsequenceDoublecrossContradiction[1]{
+\begin{tikzpicture}[scale={#1}, orientedTriangulationStyle]
+	\MacroSubsequenceDoublecross
+	\MacroSubsequencePuncture
+	\draw[line width=3pt,red, dashed, rounded corners=20pt]  (1,1) -- (-1,1) node[pos=0.2,left, below] {\Large{$\si$}}
+	-- (-1, -1.5) -- (-3,-1.5) -- (-3,1) -- (-4,1);
+\end{tikzpicture}
+}
+
+\newcommand\TikzSubsequenceDoublecrossPossible[1]{
+\begin{tikzpicture}[scale={#1}, orientedTriangulationStyle]
+	\MacroSubsequenceDoublecross
+	\MacroSubsequencePuncture
+	\draw[line width=3pt, red, dashed, rounded corners=20pt]  (1,1) -- (-1,1) node[pos=0.2,left, below] {\Large{$\si$}}
+	-- (-1, -1.5) -- (-3,-1.5)  -- (-2,2) -- (1,2);
+	
+	\begin{scope}[xshift=200pt]
+	\MacroSubsequenceDoublecross
+	\draw [fill=violet] (1.5,1.7) circle (.6ex) node[violet, left=5pt, above] {\tiny $P$};
+	 \draw[line width=3pt, red, dashed, rounded corners=20pt] (-1, -1.5) -- (-1,1) 
+	 -- (2,0.7) -- (2,2.5) -- (-2,2) -- (-2,-1.5) node[pos=0.8,left] {\Large{$\si$}};
+	\end{scope}
+	
+\end{tikzpicture}
+}
+
+
+
+%%%%%%% start of new since sept 2014
+%%%%%
+%%%%% 4 types of triangles and the ways to cross them
+
+%%% ordinary triangle %%%%
+
+\newcommand\MacroTriangle{
+\draw[thick]
+(0,0) -- (4,0) -- (2,4) -- (0,0);
+\draw [fill=olive] (0,0) circle (.6ex);
+\draw [fill=olive] (4,0) circle (.6ex);
+\draw [fill=olive] (2,4) circle (.6ex);
+}
+\newcommand\TikzTriangle[1]{
+\begin{tikzpicture}[scale={#1} ]
+\MacroTriangle
+\node at (4.5,0) {}; \node at (-0.5,0) {};
+\end{tikzpicture}
+}
+
+\newcommand\TikzTriangleCrossesTwoEdges[1]{
+\begin{tikzpicture}[scale={#1} ]
+\MacroTriangle
+\draw (2,-0.5) node[] {$\tg{k}$};
+\draw (4,2.8) node[] {$k+1$};
+\draw (0.6,2.8) node[] {$k$};
+\draw[TPathStyle] 
+(0.5,2) -- (3.4,2) node[pos=0.5, below]{$\ga$};
+\end{tikzpicture}
+}
+
+\newcommand\TikzTriangleCrossesOneEdge[1]{
+\begin{tikzpicture}[scale={#1} ]
+\MacroTriangle
+\draw[TPathStyle,->] 
+(0,0) -- (3.7,2.1) node[pos=0.5, above]{$\ga$};
+\draw (3.1,3) node[] {$1$};
+\draw (2,-0.5) node[] {$\tg{0}$};
+\draw (0.2,2.8) node[] {$\tg{-1}$};
+
+\begin{scope}[yshift=-6cm]
+\MacroTriangle
+\draw[TPathStyle, <-] 
+(0.2,0.1) -- (3.6,2) node[pos=0.5, above]{$\ga$};
+\draw (3.1,3) node[] {$d$};
+\draw (2,-0.5) node[] {$\tg{d}$};
+\draw (0.2,3) node[] {$\tg{d+1}$};
+\end{scope}
+
+\end{tikzpicture}
+}
+
+%%% triangle with two vertices and three sides %%%%
+
+\newcommand\MacroTwoVertexTriangle{ % the outer side
+\draw[style = thick]%, rounded corners = 20pt]
+	(0,0) .. controls (-1.7,1) and (-1.6,3) .. (0,3.5) .. 
+	controls (1.6,3)  and (1.7,1) .. (0,0); 
+	\draw [fill=olive] (0,0) circle (.6ex);
+	\draw [fill=olive] (0,3.5) circle (.6ex);
+
+\draw[style = thick, rounded corners = 20pt] % inner loop
+	(0,0) .. controls (-0.8,1) and (-0.5,1.7) .. (0,2.5) .. 
+	controls (0.5,1.7)  and (0.8,1) .. (0,0); 
+}
+\newcommand\TikzTwoVertexTriangle[1]{
+\begin{tikzpicture}[scale={#1} ]
+\MacroTwoVertexTriangle
+\end{tikzpicture}
+}
+
+
+\newcommand\TikzTwoVertexTriangleCrossesTwoEdgesNoLoop[1]{
+\begin{tikzpicture}[scale={#1} ]
+\MacroTwoVertexTriangle
+\draw[TPathStyle] 
+(-1.4,2.5) -- (1.4,2.5) node[pos=0.5, above]{$\ga$};
+\draw (0.1,1.5) node[] {$\tg{k}$};
+\draw (-1.4,2.3) node[] {$k$};
+\draw (1.4,2.3) node[] {$k+1$};
+\end{tikzpicture}
+}
+
+\newcommand\TikzTwoVertexTriangleCrossesTwoEdgesKOneisLoop[1]{
+\begin{tikzpicture}[scale={#1} ]
+\MacroTwoVertexTriangle
+\draw[TPathStyle] 
+(-1.3,1.2) -- (-0.2,1.2) node[pos=0.4, above]{$\ga$} 
+node[black,pos=0,above=24pt]{$k$}
+node[black,pos=1,above=18pt]{$k+1$};
+\end{tikzpicture}
+}
+
+
+\newcommand\TikzTwoVertexTriangleCrossesOneEdgeLoop[1]{
+\begin{tikzpicture}[scale={#1} ]
+\MacroTwoVertexTriangle
+\draw[TPathStyle,->] (0,3.5) -- (0.1,1.6) node[pos=0.5, left]{$\ga$};
+\draw (-0.3,1.3) node[] {$1$};
+\draw (-1.7,2.3) node[] {$\tg{0}$};
+\draw (1.8,2.3) node[] {$\tg{-1}$};
+\begin{scope}[yshift=-4cm]
+\MacroTwoVertexTriangle
+\draw[TPathStyle,<-] (0,3.4) -- (0.2,1.7) node[pos=0.5, left]{$\ga$};
+\draw (-0.3,1.3) node[] {$d$};
+\draw (-1.7,2.3) node[] {$\tg{d}$};
+\draw (1.8,2.3) node[] {$\tg{d+1}$};
+\end{scope}
+\end{tikzpicture}
+}
+
+\newcommand\TikzTwoVertexTriangleCrossesOneEdgeNotLoop[1]{
+\begin{tikzpicture}[scale={#1} ]
+\MacroTwoVertexTriangle
+\draw[->,TPathStyle,rounded corners=15pt] 
+(0,0) -- (-1,1) -- (-0.7,2.5) -- (1.3,3) node[pos=0.4, above]{$\ga$};
+\draw (0.1,1.5) node[] {$\tg{0}$};
+\draw (-1.8,2.3) node[] {$\tg{-1}$};
+\draw (1.4,2.3) node[] {$1$};
+\begin{scope}[yshift=-4cm]
+\MacroTwoVertexTriangle
+\draw[PathArrowAtPosStyleReversedFive,TPathStyle,rounded corners=15pt] 
+(0,0) -- (-1,1) -- (-0.7,2.5) -- (1.2,3) node[pos=0.4, above]{$\ga$};
+\draw (0,1.6) node[] {$\tg{d}$};
+\draw (-1.8,2.8) node[] {$\tg{d+1}$};
+\draw (1.5,2.3) node[] {$d$};
+\end{scope}
+\end{tikzpicture}
+}
+
+%%% triangle with one vertex and three sides %%%%
+
+\newcommand\MacroVeryThinNoose{
+\draw[style = thick, rounded corners = 10pt] % inner loop
+	(0,0) .. controls (-0.6,1) and (-0.4,1.7) .. (0,2.2) .. 
+	controls (0.4,1.7)  and (0.6,1) .. (0,0); 
+}
+
+\newcommand\MacroVeryThinNooseHidden{
+\draw[style = thick, rounded corners = 5pt] % inner loop
+	(0,0) .. controls (-0.6,1) and (-0.4,1.7) .. (0,2) .. 
+	controls (0.4,1.7)  and (0.6,1) .. (0,0); 
+}
+
+\newcommand\MacroOneVertexTriangle{
+\draw[style = thick, rounded corners = 30pt]
+	(0,0) .. controls (-2.7,1) and (-2.4,2.5) .. (0,3.5) .. 
+	controls (2.4,2.5)  and (2.7,1) .. (0,0); 
+	
+	\draw [fill=olive] (0,0) circle (.6ex);
+	
+\begin{scope}[rotate=30]
+\MacroVeryThinNoose
+\end{scope}
+
+\begin{scope}[rotate=-35]
+\MacroVeryThinNoose
+\end{scope}
+}
+
+\newcommand\MacroOneVertexTriangleHidden{
+    \begin{scope}[rotate=30]
+    \MacroVeryThinNooseHidden \end{scope}
+
+    \begin{scope}[rotate=-35]
+    \MacroVeryThinNooseHidden \end{scope}
+
+    \begin{scope}[rotate=-100]
+    \MacroVeryThinNooseHidden \end{scope}
+    
+    \draw [fill=olive] (0,0) circle (.6ex);
+}
+
+\newcommand\TikzOneVertexTriangle[1]{
+\begin{tikzpicture}[scale={#1} ]
+\MacroOneVertexTriangle
+\end{tikzpicture}
+}
+
+\newcommand\TikzOneVertexTriangleCrossesTwoEdges[1]{
+\begin{tikzpicture}[scale={#1} ]
+\MacroOneVertexTriangle
+\draw[TPathStyle] 
+(-0.6,1.5) --(0.8,1.5) node[pos=0.5, above]{$\ga$};
+
+\begin{scope}[yshift=-3.5cm]
+\MacroOneVertexTriangle
+\draw[TPathStyle,rounded corners=15pt] 
+ (-2,1) --(-0.7,1) node[pos=0.4, above]{$\ga$};
+\end{scope}
+
+\begin{scope}[yshift=-6cm] 
+\MacroOneVertexTriangleHidden
+\draw[TPathStyle] (-0.6,1) --(0.8,1) node[pos=0.5, above]{$\ga$};    
+\end{scope}
+\end{tikzpicture}
+}
+
+\newcommand\TikzOneVertexTriangleCrossesOneEdge[1]{
+\begin{tikzpicture}[scale={#1} ]
+\MacroOneVertexTriangle
+\draw[TPathStyle] 
+(0,0) -- (0.2,3.5) node[pos=0.5, left]{$\ga$};
+
+\begin{scope}[yshift=-3.5cm]
+\MacroOneVertexTriangle
+\draw[TPathStyle,rounded corners=15pt] 
+(0,0) -- (-1.6,1) -- (-1.6,2.3) --  (0,2.1) --(0.4,1) node[pos=0.4, above]{$\ga$};
+\end{scope}
+
+\begin{scope}[yshift=-6cm] 
+\MacroOneVertexTriangleHidden
+\draw[TPathStyle,rounded corners=15pt] 
+(0,0) -- (-1.6,1) -- (-1.6,2.3) --  (0,2.1) --(0.4,1) node[pos=0.4, above]{$\ga$};
+\end{scope}
+
+\end{tikzpicture}
+}
+
+%%% self-folded triangle %%%%%
+
+%\newcommand\MacroTikzArrowAtPos[1]{
+%decoration={ markings, mark=at position {#1} with {\arrow[black, line width=2pt]{stealth};}}
+%}
+
+
+
+\newcommand\MacroSelfFoldedTriangleNoLabel{
+	\draw[thick]
+	(0,0) -- (0,2);
+	
+	\draw [fill=violet] (0,2) circle (1.2*\TikzPunctureActualSize);
+	
+	\draw[style = thick, rounded corners = 20pt,NooseArrowAtPosStyleSix]	
+	(0,0) .. controls (-1.8,1) and (-1.5,2.5) .. (0,3.5) .. 
+	controls (1.5,2.5)  and (1.8,1) .. (0,0); %node[pos=0.5, right] {$\ell$};
+	\draw [fill=olive] (0,0) circle (.6ex);
+}
+\newcommand\TikzSelfFoldedTriangle[1]{
+\begin{tikzpicture}[scale={#1} ]
+\MacroSelfFoldedTriangleNoLabel
+\draw (-1.6,2) node {$\ell$};
+\draw (0.3,1) node {$r$};
+\end{tikzpicture}
+}
+
+
+
+%%% self-folded triangle where both radius and noose are crossed
+\newcommand\TikzSelfFoldedTriangleCrossesRadiusNoose[1]{
+\begin{tikzpicture}[scale={#1} ]
+\MacroSelfFoldedTriangleNoLabel
+\draw (-1.3,2.8) node {$k$};
+\draw (0.2,1.4) node {$k+1$};
+\draw (1.3,3.2) node {$k+2$};
+\draw[TPathStyle,->] 
+(-1.5,1) -- (1.6,1) %(0.4,1) 
+node[pos=0.05, below]{$\ga$};
+% \begin{scope}[yshift=-4cm]
+% \draw (1.3,3.2) node {$k+1$};
+% \draw (-0.2,1.5) node {$k$};
+% \MacroSelfFoldedTriangleNoLabel
+% \draw[TPathStyle,->] 
+% (-0.2,1) -- (1.6,1) node[pos=0.4, above]{$\ga$};
+% \end{scope}
+\end{tikzpicture}
+}
+
+%%% self-folded triangle when only the noose is crossed
+\newcommand\TikzSelfFoldedTriangleCrossesNoose[1]{
+\begin{tikzpicture}[scale={#1} ]
+\MacroSelfFoldedTriangleNoLabel
+\draw[->,TPathStyle] 
+(0,2) -- (0.5,3.6) node[pos=0.5, left]{$\ga$};
+\draw (-0.1,1.2) node {$\tg{-1}\,\,\, \tg{0}$};
+\draw (1.5,2.3) node {$1$};
+
+\begin{scope}[black,yshift=-4cm]
+\MacroSelfFoldedTriangleNoLabel
+\draw[<-,TPathStyle] 
+(0,2.2) -- (0.5,3.5) node[pos=0.5, left]{$\ga$};
+\draw (-0.1,1.2) node {$\tg{d+1}\,\,\, \tg{d}$};
+\draw (1.5,2.3) node {$d$};
+\end{scope}
+
+\end{tikzpicture}
+}
+
+%%%%%%
+%%%%%%
+% end of new since sept 2014
+
+%%% current begins
+\newcommand\TikzPunctureActualSize{0.1}
+\newcommand\TikzPointActualSize{0.07}
+
+\newcommand\MacroPunctureClosestToKOrKOneTwoVertexTriangle{
+	\begin{scope}[rotate=-90]\MacroTwoVertexTriangle\end{scope}
+	\draw (1.8,-1.5) node[black]{$\tg{k}$};
+	\draw (-0.3,0) node[olive] {$v$};
+	\draw[fill=violet] (1.5,0) circle(\TikzPunctureActualSize) node[violet, above] {$\puncture$};
+	\draw[CyanGammaStyle] (0.3,-1.2) -- (1.5,1.7) node[left,pos=0.9]{$\ga$};
+}
+\newcommand\MacroPunctureClosestToKOrKOneTwoVertexTriangleWithSigma{
+	\draw[RedSigmaStyle, rounded corners=10pt] (1,-1.6) --
+	(1.1,0) -- (1.5,1) -- (2.3,0.8) -- (2.5,-1.6) node[red,pos=0.6,right]{$\si$};
+}
+
+\newcommand\TikzPunctureClosestToKTwoVertexTriangle[1]{
+\begin{tikzpicture}[scale={#1}]
+\MacroPunctureClosestToKOrKOneTwoVertexTriangle
+\draw (2.8,1.3) node[black] {$k+1$};
+\end{tikzpicture}
+}
+\newcommand\TikzPunctureClosestToKTwoVertexTriangleWithSigma[1]{
+\begin{tikzpicture}[scale={#1}]
+\MacroPunctureClosestToKOrKOneTwoVertexTriangle
+\MacroPunctureClosestToKOrKOneTwoVertexTriangleWithSigma
+\draw (2.8,1.3) node[black] {$k+1$};
+\end{tikzpicture}
+}
+\newcommand\TikzPunctureClosestToKOneTwoVertexTriangle[1]{
+\begin{tikzpicture}[scale={#1}]
+\begin{scope}[xscale=-1]\MacroPunctureClosestToKOrKOneTwoVertexTriangle\end{scope}
+\draw (-2.7,1.3) node[black] {$k$};
+%	\begin{scope}[rotate=90]\MacroTwoVertexTriangle\end{scope}
+%	\draw (-1.5,-1) node[black]{$\tg{k}$};
+%	\draw (0.2,0) node[olive] {$v$};
+%	\draw[fill=violet] (-1.5,0) circle(\TikzPunctureActualSize) node[violet, above] {$\puncture$};
+\end{tikzpicture}
+}
+\newcommand\TikzPunctureClosestToKOneTwoVertexTriangleWithSigma[1]{
+\begin{tikzpicture}[scale={#1}]
+	\begin{scope}[xscale=-1]
+	\MacroPunctureClosestToKOrKOneTwoVertexTriangle
+	\MacroPunctureClosestToKOrKOneTwoVertexTriangleWithSigma
+	\end{scope}
+	\draw (-2.7,1.3) node[black] {$k$};
+\end{tikzpicture}
+}
+
+
+\newcommand\MacroPunctureClosestToTGKTwoVertexTriangle{
+	\begin{scope}\MacroTwoVertexTriangle\end{scope}
+	\draw (-0.6,2) node[black]{$\tg{k}$};
+	\draw (0,3.8) node[olive] {$v$};
+	\draw[fill=violet] (0,1.5) circle(\TikzPunctureActualSize) node[violet, below=2pt] {$\puncture$};
+	\draw[CyanGammaStyle] (-1.4,2.9) -- (1.4,2.9) node[pos=0.9, above]{$\ga$};
+}
+\newcommand\TikzPunctureClosestToTGKTwoVertexTriangle[1]{
+\begin{tikzpicture}[scale={#1}]
+	\MacroPunctureClosestToTGKTwoVertexTriangle
+\end{tikzpicture}
+}
+\newcommand\MacroDrawGammaSigmaCrossingTwiceOpeningLeft{
+	\draw[RedSigmaStyle, rounded corners=10pt] (-1.5,2.3) -- (0.6,2.5) -- (1,1.8) -- (0.7,1) -- (-1.5,1);
+}
+\newcommand\TikzPunctureClosestToTGKTwoVertexTriangleWithSigma[1]{
+\begin{tikzpicture}[scale={#1}]
+	\MacroPunctureClosestToTGKTwoVertexTriangle
+	\MacroDrawGammaSigmaCrossingTwiceOpeningLeft
+\end{tikzpicture}
+}
+\newcommand\TikzPunctureClosestToTGKTwoVertexTriangleWithSigmaOpeningRight[1]{
+\begin{tikzpicture}[scale={#1}]
+	\MacroPunctureClosestToTGKTwoVertexTriangle
+	\begin{scope}[xscale=-1]\MacroDrawGammaSigmaCrossingTwiceOpeningLeft\end{scope}
+\end{tikzpicture}
+}
+
+\newcommand\MacroTriangleLabelsKAndKOne{
+\draw (-0.55*\TikzBase,0.7*\TikzHeight) node[black] {$k$};
+\draw (0.8*\TikzBase,0.7*\TikzHeight) node[black] {$k+1$};
+\draw(0,0.15*\TikzHeight) node[black] {$\tg{k}$};
+}
+
+\newcommand\MacroTriangleWithGamma{
+\newcommand\TikzHeight{1.8}
+\newcommand\TikzBase{1.4}
+\draw[thick] (-\TikzBase,0) -- (\TikzBase,0) -- (0,\TikzHeight)  -- (-\TikzBase,0);
+\draw [fill=olive] (-\TikzBase,0) circle (.6ex);
+\draw [fill=olive] (\TikzBase,0)  circle (.6ex);
+\draw [fill=olive] (0,\TikzHeight)  circle (.6ex) node[olive,above=2pt] {$v$};
+\draw[CyanGammaStyle] (-0.8*\TikzBase,0.8*\TikzHeight) -- (0.8*\TikzBase,0.8*\TikzHeight) node[cyan, pos=0.2, above] {$\ga$};
+}
+\newcommand\TikzPunctureClosestToK[1]{
+\begin{tikzpicture}[scale={#1}]
+\MacroTriangleWithGamma
+\draw[fill=violet] (-0.9*\TikzBase,0.4*\TikzHeight) circle (\TikzPunctureActualSize);
+\MacroTriangleLabelsKAndKOne
+\end{tikzpicture}
+}
+\newcommand\TikzPunctureClosestToKOne[1]{
+\begin{tikzpicture}[scale={#1}]
+\MacroTriangleWithGamma
+\draw[fill=violet] (0.9*\TikzBase,0.4*\TikzHeight) circle (\TikzPunctureActualSize);
+\MacroTriangleLabelsKAndKOne
+\end{tikzpicture}
+}
+\newcommand\TikzPunctureClosestToTGK[1]{
+\begin{tikzpicture}[scale={#1}]
+\MacroTriangleWithGamma
+\draw[fill=violet] (0,-0.2*\TikzBase) circle (\TikzPunctureActualSize);
+\MacroTriangleLabelsKAndKOne
+\end{tikzpicture}
+}
+
+\newcommand\MacroOrdinaryTriangleSigmaClosingLeft{
+\coordinate (P) at (-0.9*\TikzBase,0.4*\TikzHeight) ;
+\draw[fill=violet] (P) circle (\TikzPunctureActualSize);
+\draw[RedSigmaStyle, rounded corners=10pt] (0,-0.5) -- (-1.2*\TikzBase,0.4*\TikzHeight) 
+-- (-0.8*\TikzBase,0.7*\TikzHeight)  -- (0.5*\TikzBase,-0.5) ;
+\draw[red] (0*\TikzBase,0.3*\TikzHeight) node {$\si$};
+}
+
+\newcommand\TikzPunctureClosestToKWithSigma[1]{
+\begin{tikzpicture}[scale={#1}]
+\MacroTriangleWithGamma
+\MacroOrdinaryTriangleSigmaClosingLeft
+\end{tikzpicture}
+}
+\newcommand\TikzPunctureClosestToKOneWithSigma[1]{
+\begin{tikzpicture}[scale={#1}]
+\MacroTriangleWithGamma
+\begin{scope}[xscale=-1]\MacroOrdinaryTriangleSigmaClosingLeft\end{scope}
+\end{tikzpicture}
+}
+\newcommand\MacroOrdinaryTriangleSigmaOpeningRight{
+\draw[fill=violet] (0,-0.2*\TikzBase) circle (\TikzPunctureActualSize);
+\draw[RedSigmaStyle, rounded corners=10pt]  (0.9*\TikzBase,0.7*\TikzHeight) --(0.5*\TikzBase,0.6*\TikzHeight)  --   
+ (-0.4*\TikzBase,-0.3*\TikzHeight) --  (0.3*\TikzBase,-0.3*\TikzHeight) -- 
+ (0.7*\TikzBase,0.3*\TikzHeight) -- (1*\TikzBase,0.4*\TikzHeight);
+ \node[red] at (0,0.45*\TikzBase) {$\si$};
+ }
+
+\newcommand\TikzPunctureClosestToTGKWithSigma[1]{
+\begin{tikzpicture}[scale={#1}]
+\MacroTriangleWithGamma
+\MacroOrdinaryTriangleSigmaOpeningRight
+\end{tikzpicture}
+}
+\newcommand\TikzPunctureClosestToTGKWithSigmaOpeningLeft[1]{
+\begin{tikzpicture}[scale={#1}]
+\MacroTriangleWithGamma
+\begin{scope}[xscale=-1]\MacroOrdinaryTriangleSigmaOpeningRight\end{scope}
+\end{tikzpicture}
+}
+%%%
+%%%
+\newcommand\MacroNooseTriangulation[1]{
+\newcommand\Tikzn{2}
+\begin{scope}[#1]
+\coordinate (P) at (0,0);
+%\node at (1.3*\Tikzn,0) {$b_1$}; \node at (-1.3*\Tikzn,0) {$b_3$};
+%\node at (0,1.3*\Tikzn) {$b_2$}; \node at (0,-1.3*\Tikzn) {$b_4$};
+\draw (\Tikzn,\Tikzn) -- (\Tikzn,-\Tikzn) -- (-\Tikzn,-\Tikzn) -- (-\Tikzn,\Tikzn)  -- cycle;
+\foreach \pos in {(\Tikzn,\Tikzn),(\Tikzn,-\Tikzn),(-\Tikzn,\Tikzn),(-\Tikzn,-\Tikzn)}
+		{\draw (P) -- \pos;
+		\draw[fill=olive] \pos circle (1.3*\TikzPointActualSize);}
+\draw[fill=violet] (P) circle (1.3*\TikzPunctureActualSize);
+\end{scope}
+}
+
+\newcommand\TikzNooseGammaIdealTriangulation[1]{
+\begin{tikzpicture}[scale={#1}]
+\MacroNooseTriangulation{black}
+\draw[RedSigmaStyle, NooseArrowAtPosStyleTwo,rounded corners=15pt] (\Tikzn,-\Tikzn) -- (0.6*\Tikzn,0) -- (0.1*\Tikzn,0.7*\Tikzn)
+-- (-0.5*\Tikzn,0.5*\Tikzn)
+-- (-0.6*\Tikzn,-0.3*\Tikzn) -- (0,-0.6*\Tikzn) -- (\Tikzn,-\Tikzn);
+\node at (0.4*\Tikzn,0.4*\Tikzn) [right]{\TikzPosterTpathSixNineFontSize $1$};
+\node at (-0.4*\Tikzn,0.4*\Tikzn) [above]{\TikzPosterTpathSixNineFontSize $2$};
+\node at (-0.6*\Tikzn,-0.6*\Tikzn) [right]{\TikzPosterTpathSixNineFontSize $3$};
+\node at (0.4*\Tikzn,-0.4*\Tikzn) [left]{\TikzPosterTpathSixNineFontSize $\tau$};
+\node at (1.3*\Tikzn,0) {\TikzPosterTpathSixNineFontSize $b_1$}; \node at (-1.3*\Tikzn,0) {\TikzPosterTpathSixNineFontSize $b_3$};
+\node at (0,1.3*\Tikzn) {\TikzPosterTpathSixNineFontSize $b_2$}; \node at (0,-1.3*\Tikzn) {\TikzPosterTpathSixNineFontSize $b_4$};
+\node at (-0.7*\Tikzn,0) [red] {\TikzPosterTpathSixNineFontSize $\ga$};
+\end{tikzpicture}
+}
+\newcommand\MacroDrawBlueDot[2]{
+\node[style=thick,fill=blue,blue,circle,minimum width=2.5pt,inner sep=0pt,draw] at (#1,#2) {};
+}
+\newcommand\MacroNooseTPathOne{
+\draw [TPathStyle, PathArrowAtPosStyleFourSmall] (\Tikzn,-\Tikzn) -- (\Tikzn,\Tikzn); 
+\draw [TPathStyle,rounded corners=20pt,PathArrowAtPosStyleFourSmall] (0.9*\Tikzn,0.9*\Tikzn) -- (P) -- (-0.9*\Tikzn,0.9*\Tikzn);
+\MacroDrawBlueDot{0}{0.3*\Tikzn}
+\draw [TPathStyle,rounded corners=20pt] (-1*\Tikzn,0.9*\Tikzn) -- (P) -- (-\Tikzn,-\Tikzn);
+\MacroDrawBlueDot{-0.3*\Tikzn}{0}
+\draw [TPathStyle,rounded corners=20pt,PathArrowAtPosStyleSevenSmall] (-0.9*\Tikzn,-0.9*\Tikzn) -- (P) -- (\Tikzn,-\Tikzn) ;
+\MacroDrawBlueDot{0}{-0.3*\Tikzn}
+}
+\newcommand\MacroNooseTpathDrawLabels{
+\node at (0.5*\Tikzn,0.5*\Tikzn) [right]{\TikzPosterTpathSixNineFontSize $1$};
+\node at (-0.5*\Tikzn,0.5*\Tikzn) [left]{\TikzPosterTpathSixNineFontSize $2$};
+\node at (-0.7*\Tikzn,-0.7*\Tikzn) [right]{\TikzPosterTpathSixNineFontSize $3$};
+\node at (0.7*\Tikzn,-0.7*\Tikzn) [left]{\TikzPosterTpathSixNineFontSize $\tau$};
+\begin{scope}[transparent]
+\node at (1.3*\Tikzn,0) {\TikzPosterTpathSixNineFontSize $b_1$}; 
+\node at (0,1.3*\Tikzn) {\TikzPosterTpathSixNineFontSize $b_2$};
+\node at (-1.3*\Tikzn,0) {\TikzPosterTpathSixNineFontSize $b_3$};
+\node at (0,-1.3*\Tikzn) {\TikzPosterTpathSixNineFontSize $b_4$};
+\end{scope}
+}
+
+\newcommand\TikzNooseTpathOneBad[2]{
+\begin{tikzpicture}[scale={#1}]
+\MacroNooseTriangulation{gray}
+\MacroNooseTpathDrawLabels
+%\MacroNooseTPathOne
+\coordinate (P1) at (0,0.3*\Tikzn);
+\draw [TPathStyle, PathArrowAtPosStyleFourSmall] (\Tikzn,-\Tikzn) -- (\Tikzn,\Tikzn); 
+\draw [TPathStyle,rounded corners=5pt,PathArrowAtPosStyleSixSmall] (0.99*\Tikzn,0.99*\Tikzn) -- (P1);
+\draw [TPathStyle,rounded corners=5pt,PathArrowAtPosStyleFourSmall] (P1) --  (-0.2*\Tikzn,0.8*\Tikzn) -- (-0.99*\Tikzn,0.99*\Tikzn);
+\MacroDrawBlueDot{0}{0.3*\Tikzn}
+\draw [TPathStyle,rounded corners=20pt,PathArrowAtPosStyleSixSmall] (-0.9*\Tikzn,0.9*\Tikzn) -- (P1) ;
+\draw [TPathStyle,rounded corners=20pt,PathArrowAtPosStyleFourSmall] 
+(P1) -- (-\Tikzn,-\Tikzn);
+\draw [TPathStyle,rounded corners=20pt,PathArrowAtPosStyleSevenSmall] (-0.9*\Tikzn,-0.9*\Tikzn) -- (P) -- (\Tikzn,-\Tikzn) ;
+\MacroDrawBlueDot{0}{-0.3*\Tikzn}
+
+\node at (1.3*\Tikzn,0) {\TikzPosterTpathSixNineFontSize $b_1$}; 
+\node at (1.8*\Tikzn,0) {}; \node at (-1.8*\Tikzn,0) {}; 
+\node at \TikzPosterNooseTpathOneFourCaptionLocation {\TikzPosterTpathSixNineCaptionSize #2};
+\end{tikzpicture}
+}
+
+\newcommand\TikzPosterNooseTpathOneFourCaptionLocation{(0,-3.9)}
+
+\newcommand\TikzNooseTpathOne[2]{
+\begin{tikzpicture}[scale={#1}]
+\MacroNooseTriangulation{gray}
+
+\MacroNooseTpathDrawLabels
+\MacroNooseTPathOne
+\node at (1.3*\Tikzn,0) {\TikzPosterTpathSixNineFontSize $b_1$}; 
+\node at \TikzPosterNooseTpathOneFourCaptionLocation {\TikzPosterTpathSixNineCaptionSize #2};
+\end{tikzpicture}
+}
+\newcommand\TikzNooseTpathTwo[2]{
+\begin{tikzpicture}[scale={#1}]
+\MacroNooseTriangulation{gray}
+%\draw [TPathStyle,PathArrowAtPosStyleFour] (\Tikzn,\Tikzn) -- (-\Tikzn,\Tikzn); 
+\begin{scope}[rotate=90]
+\MacroNooseTPathOne
+\end{scope}
+\MacroNooseTpathDrawLabels
+\node at (0,1.3*\Tikzn) {\TikzPosterTpathSixNineFontSize $b_2$};
+%\MacroDrawBlueDot{0.2*\Tikzn}{0}
+%\MacroDrawBlueDot{-0.2*\Tikzn}{0}
+%\MacroDrawBlueDot{0}{-0.2*\Tikzn}
+\node at \TikzPosterNooseTpathOneFourCaptionLocation {\TikzPosterTpathSixNineCaptionSize #2};
+\end{tikzpicture}
+}
+\newcommand\TikzNooseTpathThree[2]{
+\begin{tikzpicture}[scale={#1}]
+\MacroNooseTriangulation{gray}
+%\draw [TPathStyle, PathArrowAtPosStyleFour] (-\Tikzn,\Tikzn) -- (-\Tikzn,-\Tikzn); 
+\begin{scope}[rotate=180]
+\MacroNooseTPathOne
+\end{scope}
+\MacroNooseTpathDrawLabels
+\node at (-1.3*\Tikzn,0) {\TikzPosterTpathSixNineFontSize $b_3$};
+%\MacroDrawBlueDot{0.2*\Tikzn}{0}
+%\MacroDrawBlueDot{0}{0.2*\Tikzn}
+%\MacroDrawBlueDot{0}{-0.2*\Tikzn}
+\node at \TikzPosterNooseTpathOneFourCaptionLocation {\TikzPosterTpathSixNineCaptionSize #2};
+\end{tikzpicture}
+}
+\newcommand\TikzNooseTpathFour[2]{
+\begin{tikzpicture}[scale={#1}]
+\MacroNooseTriangulation{gray}
+%\draw [TPathStyle, PathArrowAtPosStyleFour] (-\Tikzn,-\Tikzn) -- (\Tikzn,-\Tikzn); 
+\begin{scope}[rotate=-90]
+\MacroNooseTPathOne
+\end{scope}
+\MacroNooseTpathDrawLabels
+\node at (0,-1.3*\Tikzn) {\TikzPosterTpathSixNineFontSize $b_4$};
+\node at \TikzPosterNooseTpathOneFourCaptionLocation {\TikzPosterTpathSixNineCaptionSize #2};
+\end{tikzpicture}
+}
+
+
+%%%
+%%%
+\newcommand\MacroNotNooseDrawArcThree[1]{
+\draw [rounded corners=15pt,#1] (-\Tikzn,\Tikzn) -- (-0.5*\Tikzn, -0.5*\Tikzn) -- (\Tikzn,-\Tikzn);
+}
+\newcommand\MacroNotNooseTriangulation[1]{
+\newcommand\Tikzn{2}
+\begin{scope}[#1]
+\coordinate (P) at (0,0);
+%\node at (1.3*\Tikzn,0) {$b_1$}; \node at (-1.3*\Tikzn,0) {$b_3$};
+%\node at (0,1.3*\Tikzn) {$b_2$}; \node at (0,-1.3*\Tikzn) {$b_4$};
+\draw (\Tikzn,\Tikzn) -- (\Tikzn,-\Tikzn) -- (-\Tikzn,-\Tikzn) -- (-\Tikzn,\Tikzn)  -- cycle;
+
+\MacroNotNooseDrawArcThree{}
+%\draw [rounded corners=15pt] (-\Tikzn,\Tikzn) -- (-0.5*\Tikzn, -0.5*\Tikzn) -- (\Tikzn,-\Tikzn);
+
+\foreach \pos in {(\Tikzn,\Tikzn),(\Tikzn,-\Tikzn),
+(-\Tikzn,\Tikzn)%,(-\Tikzn,-\Tikzn)
+}
+		{\draw (P) -- \pos;
+		\draw[fill=olive] \pos circle (1.3*\TikzPointActualSize);}
+\draw[fill=violet] (P) circle (1.3*\TikzPunctureActualSize);
+\draw[fill=olive] (-\Tikzn,-\Tikzn) circle (1.3*\TikzPointActualSize);
+\end{scope}
+}
+
+\newcommand\TikzNotNooseGammaIdealTriangulation[1]{
+\begin{tikzpicture}[scale={#1}]
+\MacroNotNooseTriangulation{black}
+\draw[RedSigmaStyle, NooseArrowAtPosStyleTwo,rounded corners=15pt] (\Tikzn,-\Tikzn) -- (0.6*\Tikzn,0) -- (0.1*\Tikzn,0.7*\Tikzn)
+-- (-0.5*\Tikzn,0.5*\Tikzn)
+%-- (-0.6*\Tikzn,-0.3*\Tikzn) -- (0,-0.6*\Tikzn) 
+-- (-\Tikzn,-\Tikzn);
+\node at (0.4*\Tikzn,0.4*\Tikzn) [right]{\TikzPosterTpathSixNineFontSize $1$};
+\node at (-0.4*\Tikzn,0.5*\Tikzn) [above]{\TikzPosterTpathSixNineFontSize $2$};
+\node at (-0.5*\Tikzn,-0.5*\Tikzn) {\TikzPosterTpathSixNineFontSize $3$};
+\node at (0.5*\Tikzn,-0.5*\Tikzn) [left]{\TikzPosterTpathSixNineFontSize $0$};
+\node at (1.3*\Tikzn,0) {\TikzPosterTpathSixNineFontSize $b_1$}; \node at (-1.3*\Tikzn,0) {\TikzPosterTpathSixNineFontSize $b_3$};
+\node at (0,1.3*\Tikzn) {\TikzPosterTpathSixNineFontSize $b_2$}; \node at (0,-1.3*\Tikzn) {\TikzPosterTpathSixNineFontSize $b_4$};
+\node[rotate=50] at (0.2*\Tikzn,0.74*\Tikzn) [red] {\TikzPosterTpathSixNineFontSize $\ga$};
+\end{tikzpicture}
+}
+%\newcommand\MacroDrawBlueDot[2]{
+%\node[style=thick,fill=blue,blue,circle,minimum width=2.5pt,inner sep=0pt,draw] at (#1,#2) {};
+%}
+%\newcommand\MacroNotNooseTPathOne{
+%\draw [TPathStyle, PathArrowAtPosStyleFourSmall] (\Tikzn,-\Tikzn) -- (\Tikzn,\Tikzn); 
+%\draw [TPathStyle,rounded corners=20pt,PathArrowAtPosStyleFourSmall] (0.9*\Tikzn,0.9*\Tikzn) -- (P) -- (-0.9*\Tikzn,0.9*\Tikzn);
+%\MacroDrawBlueDot{0}{0.3*\Tikzn}
+%\draw [TPathStyle,rounded corners=20pt] (-1*\Tikzn,0.9*\Tikzn) -- (P) -- (-\Tikzn,-\Tikzn);
+%\MacroDrawBlueDot{-0.3*\Tikzn}{0}
+%\draw [TPathStyle,rounded corners=20pt,PathArrowAtPosStyleSevenSmall] (-0.9*\Tikzn,-0.9*\Tikzn) -- (P) -- (\Tikzn,-\Tikzn) ;
+%\MacroDrawBlueDot{0}{-0.3*\Tikzn}
+%}
+\newcommand\MacroNotNooseTpathDrawLabels{
+\node at (0.4*\Tikzn,0.4*\Tikzn) [right]{\TikzPosterTpathSixNineFontSize$1$};
+\node at (-0.4*\Tikzn,0.5*\Tikzn) [above]{\TikzPosterTpathSixNineFontSize$2$};
+\node at (-0.5*\Tikzn,-0.5*\Tikzn) {\TikzPosterTpathSixNineFontSize$3$};
+\node at (0.5*\Tikzn,-0.5*\Tikzn) [right]{\TikzPosterTpathSixNineFontSize$0$};
+\node at (1.3*\Tikzn,0) {}; \node at (-1.3*\Tikzn,0) {};
+%\node at (0,1.3*\Tikzn) {$b_2$}; \node at (0,-1.3*\Tikzn) {$b_4$};
+%
+%\node at (0.5*\Tikzn,0.5*\Tikzn) [right]{\tiny$1$};
+%\node at (-0.5*\Tikzn,0.5*\Tikzn) [left]{\tiny$2$};
+%\node at (-0.7*\Tikzn,-0.7*\Tikzn) [right]{\tiny$3$};
+%\node at (0.7*\Tikzn,-0.7*\Tikzn) [left]{\tiny$\tau$};
+\begin{scope}[transparent]
+\node at (1.3*\Tikzn,0)  {\TikzPosterTpathSixNineFontSize $b_1$}; 
+\node at (0,1.3*\Tikzn) {\TikzPosterTpathSixNineFontSize $b_2$};
+\node at (-1.3*\Tikzn,0) {\TikzPosterTpathSixNineFontSize $b_3$};
+\node at (0,-1.3*\Tikzn) {\TikzPosterTpathSixNineFontSize $b_4$};
+\end{scope}
+}
+
+\newcommand\TikzNotNooseTpathThreeBad[2]{
+\begin{tikzpicture}[scale={#1}]
+\MacroNotNooseTriangulation{gray}
+
+\MacroNotNooseTpathDrawLabels
+
+\begin{scope}[TPathStyle]
+%\coordinate (P1) at (0.3*\Tikzn,0);
+\coordinate (P1) at (-0.2*\Tikzn,-0.2*\Tikzn);
+
+\draw[PathArrowAtPosStyleFourSmall] (\Tikzn,-\Tikzn) -- (P1); 
+\draw[PathArrowAtPosStyleFourSmall, rounded corners=15pt] (P1)  -- (0.3*\Tikzn,-0.2*\Tikzn) -- (\Tikzn,0.95*\Tikzn);
+
+\draw[rounded corners=15pt,PathArrowAtPosStyleSixSmall] (\Tikzn,0.95*\Tikzn) -- (-0.4*\Tikzn,0.1*\Tikzn) %--  (0.3*\Tikzn,-0.3*\Tikzn)  
+-- (P1) ;
+
+%\MacroDrawBlueDot{0.3*\Tikzn}{0}
+\MacroDrawBlueDot{-0.2*\Tikzn}{-0.2*\Tikzn}
+
+\draw[rounded corners=15pt,PathArrowAtPosStyleFourSmall] (P1) % -- (0,-0.6*\Tikzn) 
+-- (-\Tikzn,\Tikzn);
+
+\draw [TPathStyle, PathArrowAtPosStyleEnd] (-\Tikzn,\Tikzn) -- (-\Tikzn,-\Tikzn); \node[black] at (-1.3*\Tikzn,0) {\TikzPosterTpathSixNineFontSize $b_3$};
+\end{scope}
+%
+%\draw [TPathStyle, PathArrowAtPosStyleFourSmall] (\Tikzn,-\Tikzn) -- (\Tikzn,\Tikzn); 
+%\draw [TPathStyle,rounded corners=5pt,PathArrowAtPosStyleSixSmall] (0.99*\Tikzn,0.99*\Tikzn) -- (P1);
+%\draw [TPathStyle,rounded corners=5pt,PathArrowAtPosStyleFourSmall] (P1) --  (-0.2*\Tikzn,0.8*\Tikzn) -- (-0.99*\Tikzn,0.99*\Tikzn);
+%\MacroDrawBlueDot{0}{0.3*\Tikzn}
+%\draw [TPathStyle,rounded corners=20pt,PathArrowAtPosStyleFourSmall] (-0.9*\Tikzn,0.9*\Tikzn) -- (P1) 
+%(P1) -- (-\Tikzn,-\Tikzn);
+%%\MacroDrawBlueDot{-0.3*\Tikzn}{0}
+%\draw [TPathStyle,rounded corners=20pt,PathArrowAtPosStyleSevenSmall] (-0.9*\Tikzn,-0.9*\Tikzn) -- (P) -- (\Tikzn,-\Tikzn) ;
+%\MacroDrawBlueDot{0}{-0.3*\Tikzn}
+\node at (-2.3*\Tikzn,0) {}; \node at (2.3*\Tikzn,0) {}; 
+\node at \TikzPosterNotNooseTpathOneThreeCaptionLocation {\TikzPosterTpathSixNineCaptionSize #2};
+\end{tikzpicture}
+}
+
+\newcommand\TikzPosterNotNooseTpathOneThreeCaptionLocation{(0,-4.5)}
+
+\newcommand\TikzNotNooseTpathOne[2]{
+\begin{tikzpicture}[scale={#1}]
+\MacroNotNooseTriangulation{gray}
+
+\MacroNotNooseTpathDrawLabels
+%\MacroNotNooseTPathOne
+\begin{scope}[TPathStyle]
+\draw [PathArrowAtPosStyleFourSmall] (\Tikzn,-\Tikzn) -- (\Tikzn,\Tikzn); \node[black] at (1.3*\Tikzn,0) {\TikzPosterTpathSixNineFontSize $b_1$}; 
+\draw [TPathStyle,rounded corners=20pt,PathArrowAtPosStyleFourSmall] (0.9*\Tikzn,0.9*\Tikzn) -- (P) -- (-0.9*\Tikzn,0.9*\Tikzn);
+\MacroDrawBlueDot{0}{0.3*\Tikzn}
+
+\draw [PathArrowAtPosStyleEightSmall] (-\Tikzn,\Tikzn) -- 
+%(-0.2*\Tikzn,0.2*\Tikzn) --
+(-0.2*\Tikzn,-0.1*\Tikzn) ;
+\draw [rounded corners=5pt]
+(-0.2*\Tikzn,-0.2*\Tikzn) -- 
+(-0.5*\Tikzn,-0.1*\Tikzn) --
+(-\Tikzn,\Tikzn);
+
+\MacroDrawBlueDot{-0.2*\Tikzn}{-0.2*\Tikzn}
+
+\MacroNotNooseDrawArcThree{PathArrowAtPosStyleSevenSmall}
+\draw [PathArrowAtPosStyleEnd]  (\Tikzn,-\Tikzn) -- (-\Tikzn,-\Tikzn); \node[black] at (0,-1.3*\Tikzn) {\TikzPosterTpathSixNineFontSize $b_4$};
+\end{scope}
+\node at \TikzPosterNotNooseTpathOneThreeCaptionLocation {\TikzPosterTpathSixNineCaptionSize #2};
+\end{tikzpicture}
+}
+\newcommand\TikzNotNooseTpathTwo[2]{
+\begin{tikzpicture}[scale={#1}]
+\MacroNotNooseTriangulation{gray}
+\MacroNotNooseTpathDrawLabels
+\begin{scope}[TPathStyle]
+\draw [rounded corners=20pt,PathArrowAtPosStyleSevenSmall] (\Tikzn,-\Tikzn) -- (P) -- (\Tikzn,\Tikzn);
+\MacroDrawBlueDot{0.3*\Tikzn}{0}
+\draw [PathArrowAtPosStyleFourSmall] (\Tikzn,\Tikzn) -- (-\Tikzn,\Tikzn); \node[black] at (0,1.3*\Tikzn) {\TikzPosterTpathSixNineFontSize $b_2$};
+\draw [rounded corners=5pt,PathArrowAtPosStyleSevenSmall] (-\Tikzn,\Tikzn) -- 
+(-0.2*\Tikzn,0.2*\Tikzn) --
+(-0.2*\Tikzn,-0.1*\Tikzn) ;
+\draw [rounded corners=5pt,PathArrowAtPosStyleFourSmall]
+(-0.2*\Tikzn,-0.1*\Tikzn) -- 
+(-0.5*\Tikzn,0) --
+(-\Tikzn,\Tikzn);
+\MacroDrawBlueDot{-0.2*\Tikzn}{-0.1*\Tikzn}
+\MacroNotNooseDrawArcThree{PathArrowAtPosStyleSevenSmall}
+\draw [PathArrowAtPosStyleEnd]  (\Tikzn,-\Tikzn) -- (-\Tikzn,-\Tikzn); \node[black] at (0,-1.3*\Tikzn) {\TikzPosterTpathSixNineFontSize $b_4$};
+\end{scope}
+\node at \TikzPosterNotNooseTpathOneThreeCaptionLocation {\TikzPosterTpathSixNineCaptionSize #2};
+\end{tikzpicture}
+}
+\newcommand\TikzNotNooseTpathThree[2]{
+\begin{tikzpicture}[scale={#1}]
+\MacroNotNooseTriangulation{gray}
+\MacroNotNooseTpathDrawLabels
+\begin{scope}[TPathStyle]
+\draw [rounded corners=20pt,PathArrowAtPosStyleFourSmall] (\Tikzn,-\Tikzn) -- (P) -- (\Tikzn,0.95*\Tikzn);
+\MacroDrawBlueDot{0.3*\Tikzn}{0}
+\draw [TPathStyle,rounded corners=20pt,PathArrowAtPosStyleEightSmall] (0.9*\Tikzn,0.99*\Tikzn) -- (P) -- (-0.9*\Tikzn,0.9*\Tikzn);
+\MacroDrawBlueDot{0}{0.3*\Tikzn}
+\draw [TPathStyle, PathArrowAtPosStyleEnd] (-\Tikzn,\Tikzn) -- (-\Tikzn,-\Tikzn); \node[black] at (-1.3*\Tikzn,0) {\TikzPosterTpathSixNineFontSize $b_3$};
+\end{scope}
+\node at \TikzPosterNotNooseTpathOneThreeCaptionLocation {\TikzPosterTpathSixNineCaptionSize #2};
+\end{tikzpicture}
+}
+
+%% current ends
+
+%% starting for poster
+%%%%
+%%%% T2 triangulation
+
+%%%%%%%%%%%%%  
+\newcommand \MacroTtwoTriangulationCoordinatesForDrawingQuiver{
+ \coordinate (t) at (0,0); 
+ \coordinate(s) at (4,0);
+  \coordinate(vL) at (0,4);  \coordinate(vR) at (4,4);
+   \coordinate(x) at (0,4);  \coordinate(z) at (4,4);
+ }
+\newcommand \MacroTtwoTriangulationVerticesForDrawingQuiver{
+ \draw [fill=green] (0,0) circle (.3ex);
+\draw [fill=green] (0,4) circle (.3ex);
+\draw [fill=green] (4,0) circle (.3ex);
+\draw [fill=green] (4,4) circle (.3ex);
+\draw [fill=violet] (1.2,2.2) circle (.3ex); %puncture
+  }
+%%%%%%%%%%%
+
+\newcommand  \TikzTtwoTaggedNextToQuiver[1]{
+\begin{tikzpicture}[scale=#1] %% T2 triangulation tagged
+	\begin{scope}[rotate=180]
+%\MacroTtwoTriangulationCoordinatesForDrawingQuiver
+\newcommand\localfontsize{\small}
+\draw[style = thick]  (0,0) rectangle (4,4); 
+\draw [style = thick] (0,0) ..  controls(3.5,0.4) and (3.5,2) .. (4,4) node[pos=0.5,above]{\localfontsize $1$};  % the right most peripheral arc
+\draw [style = thick] (0,0) ..  controls (3.7,1) and (3.8,3.9)   .. (0,4)  node[pos=0.5,left]{\localfontsize $2$}; % the middle arc 
+\draw[style = thick] (0,4) .. controls (0.8,1) and (1,2) .. (1.2,2.2) node[pos=0.3,right]{\localfontsize $r$};  % the bridging (tagged plain) arc
+\draw[style = ultra thick, gray] (0,4) -- (1.2,2.2) node[pos=0.3, left] {\localfontsize $r$};  % r bowtie
+% the briding (tagged notched) arc
+\path[fill, gray] (1,2.5) -- (1.1,2.8) -- (1.3,2.5) -- cycle; % the notching (right)
+\path[fill, gray] (1,2.5) -- (0.9,2.2) -- (0.7,2.5) -- cycle; % the notching (left)
+
+\MacroTtwoTriangulationVerticesForDrawingQuiver
+	\end{scope}
+\end{tikzpicture}
+\begin{tikzpicture}[scale=#1] %% T2 triangulation tagged
+	\begin{scope}[rotate=180]
+%\MacroTtwoTriangulationCoordinatesForDrawingQuiver
+\newcommand\localfontsize{\small}
+\draw[style = thick]  (0,0) rectangle (4,4); 
+\draw [style = thick] (0,0) ..  controls(3.5,0.4) and (3.5,2) .. (4,4) node[pos=0.5,above]{\localfontsize $1$};  % the right most peripheral arc
+\draw [style = thick] (0,0) ..  controls (3.7,1) and (3.8,3.9)   .. (0,4)  node[pos=0.5,left]{\localfontsize $2$}; % the middle arc 
+\draw[style = thick] (0,4) .. controls (0.8,1) and (1,2) .. (1.2,2.2) node[pos=0.3,right]{\localfontsize $r$};  % the bridging (tagged plain) arc
+\draw[style = ultra thick, gray] (0,4) -- (1.2,2.2) node[pos=0.3, left] {\localfontsize $r$};  % r bowtie
+% the briding (tagged notched) arc
+\path[fill, gray] (1,2.5) -- (1.1,2.8) -- (1.3,2.5) -- cycle; % the notching (right)
+\path[fill, gray] (1,2.5) -- (0.9,2.2) -- (0.7,2.5) -- cycle; % the notching (left)
+\begin{scope}[->, style=very thick, dashed, red]
+\draw[rounded corners = 10 pt] (2.5,1.5) -- (0.7,0.8) -- (0.8,1.9); % red arrow two to r ( no bow tie )
+\draw[rounded corners = 10 pt] (2.5,1.5) -- (1.5,3.5) -- (0.75,3); % two to r (with bow tie)
+\draw (2.5,1.5) -- (3.2,1.5); % two to one
+\end{scope}
+\MacroTtwoTriangulationVerticesForDrawingQuiver
+	\end{scope}
+\end{tikzpicture}
+ }
+ 
+\newcommand \MacroTikzToneWithBowtiesNoLabel{ %Draw the triangulation where the arcs are labeled 1,2,3,4
+ 
+ \begin{scope}[style=thick]
+\draw[style = thick]  (0,0) rectangle (4,4);
+\draw [style = thick] (0,0) ..  controls(3.5,0.4) and (3.5,2) .. %node[pos =0.4,right=2pt] {$1$} 
+ (4,4);
+\draw [style = thick] (0,0) ..  controls (3.7,1) and (3.8,3.9)   .. %node[pos =0.4,left=2pt] {$2$}  
+(0,4);
+\draw[style = thick] (0,4) -- (1.2,2.2);
+\draw[style = thick] (1.2,2.2) --  (0,0);
+\draw (1,2.5) -- (1.1,2.8) -- (1.3,2.5) -- cycle; % the top notching (right)
+\draw (1,2.5) -- (0.9,2.2) -- (0.7,2.5) -- cycle; % the top notching (left)
+\draw (1,1.9) -- (1.1,1.6) -- (1.3,1.9) -- cycle; % the bottom notching (right)
+\draw (1,1.9) -- (0.9,2.2) -- (0.7,1.9) -- cycle; % the bottom notching (left)
+\end{scope}
+\draw [fill=violet] (1.2,2.2) circle (.3ex); %puncture
+\draw [fill=green] (0,0) circle (.3ex);
+\draw [fill=green] (0,4) circle (.3ex);
+\draw [fill=green] (4,0) circle (.3ex);
+\draw [fill=green] (4,4) circle (.3ex);
+}
+
+\newcommand  \TikzToneBowtiesOnly[1]{
+\begin{tikzpicture} [scale=#1]
+\MacroTikzToneWithBowtiesNoLabel %Draw the triangulation where the arcs are labeled 1,2,3,4
+\end{tikzpicture}
+}
+
+% Just a once-punctured square
+\newcommand \OncePuncturedSquare[1]{
+\begin{tikzpicture} [scale =#1]
+	\MacroTtwoTriangulationCoordinatesForDrawingQuiver
+	\draw[style = thick]  (0,0) rectangle (4,4);
+	\MacroTtwoTriangulationVerticesForDrawingQuiver
+\end{tikzpicture}
+}
+
+\newcommand  \TikzTtwoTaggedTriangulation[1]{ 
+\begin{tikzpicture}[scale=#1] %% T2 triangulation tagged
+\MacroTtwoTriangulationCoordinatesForDrawingQuiver
+
+\begin{scope}[style=thick]
+\draw (0,0) rectangle (4,4); 
+\draw (0,0) ..  controls(3.5,0.4) and (3.5,2) .. (4,4); % the right most peripheral arc
+\draw (0,0) ..  controls (3.7,1) and (3.8,3.9)   .. (0,4); % the middle arc 
+\draw (0,4) .. controls (0.8,1) and (1,2) .. (1.2,2.2);  % the radius (tagged plain) arc
+\draw (0,4) -- (1.2,2.2);% node[pos=0.5, right=1pt] {$\iota(\ell)$};  
+\draw (1,2.5) -- (1.1,2.8) -- (1.3,2.5) -- cycle; % the notching (right)
+\draw (1,2.5) -- (0.9,2.2) -- (0.7,2.5) -- cycle; % the notching (left)
+\end{scope}
+\MacroTtwoTriangulationVerticesForDrawingQuiver
+\end{tikzpicture}
+ }
+
+ \newcommand \MacroTikzToneNoLabel{ %Draw the triangulation where the arcs are labeled 1,2,3,4
+\draw[style = thick]  (0,0) rectangle (4,4);
+\draw [style = thick] (0,0) ..  controls(3.5,0.4) and (3.5,2) .. %node[pos =0.4,right=2pt] {$1$} 
+ (4,4);
+\draw [style = thick] (0,0) ..  controls (3.7,1) and (3.8,3.9)   .. %node[pos =0.4,left=2pt] {$2$}  
+(0,4);
+\draw[style = thick] (0,4) -- %node[pos =0.3,right=1pt] {$3$}  
+(1.2,2.2);
+\draw[style = thick] (1.2,2.2) -- %node[pos =0.4,right=1pt] {$4$}  
+(0,0);
+\draw [fill=violet] (1.2,2.2) circle (.3ex); %puncture
+\draw [fill=green] (0,0) circle (.3ex);
+\draw [fill=green] (0,4) circle (.3ex);
+\draw [fill=green] (4,0) circle (.3ex);
+\draw [fill=green] (4,4) circle (.3ex);
+ }
+ \newcommand  \TikzToneOnly[1]{
+ \begin{tikzpicture} [scale=#1]
+\MacroTikzToneNoLabel 
+\end{tikzpicture}
+  }
+\newcommand  \TikzTtwoIdealTriangulation[1]{
+ \begin{tikzpicture} [scale =#1]%% T2 triangulation tagged (IDEAL)
+\MacroTtwoTriangulationCoordinatesForDrawingQuiver
+
+\draw[style = thick]  (0,0) rectangle (4,4);
+\draw [style = thick] (0,0) ..  controls(3.5,0.4) and (3.5,2) .. (4,4);
+\draw [style = thick] (0,0) ..  controls (3.7,1) and (3.8,3.9)   .. (0,4);
+\draw [style = very thick] (0,4) ..  controls (0.7,0.1) and (3.9,1.4)   .. (0,4);% node[pos=0.87, right] {$\ell$}; %loop
+\draw[style = thick] (0,4) -- (1.2,2.2);
+\MacroTtwoTriangulationVerticesForDrawingQuiver
+\end{tikzpicture}
+ }
+
+\newcommand\TikzNoose[1]{
+\begin{tikzpicture}[scale={#1}, rotate=90]
+\draw[style = very thick, rounded corners = 5pt]	
+	(0,0) .. controls (-0.5,1) and (-1,2) .. (0,3) .. 
+	controls (1,2)  and (0.5,1) .. (0,0); %node[pos=0.5, right] {$\ell$};
+	\draw [fill=olive] (0,0) circle (.6ex);
+\draw [fill=violet] (0,2) circle (1.2*\TikzPunctureActualSize);
+\draw (0,4) node {$\ell$};
+\end{tikzpicture}
+}
+
+
+\newcommand\MacroAffineDSix{
+	\begin{scope}%[rotate=180]
+\newcommand\TikzH{4}
+\newcommand\TikzW{6}
+\newcommand\localfontsize{\small}
+\coordinate (topright) at (\TikzW,\TikzH);
+\draw[style = thick]  (0,0) rectangle (topright); 
+\draw [style = thick] (0,0) ..  controls(5.5,0.4) and (1,3.9) .. (topright) node[pos=0.5,above]{\localfontsize $1$};  % the right most peripheral arc
+\draw [style = thick] (0,0) ..  controls (3,1) and (3,3.9)   .. (0,\TikzH)  node[pos=0.7,right]{\localfontsize $2$}; 
+\draw[style = thick] (0,\TikzH) .. controls (0.8,1) and (1,2) .. (1.2,2.2) node[pos=0.3,below]{\localfontsize $r$};  % the bridging (tagged plain) arc
+\draw[style = ultra thick, gray] (0,4) -- (1.2,2.2) node[pos=0.3, right] {\localfontsize $r$};  % r bowtie
+% the briding (tagged notched) arc
+\path[fill, gray] (1,2.5) -- (1.1,2.8) -- (1.3,2.5) -- cycle; % the notching (right)
+\path[fill, gray] (1,2.5) -- (0.9,2.2) -- (0.7,2.5) -- cycle; % the notching (left)
+
+\coordinate (rightpuncture) at (\TikzW*0.8,\TikzH/2);
+\draw [style = thick] (\TikzW,0) ..  controls (3.3,0.5) and (3.3,3.5)   .. (\TikzW,\TikzH)  node[pos=0.3,left]{\localfontsize $3$}; 
+\draw[style = thick] (\TikzW,0) .. controls (\TikzW*0.95,0.2) and (\TikzW*0.95,\TikzH*0.8) .. (rightpuncture) node[pos=0.5]{$t$};  % the bridging (tagged plain) arc
+\draw[style = ultra thick, gray] (\TikzW,0) -- (rightpuncture) node[pos=0.3, left] {\localfontsize $t$};  % r bowtie
+
+\newcommand\TikzTPW{\TikzW*0.85}
+\newcommand\TikzTPH{\TikzH*0.25}
+\path[fill, gray] (\TikzTPW,\TikzTPH+0.5) -- (\TikzTPW-0.1,\TikzTPH+0.2) -- (\TikzTPW-0.3,\TikzTPH+0.5) -- cycle; % the notching (left)
+\path[fill, gray] (\TikzTPW,\TikzTPH+0.5) -- (\TikzTPW+0.1,\TikzTPH+0.8) -- (\TikzTPW+0.3,\TikzTPH+0.5) -- cycle; % the notching (right)
+
+ \draw [fill=olive] (0,0) circle (.3ex);
+\draw [fill=olive] (0,\TikzH) circle (.3ex);
+\draw [fill=olive] (\TikzW,0) circle (.3ex);
+\draw [fill=olive] (topright) circle (.3ex);
+\draw [fill=violet] (1.2,2.2) circle (.3ex); %puncture
+\draw [fill=violet] (rightpuncture) circle (.3ex); %puncture
+\end{scope}
+}
+
+\newcommand  \TikzAffineDSixTaggedNextToQuiver[1]{
+\begin{tikzpicture}[scale=#1] %% T2 triangulation tagged
+\MacroAffineDSix
+\end{tikzpicture}
+\begin{tikzpicture}[scale=#1] %% T2 triangulation tagged
+\MacroAffineDSix
+\begin{scope}[dashed,red,->,style=very thick]
+\draw[rounded corners = 10 pt] (2,1.5) -- (0.7,0.8) -- (0.8,1.9); % red arrow 2 to r ( no bow tie )
+\draw[rounded corners = 10 pt] (2,1.5) -- (1.5,3.5) -- (0.75,3); % 2 to r (with bow tie)
+\draw (2,1.5) -- (3,1.5); % two to 1
+\draw (4,1.5) -- (3.1,1.5); % 3 to 1
+\draw [rounded corners = 15 pt] (4,1.5) -- (5.2,3.5) -- (5.3,2.2); % 3 to t (no bow tie)
+\draw [rounded corners = 10 pt] (4,1.5) -- (4.7,0.8) -- (5.4,1); % 3 to t ( with bow tie )
+\end{scope}
+\end{tikzpicture}
+ }
+ 
+ \newcommand\mysmallbowtie{\text{\tiny $\bowtie$}}
+ 
+ \newcommand\MacroTikzDFourClustersTriangle[1]{
+  \begin{scope}[thick]
+ \draw ($(L)+(#1)$) -- ($(R)+(#1)$) -- ($(top)+(#1)$) -- ($(L)+(#1)$);
+\draw [fill=violet] ($(P)+(#1)$) circle (.08); %puncture
+ \end{scope}
+ } 
+ 
+\newcommand\MacroTikzDNorth{
+\MacroTikzDFourClustersTriangle{north}
+\draw ($(L)+(north)$) -- node[pos=0.7,red]{\small $x_1$} ($(P)+(north)$) -- node[pos=0.4, blue]{\small $x_2$} ($(R)+(north)$);
+\draw[rounded corners=10pt] ($(L)+(north)$) -- ($(0,\TikzH*0.5)+(north)$) node[pos=1,brown]{\small $x_0$} -- ($(R)+(north)$);
+ }
+ 
+ \newcommand\MacroTikzDWest{
+\MacroTikzDFourClustersTriangle{west}
+\draw[magenta] ($(P)+(west)$) -- node[sloped,rotate=90,pos=0.2]{$\mysmallbowtie$}  ($(R)+(west)$);
+\draw[rounded corners=10pt, brown] ($(L)+(west)$) -- ($(0,\TikzH*0.5)+(west)$) -- ($(R)+(west)$);
+\draw[rounded corners=10pt, blue] ($(R)+(west)$) -- ($(P)+(west)+(0,-0.6)$) -- ($(P)+(west)$);
+ }
+ \newcommand\MacroTikzDEast{
+\MacroTikzDFourClustersTriangle{east}
+\draw[green] ($(L)+(east)$) -- node[sloped,rotate=90,pos=0.8]{$\mysmallbowtie$} ($(P)+(east)$) ;
+\draw[brown] [rounded corners=10pt] ($(L)+(east)$) -- ($(0,\TikzH*0.5)+(east)$) -- ($(R)+(east)$);
+\draw[rounded corners=10pt, red] ($(L)+(east)$) -- ($(P)+(east)+(0,-0.6)$) -- ($(P)+(east)$);
+ }
+ 
+ 
+ \newcommand\MacroTikzDBelowNorth{
+ \MacroTikzDFourClustersTriangle{belownorth}
+\draw[red]  ($(L)+(belownorth)$)  --  ($(P)+(belownorth)$);
+\draw[olive] ($(P)+(belownorth)$) --  ($(top)+(belownorth)$) ; 
+\draw[blue] ($(P)+(belownorth)$) -- ($(R)+(belownorth)$);
+ }
+ 
+  
+  % left diamond begins
+  \newcommand\MacroTikzDleftdiamondNorth{
+ \MacroTikzDFourClustersTriangle{leftdiamondNorth}
+\draw[blue]  ($(R)+(leftdiamondNorth)$)  --  ($(P)+(leftdiamondNorth)$);
+\draw[olive] ($(P)+(leftdiamondNorth)$) --  ($(top)+(leftdiamondNorth)$) ;
+\draw[rounded corners=15pt, orange] ($(R)+(leftdiamondNorth)$) -- ($(-0.6,-0.6)+(leftdiamondNorth)$) -- ($(top)+(leftdiamondNorth)$);
+ }
+ \newcommand\MacroTikzDleftdiamondWest{
+ \MacroTikzDFourClustersTriangle{leftdiamondWest}
+\draw [magenta] ($(R)+(leftdiamondWest)$)  -- node[sloped,rotate=90,pos=0.8]{$\mysmallbowtie$}  ($(P)+(leftdiamondWest)$);
+\draw[rounded corners=20pt, orange] ($(R)+(leftdiamondWest)$) -- ($(-0.8,-1)+(leftdiamondWest)$) -- ($(top)+(leftdiamondWest)$);
+\draw[rounded corners=10pt, blue] ($(R)+(leftdiamondWest)$) -- ($(P)+(leftdiamondWest)+(0,-0.6)$) -- ($(P)+(leftdiamondWest)$);
+ }
+\newcommand\MacroTikzDleftdiamondEast{
+ \MacroTikzDFourClustersTriangle{leftdiamondEast}
+\draw[gray]  ($(P)+(leftdiamondEast)$) --  node[pos=0.25]{$\mysmallbowtie$} ($(top)+(leftdiamondEast)$) ;
+\draw[rounded corners=15pt, orange] ($(R)+(leftdiamondEast)$) -- ($(-0.6,-0.6)+(leftdiamondEast)$) -- ($(top)+(leftdiamondEast)$);
+ \draw[rounded corners=10pt, olive] ($(top)+(leftdiamondEast)$) -- ($(P)+(leftdiamondEast)+(0.5,0)$) -- ($(P)+(leftdiamondEast)$);
+ }
+ \newcommand\MacroTikzDleftdiamondSouth{
+ \MacroTikzDFourClustersTriangle{leftdiamondSouth}
+\draw[magenta]  ($(R)+(leftdiamondSouth)$)  --  node[sloped,rotate=90,pos=0.8]{$\mysmallbowtie$} ($(P)+(leftdiamondSouth)$);
+\draw[gray] ($(P)+(leftdiamondSouth)$) --  node[pos=0.25]{$\mysmallbowtie$} ($(top)+(leftdiamondSouth)$) ;
+\draw[rounded corners=15pt, orange] ($(R)+(leftdiamondSouth)$) -- ($(-0.6,-0.6)+(leftdiamondSouth)$) -- ($(top)+(leftdiamondSouth)$);
+ } 
+ % left diamond ends
+ 
+
+  \newcommand\MacroTikzDrightdiamondNorth{
+ \MacroTikzDFourClustersTriangle{rightdiamondNorth}
+\draw[red] ($(L)+(rightdiamondNorth)$)  --  ($(P)+(rightdiamondNorth)$);
+\draw[olive] ($(P)+(rightdiamondNorth)$) --  ($(top)+(rightdiamondNorth)$) ;
+\draw[rounded corners=15pt,cyan] ($(L)+(rightdiamondNorth)$) -- ($(0.6,-0.6)+(rightdiamondNorth)$) -- ($(top)+(rightdiamondNorth)$);
+ }
+ 
+   \newcommand\MacroTikzDrightdiamondWest{
+ \MacroTikzDFourClustersTriangle{rightdiamondWest}
+\draw [gray] ($(P)+(rightdiamondWest)$) --  node[pos=0.25]{$\mysmallbowtie$} ($(top)+(rightdiamondWest)$) ;
+\draw[rounded corners=15pt, cyan] ($(L)+(rightdiamondWest)$) -- ($(0.6,-0.6)+(rightdiamondWest)$) -- ($(top)+(rightdiamondWest)$);
+\draw[rounded corners=10pt, olive] ($(top)+(rightdiamondWest)$) -- ($(P)+(rightdiamondWest)+(-0.5,0)$) -- ($(P)+(rightdiamondWest)$);
+ }
+  \newcommand\MacroTikzDrightdiamondEast{
+ \MacroTikzDFourClustersTriangle{rightdiamondEast}
+\draw[green]  ($(L)+(rightdiamondEast)$)  -- node[sloped,rotate=90,pos=0.8]{$\mysmallbowtie$}  ($(P)+(rightdiamondEast)$);
+\draw[rounded corners=20pt, cyan] ($(L)+(rightdiamondEast)$) -- ($(0.8,-1)+(rightdiamondEast)$) -- ($(top)+(rightdiamondEast)$);
+\draw[rounded corners=10pt, red] ($(L)+(rightdiamondEast)$) -- ($(P)+(rightdiamondEast)+(0,-0.6)$) -- ($(P)+(rightdiamondEast)$);
+ } 
+ \newcommand\MacroTikzDrightdiamondSouth{
+ \MacroTikzDFourClustersTriangle{rightdiamondSouth}
+\draw[green]  ($(L)+(rightdiamondSouth)$)  --  node[sloped,rotate=90,pos=0.8]{$\mysmallbowtie$} ($(P)+(rightdiamondSouth)$);
+\draw[gray]  ($(P)+(rightdiamondSouth)$) -- node[pos=0.25]{$\mysmallbowtie$} ($(top)+(rightdiamondSouth)$) ;
+\draw[rounded corners=15pt, cyan] ($(L)+(rightdiamondSouth)$) -- ($(0.6,-0.6)+(rightdiamondSouth)$) -- ($(top)+(rightdiamondSouth)$);
+}
+\newcommand\MacroTikzDAboveSouth{
+\MacroTikzDFourClustersTriangle{abovesouth}
+\draw  [green] ($(L)+(abovesouth)$)  --  node[sloped,rotate=90,pos=0.8]{$\mysmallbowtie$}  ($(P)+(abovesouth)$);
+\draw [gray] ($(P)+(abovesouth)$) -- node[pos=0.25]{$\mysmallbowtie$} ($(top)+(abovesouth)$) ; 
+\draw [magenta] ($(P)+(abovesouth)$) -- node[sloped,rotate=90,pos=0.2]{$\mysmallbowtie$} ($(R)+(abovesouth)$);
+ }
+\newcommand\MacroTikzDSouth{
+\MacroTikzDFourClustersTriangle{south}
+\draw[green] ($(L)+(south)$) -- node[sloped,rotate=90,pos=0.8]{$\mysmallbowtie$} ($(P)+(south)$);
+\draw[magenta] ($(P)+(south)$) -- node[sloped,rotate=90,pos=0.2]{$\mysmallbowtie$} ($(R)+(south)$);
+\draw[rounded corners=10pt, brown] ($(L)+(south)$) --  ($(0,\TikzH*0.5)+(south)$) -- ($(R)+(south)$);
+}
+
+ \newcommand\TikzDFourClusters[1]{
+ \begin{tikzpicture}[scale=#1]
+%\MacroTikzDFourClustersTriangle
+
+\newcommand\TikzX{5cm}
+\newcommand\Tikzx{2cm}
+\newcommand\TikzY{4.5cm}
+
+\newcommand\TikzBelow{4.1cm}
+\newcommand\TikzLeft{4cm}
+\newcommand\Tikzleft{3cm}
+\newcommand\TikzRight{4cm}
+\newcommand\Tikzright{3cm}
+
+  \node (north) {};
+ \node [below= 0.8*\TikzBelow of north] (belownorth){};% {belownorth};
+  \node [below= \TikzBelow of belownorth,  yshift=-\TikzY, left= \Tikzleft of belownorth] (leftdiamondNorth){};%  {leftdiamondNorth};
+    \node [below= \TikzBelow of belownorth,  yshift=-\TikzY, right= \Tikzright  of belownorth] (rightdiamondNorth){};% {rightdiamondNorth};
+    
+   \node [below= \TikzBelow of leftdiamondNorth,  yshift=-\TikzY, left= \Tikzleft of leftdiamondNorth,xshift=-0] (leftdiamondWest) {};%{leftdiamondWest};
+   \node [below= \TikzBelow  of leftdiamondNorth,  yshift=-\TikzY, right= \Tikzright  of leftdiamondNorth,xshift=-2cm] (leftdiamondEast) {};
+   
+ \node [below= \TikzBelow of rightdiamondNorth, yshift=-\TikzY, right= \Tikzright  of rightdiamondNorth,xshift=-0]  (rightdiamondEast) {};%{rightdiamondEast};
+\node  [below= \TikzBelow  of rightdiamondNorth,  yshift=-\TikzY, left= \Tikzleft of rightdiamondNorth,xshift=2cm] (rightdiamondWest) {};
+
+\node  [below= 1.8*\TikzBelow  of leftdiamondNorth] (leftdiamondSouth) {};%{leftdiamondSouth};
+\node [below=1.8* \TikzBelow of rightdiamondNorth] (rightdiamondSouth) {};%{rightdiamondSouth};
+
+  \node [right= \TikzRight  of rightdiamondEast]  (east) {};%{east};
+    \node [ left= \TikzLeft of leftdiamondWest] (west){};% {west};
+\node [below= 3.8*\TikzBelow  of belownorth] (abovesouth) {};%{abovesouth};
+\node [below=0.8* \TikzBelow of abovesouth] (south) {};%{south};
+
+\node [right= 9cm of north, yshift=-2cm, brown] {$x_0$};
+\node [above=5.5cm of leftdiamondWest, blue] {$x_2$};
+\node [above=5.5cm of rightdiamondEast, red] {$x_1$};
+
+\node [below=4cm of belownorth, olive] {$\frac{x_{1} + x_{2}}{x_{0}}$};
+\node [above=4cm of abovesouth, gray] {\small $\frac{x_{0} x_{1} + x_{0} x_{2} + x_{1} + x_{2}}{x_{0} x_{1} x_{2}}$};
+
+\node [below=4.5cm of leftdiamondWest, magenta] {$\frac{x_{0} + 1}{x_{1}}$};
+\node [below=4.5cm of rightdiamondEast, green] {$\frac{x_{0} + 1}{x_{2}}$};
+
+\node [below=2.7cm of leftdiamondNorth, xshift=-0.7cm, orange] {$\frac{x_{0} x_{2} + x_{1} + x_{2}}{x_{0} x_{1}}$};
+\node [below=2.7cm of rightdiamondNorth, xshift=0.7cm, cyan] {$\frac{x_{0} x_{1} + x_{1} + x_{2}}{x_{0} x_{2}}$};
+
+%  \path[every node/.style={font=\sffamily\small}]
+
+\draw [<->,>=stealth',shorten >=35pt,shorten <=35pt, thick]
+(north) edge node[right] {} (belownorth)
+    (south) edge (abovesouth);
+
+\draw [<->,>=stealth',shorten >=45pt,shorten <=45pt, thick]
+(belownorth) edge (leftdiamondNorth) (belownorth) edge (rightdiamondNorth)
+     (leftdiamondNorth) edge [bend right] (leftdiamondWest) (rightdiamondNorth) edge [bend right] (rightdiamondWest)
+     (leftdiamondNorth) edge [bend left] (leftdiamondEast) (rightdiamondNorth) edge [bend left] (rightdiamondEast);
+     
+       \draw [<->,>=stealth',shorten >=32pt,shorten <=32pt,   thick]  
+     (leftdiamondSouth) edge [bend right] (leftdiamondEast)  (rightdiamondSouth) edge [bend right] (rightdiamondEast)
+    (leftdiamondSouth) edge [bend left] (leftdiamondWest)  (rightdiamondSouth) edge [bend left] (rightdiamondWest);
+    
+  \draw [<->,>=stealth',shorten >=43pt,shorten <=43pt,   thick]  
+        (abovesouth) edge (leftdiamondSouth) (abovesouth) edge (rightdiamondSouth);
+    
+   \draw [<->,>=stealth',shorten >=35pt,shorten <=35pt,
+%auto,node distance=4cm,
+   thick]
+    (leftdiamondEast) edge (rightdiamondWest)
+        (west) edge (leftdiamondWest)
+    (east) edge (rightdiamondEast);
+
+    
+   \draw [<->,>=stealth',shorten >=45pt,shorten <=45pt,
+%auto,node distance=4cm,
+   thick]
+    (north) edge[bend right] node[sloped,below] {} (west)
+     (north) edge[bend left] node[sloped,below] {}  (east)
+    (south) edge[bend left] (west) (south) edge[bend right] (east);
+
+ \newcommand\TikzH{1.5}
+ \newcommand\TikzW{2}
+ \coordinate (P) at (0,-0.2);
+ \coordinate (L) at (-\TikzW,-\TikzH );
+ \coordinate (R) at (\TikzW,-\TikzH );
+ \coordinate (top) at (0,\TikzH);
+% \newcommand\TikzOrigin{(north)}
+
+\MacroTikzDNorth;
+
+\MacroTikzDWest
+\MacroTikzDEast
+
+\MacroTikzDBelowNorth
+
+\MacroTikzDrightdiamondNorth
+\MacroTikzDleftdiamondNorth
+
+\MacroTikzDrightdiamondWest
+\MacroTikzDleftdiamondWest
+
+\MacroTikzDrightdiamondEast
+\MacroTikzDleftdiamondEast
+
+\MacroTikzDrightdiamondSouth
+\MacroTikzDleftdiamondSouth
+
+\MacroTikzDAboveSouth;
+\MacroTikzDSouth;
+
+\node at (abovesouth) {\MacroTikzDAboveSouth};
+\draw (south) node{\MacroTikzDSouth};
+
+ \end{tikzpicture}
+ }
+ 
+\newcommand\TikzTwoRectanglesFlipsAndThreeDigonsFlips[1]{
+ \begin{tikzpicture}[scale=#1]
+%\MacroTtwoTriangulationCoordinatesForDrawingQuiver
+
+\begin{scope}[xshift=-3cm, very thick]
+\draw [<->, red] (0,2) -- (2,2);
+\draw[red] (1,3) node{\small $\mu_r$};
+\end{scope}
+\begin{scope}[xshift=-6.5cm,thick]
+\draw[style = thick]  (0,0) -- (0,4);
+\draw [style = thick] (0,0) ..  controls (3.7,1) and (3.8,3.9)   .. (0,4);
+\draw[style = thick,blue] (0,4) --  (1.2,2.2);
+\draw[style = thick,red] (1.2,2.2) -- (0,0) node[pos=0.5,right]{\small $r$};
+\draw [fill=violet] (1.2,2.2) circle (.3ex); %puncture
+\draw [fill=green] (0,0) circle (.3ex);
+\draw [fill=green] (0,4) circle (.3ex);
+\end{scope}
+
+\begin{scope}[thick]
+\draw[style = thick]  (0,0) -- (0,4); 
+\draw [style = thick] (0,0) ..  controls (3.7,1) and (3.8,3.9)   .. (0,4); % the middle arc 
+\draw[style = thick, blue] (0,4) .. controls (0.8,1) and (1,2) .. (1.2,2.2) node[pos=0.5,below] {\small $b$};  % the radius (tagged plain) arc
+\draw[style = thick, red] (0,4) -- (1.2,2.2) node[pos=0.5, right=2pt] {\small $r'$};  
+\draw[red] (1,2.5) -- (1.1,2.8) -- (1.3,2.5) -- cycle; % the notching (right)
+\draw[red] (1,2.5) -- (0.9,2.2) -- (0.7,2.5) -- cycle; % the notching (left)
+\end{scope}
+
+ \draw [fill=green] (0,0) circle (.3ex);
+\draw [fill=green] (0,4) circle (.3ex);
+\draw [fill=violet] (1.2,2.2) circle (.3ex); %puncture
+
+\begin{scope}[xshift=4cm, very thick]
+\draw [<->, blue] (0,2) -- (2,2);
+\draw [blue] (1,3) node{\small $\mu_b$};
+\end{scope}
+
+\begin{scope}[xshift=7cm, thick]
+\draw[style = thick]  (0,0) -- (0,4);
+\draw [style = thick] (0,0) ..  controls (3.7,1) and (3.8,3.9)   .. %node[pos =0.4,left=2pt] {$2$}  
+(0,4);
+\draw[style = thick,red] (0,4) -- (1.2,2.2);
+\draw[style = thick,blue] (1.2,2.2) -- node[pos =0.4,right=1pt] {\small $b'$}  
+(0,0);
+\draw [fill=violet] (1.2,2.2) circle (.3ex); %puncture
+\draw [fill=green] (0,0) circle (.3ex);
+\draw [fill=green] (0,4) circle (.3ex);
+ \draw[red] (1,2.5) -- (1.1,2.8) -- (1.3,2.5) -- cycle; % the top notching (right)
+\draw[red] (1,2.5) -- (0.9,2.2) -- (0.7,2.5) -- cycle; % the top notching (left)
+ \draw[blue] (1,1.9) -- (1.1,1.6) -- (1.3,1.9) -- cycle; % the bottom notching (right)
+\draw[blue] (1,1.9) -- (0.9,2.2) -- (0.7,1.9) -- cycle; % the bottom notching (left)
+\end{scope}
+
+
+\newcommand\TikzNorthEast{(3,2)}
+\newcommand\TikzNorthWest{(0,2)}
+\newcommand\TikzSouthEast{(3,0)}
+\begin{scope}[yshift=5.2cm]
+\begin{scope}[thick]
+\draw (-4,1) node{For example,};
+\draw[style = thick]  (0,0) rectangle \TikzNorthEast; 
+\draw[magenta] \TikzNorthWest -- \TikzSouthEast node[pos=0.6,above] {\small $k$};
+\end{scope}
+\draw[magenta, <->, very thick] (4,1) -- (6,1);
+\draw[magenta] (5,1.7) node{\small $\mu_k$};
+\begin{scope}[thick,xshift = 7cm]
+\draw[style = thick]  (0,0) rectangle \TikzNorthEast; 
+\draw[magenta] (0,0) -- \TikzNorthEast node[pos=0.4,above]{\small $k'$};
+\end{scope}
+\end{scope}
+
+\end{tikzpicture}
+}
+
+\newcommand\TikzBraceletExample[1]{
+\begin{tikzpicture}[scale=#1,thick]
+\newcommand\localradius{1.9}
+\newcommand\localorigin{(0,2)}
+\draw \localorigin circle (\localradius);
+\draw[fill=violet] (0,1.5) circle (0.2ex);
+\draw[fill=violet] (0,2.5) circle (0.2ex);
+\begin{scope}[yshift=2cm]
+\foreach \myangle in {30,-60,120,-150}
+{\draw [fill=green](\myangle:\localradius) circle (0.2ex);}
+\end{scope}
+\newcommand\localshift{0.25}
+\draw[red, thick, rounded corners=18pt,
+PathArrowAtPosStyleTwoSmall,
+PathArrowAtPosStyleThreeSmall,
+PathArrowAtPosStyleFourSmall] (0,0.5) -- (1.2,2.3) -- (0,3.5) --  (-1.2,2.3)  -- 
+(0,0.5-\localshift)  -- (1+\localshift,1)  -- (1.2+\localshift,3) -- (0,3.5+\localshift) --  (-1.2-\localshift,3)  -- (-1-\localshift,1)  --
+(0,0.5-2*\localshift)  -- (1+2*\localshift,1) -- (1.2+2*\localshift,3) -- (0,3.5+2*\localshift) --  (-1.2-2*\localshift,3)  -- (-1-2*\localshift,1)  --
+cycle ;
+\end{tikzpicture}
+}
+
+
